@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+ /*  section>.b{color:green};
+  h1.b{color:blue}; 
+ .b{color:pink};  */
+ 
+ /* #a{
+ box-sizing:border-box;
+ display:inline-block;
+ width:300px;
+ background:pink;
+ boader:2px solid red;
+ padding:35px;
+ } */
+ 
+ #header{
+ height: 70px;
+ background: yellow;
+ }
+ 
+ #visual{
+ height: 170px;
+ background: pink;
+ }
+ 
+ #body{
+ min-height: 300px;
+ 
+ }
+ 
+ #footer{
+ height: 100px;
+ background: black;
+ }
+ 
+ .content-container{
+ width:970px;
+ height:inherit;
+ background:blue;
+ opacity:0.5
+ }

@@ -1,23 +1,51 @@
+
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+
 import java.util.List;
 
-import com.worldsqure.webprj.dao.MemberDao;
-import com.worldsqure.webprj.vo.Member;
-
-
+import com.wsq.webprj.dao.MemberDao;
+import com.wsq.webprj.dao.mybatis.MyBatisMemberDao;
+import com.wsq.webprj.vo.Member;
 
 public class TestProgram {
-	public static void main(String[] args) throws SQLException {
-		// TODO Auto-generated method stub
-		MemberDao dao  = new MemberDao();
-		//List<Member> list = dao.getMembers(1, "MID", "a");
-		List<Member> list = dao.getMembers(1);
-		System.out.println("검색결과: " + list.size());
+
+	public static void main(String[] args) throws SQLException, ParseException {
+
 		
+		
+		
+		Member member = new Member();
+		member.setMid("a");
+		member.setPwd("3333");
+		member.setName("waytogo");
+		member.setRegDate(new Date(System.currentTimeMillis()));
+		
+		MemberDao dao = new MyBatisMemberDao();
+		
+		//int update = dao.delete("yb");
+		int update = dao.update(member);
+		//int update = dao.insert(member);
+		
+		List<Member>list = dao.getMembers(1);
+		//List<Member>list = dao.getMembers(1,"Mid","");
+		
+		System.out.println("검색결과:" + list.size());
 		
 		for(Member m : list)
 		{
-			System.out.printf("mid : %s, name : %s, pwd : %s, regDate: %s\n", m.getMid(), m.getName(), m.getPwd(), m.getRegDate());
+			System.out.printf("mid : %s, name: %s, pwd: %s, regDate : %s, 말하는 언어: %s, 배우는 언어: %s, 국적: %s \n", 
+					m.getMid(),m.getName(),m.getPwd(), m.getRegDate(), m.getSpeakingLanguage(), m.getLearningLanguage(), m.getCountry());
 		}
+		
+		//System.out.printf("%d\n", update);
+		//session.close();  //session 종료는 맨 마지막에만 가능
+		
 	}
-}
+
+}  
+
+//api - 플렛폼(도구)이 제공해주는 라이브러리
+//프레임워크 - 객체지향적인 관점에서 재사용 가능한 라이브러리
+//mybatis는 편의성을 주는 프레임워크(옵션-있어도되고 없어도됨), 따리서 api(꼭 필요한 도구)가 아님
