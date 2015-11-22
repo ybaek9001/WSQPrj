@@ -1,8 +1,6 @@
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
-
 import java.util.List;
 
 import com.wsq.webprj.dao.MemberDao;
@@ -13,20 +11,34 @@ public class TestProgram {
 
 	public static void main(String[] args) throws SQLException, ParseException {
 
+		//프로파일 입력
+		/*MemberProfile m_profile = new MemberProfile();
+		m_profile.setAge(20);
+		m_profile.setGender("male");
+		m_profile.setHabitat_country_code(82);
+		m_profile.setLevelMentee("beginner");
+		m_profile.setLevelMentor("beginner");
+		m_profile.setMember_mid("ybaek9001");
+		m_profile.setName("yb");
+		m_profile.setNationality_country_code(82);
+		m_profile.setText("안녕하세요");
 		
 		
+		MemberProfileDao dao = new MyBatisMemberProfileDao();*/
 		
+		//회원가입
 		Member member = new Member();
-		member.setMid("a");
-		member.setPwd("3333");
-		member.setName("waytogo");
-		member.setRegDate(new Date(System.currentTimeMillis()));
+		member.setMid("ms");
+		member.setPwd("1234");
 		
 		MemberDao dao = new MyBatisMemberDao();
 		
+		
+		
+		
 		//int update = dao.delete("yb");
-		int update = dao.update(member);
-		//int update = dao.insert(member);
+		//int update = dao.update(member);
+		int update = dao.insert(member);
 		
 		List<Member>list = dao.getMembers(1);
 		//List<Member>list = dao.getMembers(1,"Mid","");
@@ -35,11 +47,14 @@ public class TestProgram {
 		
 		for(Member m : list)
 		{
-			System.out.printf("mid : %s, name: %s, pwd: %s, regDate : %s, 말하는 언어: %s, 배우는 언어: %s, 국적: %s \n", 
-					m.getMid(),m.getName(),m.getPwd(), m.getRegDate(), m.getSpeakingLanguage(), m.getLearningLanguage(), m.getCountry());
+			System.out.printf(
+					"mid : %s, "
+					+ "pwd : %s\n", 
+					m.getMid(),
+					m.getPwd());		
 		}
 		
-		//System.out.printf("%d\n", update);
+		System.out.printf("%d\n", update);
 		//session.close();  //session 종료는 맨 마지막에만 가능
 		
 	}

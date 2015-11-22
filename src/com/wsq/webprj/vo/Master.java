@@ -1,13 +1,8 @@
 package com.wsq.webprj.vo;
 
-import java.sql.Date;
-
-public class Member {
-
-
+public class Master {
 	private String mid;
 	private String pwd;
-	private Date regDate;
 	
 	
 	public String getMid() {
@@ -22,25 +17,6 @@ public class Member {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public Date getRegDate() {
-		return regDate;
-	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	
-	
-	
-	
-	
-	
-
-	
-
-	
-	
-	
 	
 	
 }

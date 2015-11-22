@@ -25,10 +25,10 @@ public class MyBatisMemberDao implements MemberDao{
 	}
 
 	@Override
-	public List<Member> getMembers(int page, String fieled, String query) throws SQLException {
+	public List<Member> getMembers(int page, String field, String query) throws SQLException {
 		SqlSession session = ssf.openSession();
 		MemberDao dao = session.getMapper(MemberDao.class);
-		List<Member>list = dao.getMembers(page,fieled,query);
+		List<Member>list = dao.getMembers(page,field,query);
 		session.close();
 		return list;
 	}
