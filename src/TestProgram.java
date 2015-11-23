@@ -28,7 +28,7 @@ public class TestProgram {
 		
 		//회원가입
 		Member member = new Member();
-		member.setMid("ms");
+		member.setMid("msfad");
 		member.setPwd("1234");
 		
 		MemberDao dao = new MyBatisMemberDao();

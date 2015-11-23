@@ -11,7 +11,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE MEMBERS SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+		UPDATE MEMBERS SET MID = #{mid}, PWD = #{pwd}  WHERE MID= #{mid}
 	</update>
 	
 	<delete id="delete">

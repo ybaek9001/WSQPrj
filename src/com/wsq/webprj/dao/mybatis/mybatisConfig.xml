@@ -16,7 +16,7 @@
   </environments>
   <mappers>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MemberDao.xml"/>
-    <!-- <mapper resource="com/wsq/webprj/dao/mybatis/mapper/CommentDao.xml"/>
+    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/CommentDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/Conversation_ReplyDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/ConversationDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/CountryDao.xml"/>
@@ -26,6 +26,6 @@
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/LearningLanguageDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MasterDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MemberProfileDao.xml"/>
-    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/NativeLanguageDao.xml"/> -->
+    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/NativeLanguageDao.xml"/>
   </mappers>
 </configuration>

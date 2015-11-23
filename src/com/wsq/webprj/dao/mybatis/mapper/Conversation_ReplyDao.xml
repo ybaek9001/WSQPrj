@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wsq.webprj.dao.Conversation_ReplyDao">
+
+	<select id="getConvReply" resultType="com.wsq.webprj.vo.Conversation_Reply">
+		SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+		CONVERSATION_REPLY.*FROM CONVERSATION_REPLY WHERE ${param2} LIKE '%${param3}%') A
+		WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+
+	<update id="update">
+		UPDATE CONVERSATION_REPLY SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+	</update>
+	
+	<delete id="delete">
+		DELETE CONVERSATION_REPLY WHERE MID= #{mid}
+	</delete>
+
+	<insert id="insert">
+		INSERT INTO CONVERSATION_REPLY(MID, PWD, NAME) VALUES(#{mid}, #{pwd}, #{name})
+	</insert>
+
+</mapper>
