@@ -1,41 +1,154 @@
 @CHARSET "UTF-8";
 
- /*  section>.b{color:green};
-  h1.b{color:blue}; 
- .b{color:pink};  */
- 
- /* #a{
- box-sizing:border-box;
- display:inline-block;
- width:300px;
- background:pink;
- boader:2px solid red;
- padding:35px;
- } */
- 
- #header{
- height: 70px;
- background: yellow;
- }
- 
- #visual{
- height: 170px;
- background: pink;
- }
- 
- #body{
- min-height: 300px;
- 
- }
- 
- #footer{
- height: 100px;
- background: black;
- }
- 
- .content-container{
+body {
+	font-family: 돋움, Arial, sans-serif;
+	font-size: 12px;
+	color: #979797;
+}
+
+/* #body부분만 뺀 나머지 영역 */
+.content-container {
+	margin-left: auto; 왼쪽에 margin, 즉 오른쪽정렬 margin-right : auto; 오른쪽에 margin,
+	즉 왼쪽정렬 width : 960px;
+	height: inherit;
+	부모의
+	값을
+	상속
+	opacity
+	:
+	0.5;
+	투명도
+}
+
+.clearfix:after {
+	content: ".";
+	clear: both;
+	display: block;
+	height: 0px;
+	visibility: hidden;
+}
+
+.hidden {
+	display: none;
+}
+
+/* ----------------------------header----------------- */
+#logo{
+	background: green;
+	float: left;
+}
+
+#header {
+	min-height: 70px;
+	border-top: 3px solid black;
+	background: yellow;
+}
+
+#main-menu{
+	border: 3px solid red;
+	display:inline-block;	
+	
+}
+
+#main-menu>ul>li {
+	float: left;
+	padding-left: 24px;
+	background: url("../images/bg-main-menu-vsp.png") no-repeat 13px center;
+}
+
+/* 오버라이드해서 앞에 |이미지 첫번째 자식에만 안나오게하기 */
+#main-menu>ul>li:FIRST-CHILD {
+	/* FIRST-CHILD:첫번째 자식에 대한 속성 */
+	padding-left: 0px;
+	background: none;
+}
+
+#main-menu>ul>li>a {
+	font-family: 맑은 고딕, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+
+#main-menu>ul>li>a:HOVER {
+	/* HOVER : 마우스 올렸을 때 */
+	text-decoration: underline;
+	color: red;
+}
+
+#join-menu{
+	border:1px solid red;
+	display:inline-block;
+}
+#join-menu>ul>li {
+	float: left;
+	padding-left: 9px;
+	background: url("../images/bg-main-menu-vsp.png") no-repeat 5px center;
+}
+
+#join-menu > ul > li:FIRST-CHILD{
+	padding-left:0px;
+	background: none;
+	
+}
+
+#join-menu>ul>li>a {
+	font-family: 맑은 고딕, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+
+#join-menu>ul>li>a:HOVER {
+	/* HOVER : 마우스 올렸을 때 */
+	text-decoration: underline;
+	color: red;
+}
+
+#visual {
+	background: pink;
+}
+
+/* -----------------------------body----------------------- */
+#body{
+	min-height:600px;
+	border-top: 3px solid;		
+}
+
+#body .content-container clearfix{
+	display : flex;
+	min-height : inherit;
+	
+	/* display: -ms-grid;
+	-ms-grid-rows : auto;
+	-ms-grid-columns : 205px 755px; */
+}
+
+/*----------------------------body안에 있는 main--------------------*/
+
+#main {
+	width:900px;
+	background:orange;	
+}
+/*----------------------------body안에 있는 aside-------------------*/
+#aside{
+	width:0px;
+	border-left: 3px solid black;
+}
+
+
+
+/*---------------------------footer----------------------------*/
+#footer {
+	height: 100px;
+	background: black;
+}
+
+/* .content-container{
  width:970px;
  height:inherit;
- background:blue;
+ 
  opacity:0.5
- }
+ } */
