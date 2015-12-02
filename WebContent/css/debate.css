@@ -1,0 +1,218 @@
+@CHARSET "UTF-8";
+
+body{
+	font-family:돋움, Arial, sans-serif;
+	font-size:12px;
+	color: #000;	
+}
+
+.content-container{
+	margin:0 auto;
+	width:960px;
+	height : inherit;
+	position:relative;
+		
+	/* opacity : 0.5; 투명도 */	
+}
+
+.clearfix:after 
+{
+	content: ".";
+	clear:both;
+	display: block;
+	height: 0px;
+	visibility: hidden;	
+}
+
+.hidden{
+	/* display:공간도 없앰 / visibility:공간은 존재하되 보이지만 않음 */
+	display: none; 
+	/* visibility: hidden; */ 
+}
+
+
+.hidden-visible{
+	visibility: hidden;
+}
+
+/* -- #header ----------------------------------------------------------- */
+
+#header{
+	min-height:110px;
+	border:1px solid black;
+}
+
+#logo{
+	display:inline-block;
+	float:left;
+	width:200px;
+	height:100px;
+	background:url("../images/WSQlogo.jpg") no-repeat 13px center;
+}
+
+#main-menu{
+	display:inline-block;
+	position:relative;
+	left:65px;
+	top:40px;
+}
+
+	#main-menu > ul > li{	
+		float:left;	
+		padding-left: 24px;	
+		background:url("../images/bg-main-menu-vsp.png") no-repeat 13px center;
+	}
+	
+	#main-menu > ul > li:FIRST-CHILD{
+		/* FIRST-CHILD:첫번째 자식에 대한 속성 */
+		padding-left:0px;
+		background: none;	
+	}
+
+	#main-menu > ul > li > a{
+		font-family:맑은 고딕, sans-serif;
+		font-size:15px;
+		font-weight:bold;
+		color: #000;
+		text-decoration:none;				
+	}
+	
+	#main-menu > ul > li > a:HOVER{
+		/* HOVER : 마우스 올렸을 때 */
+		text-decoration: underline;
+		color:red;
+	}
+
+/* -- #body ----------------------------------------------------------- */
+
+#body{
+   min-height:400px;
+   border-top:2px solid #020228;
+   border-bottom:2px solid #020228;
+}
+
+#body .content-container{
+	display : flex;
+	min-height : inherit;
+	
+	/* display: -ms-grid;
+	-ms-grid-rows : auto;
+	-ms-grid-columns : 205px 755px; */
+}
+
+/* -- #main ----------------------------------------------------------- */
+
+#main{
+	width:900px;	
+	/* -ms-grid-row:1;
+	-ms-grid-column:2; */
+	
+	/* position : relative;
+	float : left;
+	margin-left : auto; 
+	height: inherit;
+	width : 755px; */	
+}
+
+	#main > h2{
+		text-align: center;
+	}
+
+#debate{
+	display: inline-block;
+	position:relative;
+	left:200px;
+	width:500px;
+	height:95px;
+
+	padding-top : 30px;
+	
+	font-size: 30px;
+	background: url("../images/debate2.jpg") no-repeat center center;
+	
+	text-indent: -1999px;
+	
+}
+
+#debate-name{
+	display: inline-block;
+	position:relative;
+	left:150px;
+	width: 600px;
+	min-height: 50px;
+	line-height:50px;
+	
+	padding-top:15px;
+	padding-bottom: 20px;
+	
+	text-align: center;
+	font-family: 궁서체, Arial, sans-serif;
+	font-size: 30pt;
+	
+	
+}
+#debate-image{
+	display: inline-block;
+	position:relative;
+	left:150px;
+	
+	min-width: 600px;
+	min-height: 300px;
+	line-height:50px;
+	
+	text-align: center;
+	text-indent:-1999px;
+	
+	background:url("../images/is.jpg") no-repeat center center;
+}
+#debate-versus{
+	display: inline-block;
+	position:relative;
+	left:150px;
+	width: 600px;
+	min-height: 50px;
+	line-height:50px;
+	
+	text-align: center;	
+}
+#debate-content{
+	display: inline-block;
+	position:relative;
+	left:150px;
+	width: 600px;
+	min-height: 50px;
+	line-height:50px;
+	
+	text-align: center;
+}
+#debate-comment{
+	display: inline-block;
+	position:relative;
+	left:150px;
+	width: 600px;
+	min-height: 50px;
+	line-height:50px;
+	
+	text-align: center;
+}
+
+/* -- #aside ----------------------------------------------------------- */
+
+#aside{
+	width:0px;
+	border-left: 3px solid;
+	/* -ms-grid-row:1;
+	-ms-grid-column:1; */
+	
+	/*float : left;
+	 height:inherit;
+	width: 205px; */
+}
+
+/* -- #footer ----------------------------------------------------------- */
+
+#footer{
+	height:100px;
+	border-top: 3px solid;
+	
+}
