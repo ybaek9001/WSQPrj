@@ -97,6 +97,14 @@ body{
 	border-top:2px solid #020228;
 	border-bottom:2px solid #020228;
 	background: -webkit-linear-gradient(left, #74768b, #c0c0c0);
+	
+}
+#body .bg_chat1 {
+	margin-left:90px;
+}
+
+#body .bg_chat2 {
+	margin-left:90px;
 }
 
  #body .content-container{
@@ -139,9 +147,14 @@ body{
  #body p {
  font-family:맑은 고딕;
  	 margin-top:20px;
+ 	 margin-bottom:20px;
       font-size:13px;
       color: #f9f9f9;
       padding-left: 15px;
+ }
+ 
+ #body .debate{
+ height:150px;
  }
  
 
