@@ -89,23 +89,20 @@ body{
    	#join-menu > ul > li{
 	   margin: 5px;
 	}
-  
+/* ------------------visual---------- */
+#visual{
+	border-top:5px solid #004040;
+	text-align:center;
+}
 
 /* ------------------body---------- */
 #body{
 	min-height:400px;
-	border-top:2px solid #020228;
+	border-top:1px solid #b8b8b8;
 	border-bottom:2px solid #020228;
-	background: -webkit-linear-gradient(left, #74768b, #c0c0c0);
-	
-}
-#body .bg_chat1 {
-	margin-left:90px;
+	background: -webkit-linear-gradient(left, #ffffff, #d8d8d8);
 }
 
-#body .bg_chat2 {
-	margin-left:90px;
-}
 
  #body .content-container{
       display : flex;
@@ -113,57 +110,97 @@ body{
  }
  
  .main{
- width:720px;
- padding-left: 25px;
- padding-top: 35px; 
+ width:960px;
+ padding-top: 25px; 
+ text-align:center;
  }
  
  .main > h2{
       font-family:맑은 고딕;
       font-size:23px;
       font-weight:bold;
-      color: #e9ffd2;
-      padding-left: 25px; 
-      text-align:center;     
+      color: #f87e10;
+      
+       
    }
    
   #body h3 {
- 	 font-family:맑은 고딕;
- 	 margin-top:20px;
+ 	 font-family:italic;
+ 	 margin:20px;
       font-size:20px;
       font-weight:bold;
-      color: #f9f9f9;
-      padding-left: 15px;
- }
- 
- #body li {
- font-family:맑은 고딕;
- 	 margin-top:20px;
-      font-size:20px;
-      color: #f9f9f9;
-      padding-left: 15px; 
- }
- 
- #body p {
- font-family:맑은 고딕;
- 	 margin-top:20px;
- 	 margin-bottom:20px;
-      font-size:13px;
-      color: #f9f9f9;
-      padding-left: 15px;
- }
- 
- #body .debate{
- height:150px;
+      color: #575757;
+  	background:#b8b8b8;
+      
  }
  
 
- .aside{
- width:285px;
+ #body dt {
+ font-family:맑은 고딕;
+ 	 margin:10px;
+      font-size:20px;
+      color: #20c05c;
+ }
+ 
+ #body dd {
+ font-family:맑은 고딕;
+ 	 margin-top:20px;
+ 	 margin-bottom:70px;
+      font-size:13px;
+      color: #575757;
+ }
+ 
+ #body .img_debate{
+ height:200px;
  }
  
  
+/* -----------------------------------------loginjoin-body----------------------------------- */ 
+ #loginjoin-body{
+ min-height:600px;
+ font-size:23px;
+ }
  
+  #loginjoin-body .content-container{
+      display : flex;
+      min-height : inherit;  
+ }
+ 
+ #loginjoin{
+ margin-top:50px;
+ min-width:340px;
+ float:right; 
+ padding:20px;
+ text-align:right;
+ background:#e9e9e9;
+ opacity:0.8;
+ }
+/* ----------------------------------------mypage-body--------------------------------------- */
+ #mypage-body{
+  min-height:600px;
+ font-size:18px;
+ }
+#mypage-body .content-container{
+      display : flex;
+      min-height : inherit;  
+ }
+#mypage{
+ margin-top:50px;
+ min-width:340px;
+ 
+ padding:20px;
+ text-align:center;
+ background:#e9e9e9;
+ opacity:0.8;
+ }
+ 
+ #mypage li{
+ margin:5px;
+ }
+ 
+ #mypage .language{
+ margin-top:20px;
+ }
  
 
 /* ------------------footer---------- */
@@ -172,5 +209,6 @@ body{
 	background:#333;
 	color:white;
 	text-align:center;
+	border-top:2px solid #020228;
 }
 
