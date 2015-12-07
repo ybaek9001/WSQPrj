@@ -8,7 +8,7 @@ public class Member {
 	private String mid;
 	private String pwd;
 	private String email;
-	private Date regDate;
+	private String regDate;
 	
 	
 	public String getMid() {
@@ -29,10 +29,10 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 

@@ -19,7 +19,7 @@
 	</delete>
 
 	<insert id="insert" parameterType="com.wsq.webprj.vo.Member">
-		INSERT INTO MEMBERS VALUES(#{mid}, #{pwd}, #{email})
+		INSERT INTO MEMBERS(MID, PWD, EMAIL, REGDATE) VALUES(#{mid}, #{pwd}, #{email}, #{regDate})
 	</insert>
 
 </mapper>
