@@ -18,8 +18,8 @@
 		DELETE MEMBERS WHERE MID= #{mid}
 	</delete>
 
-	<insert id="insert">
-		INSERT INTO MEMBERS(MID, PWD, REGDATE) VALUES(#{mid}, #{pwd}, #{regDate})
+	<insert id="insert" parameterType="com.wsq.webprj.vo.Member">
+		INSERT INTO MEMBERS VALUES(#{mid}, #{pwd}, #{email})
 	</insert>
 
 </mapper>
