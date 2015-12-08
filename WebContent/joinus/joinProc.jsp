@@ -27,7 +27,7 @@
 	
 	int result = memberDao.insert(m);
 	if(result==1){
-		   response.sendRedirect("../customer/main.html");
+		   response.sendRedirect("../main.html");
 	}
 	
 %>

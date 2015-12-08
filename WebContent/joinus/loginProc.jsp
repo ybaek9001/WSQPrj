@@ -16,8 +16,8 @@
 		if(m.getMid().equals(uid))
 		{
 			if(m.getPwd().equals(pwd))
-				response.sendRedirect("../customer/main.html");
+				response.sendRedirect("../customer/userlist.jsp");
 		}
 	}
-	response.sendRedirect("../customer/main.html");
+	response.sendRedirect("../main.html");
 %>
