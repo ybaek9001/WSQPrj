@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>WorldSquare Test Page</title>
-<link href="../css/reset.css" type="text/css" rel="stylesheet" />
-<link href="../css/debate.css" type="text/css" rel="stylesheet" />
+<link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/WSQPrj/content/customer/css/debate.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<header id="header">
 		<div class="content-container">
 			<h1 id="logo" >
-				<a href="../main.html">
-					<span class="hidden">World Square</span> <img src="../images/WSQlogo.jpg"
+				<a href="../main">
+					<span class="hidden">World Square</span> <img src="/WSQPrj/content/images/WSQlogo.jpg"
 					alt="WSQ" />
 				</a>
 			</h1>
@@ -25,9 +25,9 @@
 				<nav id="main-menu">
 					<h1 class="hidden">메인메뉴</h1>
 					<ul>
-						<li><a href="mypage.html">MyPage</a></li>
-						<li><a href="userlist.jsp">Find Partner</a></li>
-						<li><a href="debate.html">WSQ Debate</a></li>
+						<li><a href="mypage">MyPage</a></li>
+						<li><a href="userlist">Find Partner</a></li>
+						<li><a href="debate">WSQ Debate</a></li>
 						<li><a href="">Notice</a></li>
 						<li><a href="">Customer Center</a></li>
 					</ul>
@@ -36,8 +36,8 @@
 				<nav id="join-menu">
 					<h1 class="hidden">회원메뉴</h1>
 					<ul>
-						<li><a href="../joinus/join.jsp">회원가입</a></li>
-						<li><a href="../joinus/login.jsp">로그인</a></li>
+						<li><a href="../joinus/join">회원가입</a></li>
+						<li><a href="../joinus/login">로그인</a></li>
 					</ul>
 				</nav>
 			</section>

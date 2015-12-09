@@ -5,15 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JOIN</title>
-<link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="/WSQPrj/content/customer/css/style.css" type="text/css" rel="stylesheet">
+<link href="/WSQPrj/content/joinus/css/loginjoin.css" type="text/css" rel="stylesheet"> 
 </head>
 <body>
 	<header id="header">
 	<div class="content-container">
 		<h1 id="logo">
-			<a href="../main.html">
-				<p class="hidden">World Square</p> <img src="../images/WSQlogo.jpg"
+			<a href="../main">
+				<p class="hidden">World Square</p> <img src="/WSQPrj/content/images/WSQlogo.jpg"
 				alt="WSQ" />
 			</a>
 		</h1>
@@ -25,17 +24,17 @@
 		<nav id="main-menu">
 		<h1 class="hidden">메인메뉴</h1>
 		<ul>
-			<li><a href="../customer/mypage.html">MyPage</a></li>
-			<li><a href="../customer/userlist.jsp">Find Partner</a></li>
-			<li><a href="../customer/debate.html">WSQ Debate</a></li>
+			<li><a href="../customer/mypage">MyPage</a></li>
+			<li><a href="../customer/userlist">Find Partner</a></li>
+			<li><a href="../customer/debate">WSQ Debate</a></li>
 			<li><a href="">Notice</a></li>
 			<li><a href="">Customer Center</a></li>
 		</ul>
 		</nav> <nav id="join-menu">
 		<h1 class="hidden">회원메뉴</h1>
 		<ul>
-			<li><a href="join.jsp">회원가입</a></li>
-			<li><a href="login.jsp">로그인</a></li>
+			<li><a href="join">회원가입</a></li>
+			<li><a href="login">로그인</a></li>
 		</ul>
 		</nav> </section>
 	</div>

@@ -145,7 +145,7 @@ body{
 	padding-top : 30px;
 	
 	font-size: 30px;
-	background: url("../images/debate2.jpg") no-repeat center center;
+	background: url("/WSQPrj/content/images/debate2.jpg") no-repeat center center;
 	
 	text-indent: -1999px;
 	
@@ -180,7 +180,7 @@ body{
 	text-align: center;
 	text-indent:-1999px;
 	
-	background:url("../images/is.jpg") no-repeat center center;
+	background:url("/WSQPrj/content/images/is.jpg") no-repeat center center;
 }
 #debate-versus{
 	display: inline-block;
