@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LogIn</title>
-<link href="../css/reset.css" type="text/css" rel="stylesheet">
-<link href="../css/style.css" type="text/css" rel="stylesheet">
+<link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet">
+<link href="/WSQPrj/content/customer/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header">

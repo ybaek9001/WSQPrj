@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>MyPage</title>
-<link href="../css/reset.css" type="text/css" rel="stylesheet">
-<link href="../css/style.css" type="text/css" rel="stylesheet">
+<link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet">
+<link href="/WSQPrj/content/customer/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<header id="header">
@@ -18,24 +20,24 @@
 
 
 			<section>
-				<h1 class="hidden">Çì´õ</h1>
+				<h1 class="hidden">í—¤ë”</h1>
 
 				<nav id="main-menu">
-					<h1 class="hidden">¸ŞÀÎ¸Ş´º</h1>
+					<h1 class="hidden">ë©”ì¸ë©”ë‰´</h1>
 					<ul>
 						<li><a href="mypage.html">MyPage</a></li>
 						<li><a href="userlist.jsp">Find Partner</a></li>
-						<li><a href="debate.html">WSQ Debate</a></li>
+						<li><a href="debate">WSQ Debate</a></li>
 						<li><a href="">Notice</a></li>
 						<li><a href="">Customer Center</a></li>
 					</ul>
 				</nav>
 
 				<nav id="join-menu">
-					<h1 class="hidden">È¸¿ø¸Ş´º</h1>
+					<h1 class="hidden">íšŒì›ë©”ë‰´</h1>
 					<ul>
-						<li><a href="../joinus/join.jsp">È¸¿ø°¡ÀÔ</a></li>
-						<li><a href="../joinus/login.jsp">·Î±×ÀÎ</a></li>
+						<li><a href="../joinus/join.jsp">íšŒì›ê°€ì…</a></li>
+						<li><a href="../joinus/login.jsp">ë¡œê·¸ì¸</a></li>
 					</ul>
 				</nav>
 			</section>
@@ -94,10 +96,10 @@
                    	<input type="checkbox" name="LL_LV" value="LL_Advanced">Advanced
                    	</li>
                    	
-					<li>ÀÚ±â¼Ò°³ 
-					<textarea rows="5" cols="50">°£´ÜÇÏ°Ô ÀÔ·ÂÇÏ¼¼¿ä.</textarea></li>
+					<li>ìê¸°ì†Œê°œ 
+					<textarea rows="5" cols="50">ê°„ë‹¨í•˜ê²Œ ì…ë ¥í•˜ì„¸ìš”.</textarea></li>
 				</ul>
-				<P><input type="submit" value="MyPage µî·Ï"></P>
+				<P><input type="submit" value="MyPage ë“±ë¡"></P>
 				</form>
 			</div>
 			</main>
@@ -110,21 +112,21 @@
 	<footer id="footer">
 		<div class="content-container">
 			<section>
-				<h1>»çÀÌÆ®Á¤º¸</h1>
+				<h1>ì‚¬ì´íŠ¸ì •ë³´</h1>
 				<section>
-					<h1>È¸»ç Á¤º¸</h1>
+					<h1>íšŒì‚¬ ì •ë³´</h1>
 					<dl>
-						<dt>ÁÖ¼Ò:</dt>
+						<dt>ì£¼ì†Œ:</dt>
 						<dd>SSIT</dd>
-						<dt>°ü¸®ÀÚ¸ŞÀÏ:</dt>
+						<dt>ê´€ë¦¬ìë©”ì¼:</dt>
 						<dd>admin@mansoo.com</dd>
-						<dt>»ç¾÷ÀÚ µî·Ï¹øÈ£:</dt>
+						<dt>ì‚¬ì—…ì ë“±ë¡ë²ˆí˜¸:</dt>
 						<dd>132-18-46763</dd>
 					</dl>
 				</section>
 				<section>
-					<h1>ÀúÀÛ±Ç Á¤º¸</h1>
-					<p>Copyright ¨Ï newlecture.com 2012-2014 All Right Reserved.
+					<h1>ì €ì‘ê¶Œ ì •ë³´</h1>
+					<p>Copyright â“’ newlecture.com 2012-2014 All Right Reserved.
 						Contact admin@newlecture.com for more information</p>
 				</section>
 			</section>
