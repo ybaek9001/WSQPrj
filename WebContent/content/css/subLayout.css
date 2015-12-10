@@ -94,9 +94,8 @@ body{
 /* ------------------body---------- */
 #body{
 	min-height:400px;
-	border-top:1px solid #b8b8b8;
+	border-top:5px solid #004040;
 	border-bottom:2px solid #020228;
-	background: -webkit-linear-gradient(left, #ffffff, #d8d8d8);
 }
 
 

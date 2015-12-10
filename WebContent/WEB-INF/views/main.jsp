@@ -5,8 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>main</title>
-<link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet">
-<link href="/WSQPrj/content/customer/css/style.css" type="text/css" rel="stylesheet">
+
+<link href="${pageContext.request.contextPath}/content/css/style.css" 
+type="text/css" rel="stylesheet" />
 </head>
 
 
@@ -71,7 +72,7 @@
 					<a href="customer/debate.html"> <img src="/WSQPrj/content/images/debate.png" alt="debate" class="img_debate"/>
 					</a>
 					<dt>WSQ Debate</dt>
-					<dd>세계 핫이슈나 토론주제를 가지고 자유롭게 찬반 논쟁을 할 수 있는 공간입니다</dd>>
+					<dd>세계 핫이슈나 토론주제를 가지고 자유롭게 찬반 논쟁을 할 수 있는 공간입니다</dd>
 				
 				</dl>
 			</div>

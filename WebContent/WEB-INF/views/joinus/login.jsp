@@ -7,17 +7,17 @@
 		<div>
 			<form id="loginjoin" action="loginProc.jsp" method="post">
 				<dl>
-					<dt class="join-form-title">아이디</dt>
+					<dt class="join-form-title">I D</dt>
 					<dd class="join-form-data">
 						<input type="text" name="uid" />
 					</dd>
-					<dt class="join-form-title">비밀번호</dt>
+					<dt class="join-form-title">PASSWORD</dt>
 					<dd class="join-form-data">
 						<input type="password" name="pwd" />
 					</dd>
 				</dl>
 				<p>
-					<input type="submit" value="로그인">
+					<input type="submit" value=" Log in ">
 				</p>
 			</form>
 		</div>

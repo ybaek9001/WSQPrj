@@ -45,14 +45,11 @@
  }
  
  
- #mypage-body{
+ #body{
   min-height:600px;
  font-size:18px;
  }
-#mypage-body .content-container{
-      display : flex;
-      min-height : inherit;  
- }
+
 #mypage{
  margin-top:50px;
  min-width:340px;
