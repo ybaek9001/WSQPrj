@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+@import url(../../css/reset.css);
+@import url(../../css/subLayout.css);
+
+
+
+/* ------------------body---------- */
+ .main > h2{
+      font-family:맑은 고딕;
+      font-size:23px;
+      font-weight:bold;
+      color: #f87e10;
+      
+       
+   }
+   
+  #body h3 {
+ 	 font-family:italic;
+ 	 margin:20px;
+      font-size:20px;
+      font-weight:bold;
+      color: #575757;
+  	background:#b8b8b8;
+      
+ }
+ 
+
+ #body dt {
+ font-family:맑은 고딕;
+ 	 margin:10px;
+      font-size:20px;
+      color: #20c05c;
+ }
+ 
+ #body dd {
+ font-family:맑은 고딕;
+ 	 margin-top:20px;
+ 	 margin-bottom:70px;
+      font-size:13px;
+      color: #575757;
+ }
+ 
+ #body .img_debate{
+ height:200px;
+ }
+ 
+ 
+ #mypage-body{
+  min-height:600px;
+ font-size:18px;
+ }
+#mypage-body .content-container{
+      display : flex;
+      min-height : inherit;  
+ }
+#mypage{
+ margin-top:50px;
+ min-width:340px;
+ 
+ padding:20px;
+ text-align:center;
+ background:#e9e9e9;
+ opacity:0.8;
+ }
+ 
+ #mypage li{
+ color: #5c5c5c;
+ margin:5px;
+ }
+ 
+ #mypage .language{
+ margin-top:20px;
+ }
+
+ 

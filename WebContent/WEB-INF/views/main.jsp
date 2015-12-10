@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>main</title>
 <link href="/WSQPrj/content/css/reset.css" type="text/css" rel="stylesheet">
 <link href="/WSQPrj/content/customer/css/style.css" type="text/css" rel="stylesheet">
@@ -27,9 +27,9 @@
 				<nav id="main-menu">
 					<h1 class="hidden">메인메뉴</h1>
 					<ul>
-						<li><a href="customer/mypage">MyPage</a></li>
-						<li><a href="customer/userlist">Find Partner</a></li>
-						<li><a href="customer/debate">WSQ Debate</a></li>
+						<li><a href="mypage/mypage">MyPage</a></li>
+						<li><a href="findpartner/userlist">Find Partner</a></li>
+						<li><a href="wsqdebate/debate">WSQ Debate</a></li>
 						<li><a href="">Notice</a></li>
 						<li><a href="">Customer Center</a></li>
 					</ul>

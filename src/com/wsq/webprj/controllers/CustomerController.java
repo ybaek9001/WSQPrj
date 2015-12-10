@@ -19,13 +19,13 @@ public class CustomerController {
 	
 	//Spring이 제공하는 어노테이션
 	
-	@RequestMapping("/customer/userlist")
+	@RequestMapping("/findpartner/userlist")
 	public String userlist(PrintWriter out, Model model) throws SQLException
 	{
 		MemberDao dao = new MyBatisMemberDao();
 		List<Member> list = dao.getMembers(1);
-		model.addAttribute("m", list.get(0));
-		return "customer/userlist";		
+		model.addAttribute("m", list);
+		return "findpartner/userlist";		
 	}
 	
 	@RequestMapping("/main") 
@@ -34,16 +34,16 @@ public class CustomerController {
 		return "main";
 	}
 		
-	@RequestMapping("/customer/mypage") 
+	@RequestMapping("/mypage/mypage") 
 	public String myPage(PrintWriter out, Model model)
 	{
-		return "customer/mypage";
+		return "mypage/mypage";
 	}
 	
-	@RequestMapping("/customer/debate")
+	@RequestMapping("/wsqdebate/debate")
 	public String debate(PrintWriter out, Model model)
 	{
-		return "customer/debate";		
+		return "wsqdebate/debate";		
 	}
 	
 	@RequestMapping("/joinus/join")
