@@ -2,36 +2,18 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
 <tiles-definitions>
-  <definition name="mypage/mypage" template="/WEB-INF/views/mypage/shared/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
-    <put-attribute name="contnet" value="/WEB-INF/views/mypage/mypage.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
-  </definition>
-   
-   <definition name="findpartner/userlist" template="/WEB-INF/views/findpartner/shared/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
-    <put-attribute name="contnet" value="/WEB-INF/views/findpartner/userlist.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
-  </definition>
-  
-   <definition name="wsqdebate/debate" template="/WEB-INF/views/wsqdebate/shared/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
-    <put-attribute name="contnet" value="/WEB-INF/views/wsqdebate/debate.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
-  </definition>
-  
-   <definition name="joinus/join" template="/WEB-INF/views/joinus/shared/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
-    <put-attribute name="contnet" value="/WEB-INF/views/joinus/join.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
-  </definition>
-  
-   <definition name="joinus/login" template="/WEB-INF/views/joinus/shared/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
-    <put-attribute name="contnet" value="/WEB-INF/views/joinus/login.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
-  </definition>
-    
-  
+	<definition name="mypage/mypage" template="/WEB-INF/views/mypage/shared/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
+		<put-attribute name="contnet" value="/WEB-INF/views/mypage/mypage.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
+	</definition>
+
+
+	<!-- <definition name="*/*" template="/WEB-INF/views/{1}/shared/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/shared/header.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/shared/footer.jsp" />
+	</definition> -->
 </tiles-definitions>

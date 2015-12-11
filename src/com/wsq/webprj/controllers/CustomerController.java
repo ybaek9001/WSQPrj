@@ -28,10 +28,10 @@ public class CustomerController {
 		return "findpartner/userlist";		
 	}
 	
-	@RequestMapping("/main") 
+	@RequestMapping("/index") 
 	public String index(PrintWriter out, Model model)
 	{
-		return "main";
+		return "index";
 	}
 		
 	@RequestMapping("/mypage/mypage") 
