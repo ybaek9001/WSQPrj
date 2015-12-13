@@ -31,7 +31,7 @@ type="text/css" rel="stylesheet" />
 	<div id="body">
 		<div class="content-container clearfix">
 			<!-- notice 컨텐츠 들어가는 부분 -->
-			<tiles:insertAttribute name="contnet" />
+			<tiles:insertAttribute name="content" />
 		</div>
 	</div>
 
