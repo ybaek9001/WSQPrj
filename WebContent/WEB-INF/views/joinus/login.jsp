@@ -14,7 +14,7 @@
 					</dd>
 					<dt class="join-form-title">PASSWORD</dt>
 					<dd class="join-form-data">
-						<input type="password" name="password" />
+						<input type="text" name="password" />
 					</dd>
 				</dl>
 				<div><c:if test="${error!=null}">${error}</c:if></div>

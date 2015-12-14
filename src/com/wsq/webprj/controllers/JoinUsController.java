@@ -56,13 +56,14 @@ public class JoinUsController {
 			HttpSession session) throws SQLException
 	{
 		Member m = memberDao.getMember(userID);
-		
+		System.out.println(m.getPwd());
 		String error = null;
 		if(m == null)
 		{
 			error = "사용자 아이디 또는 2313비밀번호가 올바르지 않습니다";
 		}
-		else if(!m.getPwd().equals(password)) //회원이 존재하지만 비밀번호가 일치하지 않을 경우
+		
+		else if(m.getPwd().compareTo(password)==1) //회원이 존재하지만 비밀번호가 일치하지 않을 경우
 			error = "사용자 아이디 또는 3213비밀번호가 올바르지 않습니다";
 		
 		if(error != null)
