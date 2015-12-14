@@ -16,7 +16,7 @@
    <context:component-scan base-package="com.wsq.webprj.controllers"></context:component-scan>
     
     <!-- services -->
-   
+    <bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao"/>	
   
     <!-- more bean definitions for services go here -->
 	<mvc:annotation-driven />

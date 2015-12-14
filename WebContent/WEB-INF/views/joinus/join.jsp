@@ -4,11 +4,11 @@
 		<main class="main">
 		<h2 class="hidden">회원가입</h2>
 		<div>
-			<form id="loginjoin" action="joinProc.jsp" method="post">
+			<form id="loginjoin" action="join" method="post">
 				<dl>
 					<dt class="join-form-title">I D</dt>
 					<dd class="join-form-data">
-						<input type="text" name="uid" />
+						<input type="text" name="mid" />
 					</dd>
 					<dt class="join-form-title">PASSWORD</dt>
 					<dd class="join-form-data">

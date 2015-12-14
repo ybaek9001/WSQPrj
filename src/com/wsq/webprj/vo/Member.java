@@ -1,6 +1,6 @@
 package com.wsq.webprj.vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Member {
 
@@ -8,7 +8,7 @@ public class Member {
 	private String mid;
 	private String pwd;
 	private String email;
-	private String regDate;
+	private Date regDate;
 	
 	
 	public String getMid() {
@@ -29,10 +29,10 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRegDate() {
+	public Date getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(String regDate) {
+	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
 

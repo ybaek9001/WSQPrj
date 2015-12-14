@@ -1,75 +1,28 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 		<main class="main">
 		<h2>User List</h2>
 		<table class="mtable">
+		
 			<tr>
 				<th>MID</th>
 				<th>PWD</th>
 				<th>EMAIL</th>
 				<th>REGDATE</th>
 			</tr>
+		<c:forEach var="n" items="${list}">
 			<tr>
-				<td>${m[0].mid}</td>
-				<td>${m[0].pwd}</td>
-				<td>${m[0].email}</td>
-				<td>${m[0].regDate}</td>
+				<td>${n.mid}</td>
+				<td>${n.pwd}</td>
+				<td>${n.email}</td>
+				<td><fmt:formatDate pattern="yyy-MM-dd" value="${n.regDate}" /></td>
 			</tr>
-			<tr>
-				<td>${m[1].mid}</td>
-				<td>${m[1].pwd}</td>
-				<td>${m[1].email}</td>
-				<td>${m[1].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[2].mid}</td>
-				<td>${m[2].pwd}</td>
-				<td>${m[2].email}</td>
-				<td>${m[2].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[3].mid}</td>
-				<td>${m[3].pwd}</td>
-				<td>${m[3].email}</td>
-				<td>${m[3].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[4].mid}</td>
-				<td>${m[4].pwd}</td>
-				<td>${m[4].email}</td>
-				<td>${m[4].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[5].mid}</td>
-				<td>${m[5].pwd}</td>
-				<td>${m[5].email}</td>
-				<td>${m[5].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[6].mid}</td>
-				<td>${m[6].pwd}</td>
-				<td>${m[6].email}</td>
-				<td>${m[6].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[7].mid}</td>
-				<td>${m[7].pwd}</td>
-				<td>${m[7].email}</td>
-				<td>${m[7].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[8].mid}</td>
-				<td>${m[8].pwd}</td>
-				<td>${m[8].email}</td>
-				<td>${m[8].regDate}</td>
-			</tr>
-			<tr>
-				<td>${m[9].mid}</td>
-				<td>${m[9].pwd}</td>
-				<td>${m[9].email}</td>
-				<td>${m[9].regDate}</td>
-			</tr>
+		</c:forEach>
+			
 		
 		</table>
 		</main>

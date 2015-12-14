@@ -13,8 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>layout</title>
 
-<link href="${ctx}/content/wsqdebate/css/debate.css" 
+<link href="${ctx}/content/wsqdebate/css/<tiles:getAsString name="css"/>" 
 type="text/css" rel="stylesheet" />	
+
 </head>
 
 <body>

@@ -5,6 +5,7 @@
 
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -12,8 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>layout</title>
 
-<link href="${ctx}/content/mypage/css/mypage.css" 
-type="text/css" rel="stylesheet" />
+<link href="${ctx}/content/mypage/css/<tiles:getAsString name="css"/>" 
+type="text/css" rel="stylesheet" />	
 
 </head>
 

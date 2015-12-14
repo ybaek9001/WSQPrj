@@ -13,10 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>layout</title>
 
-<link href="${ctx}/content/findfriend/css/userlist.css" 
+<link href="${ctx}/content/findpartner/css/<tiles:getAsString name="css"/>" 
 type="text/css" rel="stylesheet" />	
-	
-	
+
 </head>
 
 <body>
