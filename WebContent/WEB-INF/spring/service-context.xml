@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		<property name="url" value="jdbc:sqlserver://211.238.142.251:1433;databaseName=edudb"/>
+		<property name="username" value="edu"/>
+		<property name="password" value="class2d"/>	
+	</bean>
+
+	<!-- MyBatisConfig에서 가져옴(위에 spring에 맞게 설정해 주기 위해)
+	<dataSource type="POOLED">
+		<property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:sqlserver://211.238.142.251:1433;databaseName=edudb" />
+		<property name="username" value="edu" />
+		<property name="password" value="class2d" />
+	</dataSource> -->
+	
+	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocation" 
+				value="classpath:com.newlec.webprj.dao.mybatis.mapper/*.xml"/>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+
+
+	<bean name="noticeDao" class="com.newlec.webprj.dao.mybatis.MyBatisNoticeDao" />
+
+	<bean name="memberDao" class="com.newlec.webprj.dao.mybatis.MyBatisMemberDao" />
+
+</beans>

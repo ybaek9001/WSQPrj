@@ -1,53 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:context="http://www.springframework.org/schema/context"
-   xmlns:mvc="http://www.springframework.org/schema/mvc"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         ">
-   
-   <!-- context:기본설정, scan:어노테이션이 있는 패키지 경로 설정 -->
-   <context:component-scan base-package="com.wsq.webprj.controllers"></context:component-scan>
-    
-    <!-- services -->
-    <bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao"/>
-    <bean name="profileDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberProfileDao"/>	
-  
-    
-    <!-- more bean definitions for services go here -->
+
+	<!-- context:기본설정, scan:어노테이션이 있는 패키지 경로 설정 -->
+	<context:component-scan base-package="com.newlec.webprj.controllers"></context:component-scan>
+
+	<!-- services -->
+
+
+	<!-- more bean definitions for services go here -->
 	<mvc:annotation-driven />
 	<mvc:resources location="/content/" mapping="content/**"></mvc:resources>
 
-	
-	
-	
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<!-- 지시서 연결 : tiles.xml -->
 		<property name="definitions" value="/WEB-INF/tiles.xml" />
 	</bean>
 
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<!-- url요청이 온 것에 대해서 실제 찾아야할 무언가를 찾을 수 있게 도와줄 수 있는 도구를 준비하는 작업 -->
+		<!-- tiles연결 -->
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		
 		<property name="order" value="1" />
 	</bean>
 
 	
-	
+	<!-- ************************controller에서 return하는 것만 적용 되고 무조건 적용 됨*********************** -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="2" />
 	</bean>
+	
+	
+	
+	
+	
 
 </beans>
-
-<!-- 접두사 추가해줬음 -->

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns="http://www.springframework.org/schema/security" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema//security/spring-security.xsd">
+		<!-- <http auto-config="true"> -->
+		<http>
+			<form-login 
+				login-page="/joinus/login"
+				default-target-url="/home/index"/>
+			<logout logout-success-url="/customer/notice"/>
+			<intercept-url pattern="/customer/noticeReg" access="ROLE_ADMIN"/>
+		</http>
+		<authentication-manager>
+			<!-- 사용자 정보 제공할 부분 -->
+			<authentication-provider>
+			<!-- <jdbc-user-service data-source-ref=""
+			users-by-username-query=""
+			authorities-by-username-query=""
+			/> -->
+				<!-- <user-service>
+					<user name="dragon" password="111" authorities="ROLE_TEACHER"/>
+					<user name="newlec" password="111" authorities="ROLE_TEACHER, ROLE_ADMIN"/>
+				</user-service> -->
+			</authentication-provider>
+		</authentication-manager>
+</beans:beans>

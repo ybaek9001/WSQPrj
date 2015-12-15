@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.vo.Member;
+import com.wsq.webprj.vo.MemberProfile;
 
 
 //POJO 클래스
@@ -34,10 +35,17 @@ public class JoinUsController {
 	}
 	
 	@RequestMapping(value= "join",method=RequestMethod.POST)
-	public String join(Member m, HttpSession session) throws SQLException
+	public String join(Member m, MemberProfile mprofile, HttpSession session) throws SQLException
 	{
 		Date regDate = new Date();
 		m.setRegDate(regDate);
+		mprofile.setMember_mid(m.getMid());
+		mprofile.setMember_mid(m.getMid());
+		mprofile.setMember_mid(m.getMid());
+		mprofile.setMember_mid(m.getMid());
+		mprofile.setMember_mid(m.getMid());
+		mprofile.setMember_mid(m.getMid());
+		
 		memberDao.insert(m);
 		return "redirect:../findpartner/userlist"; 
 	}
@@ -56,14 +64,14 @@ public class JoinUsController {
 			HttpSession session) throws SQLException
 	{
 		Member m = memberDao.getMember(userID);
-		System.out.println(m.getPwd());
 		String error = null;
+		
 		if(m == null)
 		{
 			error = "사용자 아이디 또는 2313비밀번호가 올바르지 않습니다";
 		}
 		
-		else if(m.getPwd().compareTo(password)==1) //회원이 존재하지만 비밀번호가 일치하지 않을 경우
+		else if(!m.getPwd().equals(password)) //회원이 존재하지만 비밀번호가 일치하지 않을 경우
 			error = "사용자 아이디 또는 3213비밀번호가 올바르지 않습니다";
 		
 		if(error != null)

@@ -9,7 +9,7 @@ public class MemberProfile {
 	private int habitat_country_code;
 	private String levelMentor;
 	private String levelMentee;
-	private String text;
+	private String comment;
 	
 	
 	public String getMember_mid() {
@@ -60,11 +60,11 @@ public class MemberProfile {
 	public void setLevelMentee(String levelMentee) {
 		this.levelMentee = levelMentee;
 	}
-	public String getText() {
-		return text;
+	public String getComment() {
+		return comment;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
 	
