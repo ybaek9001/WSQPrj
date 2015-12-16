@@ -1,22 +1,20 @@
 package com.wsq.webprj.vo;
 
-import java.sql.Date;
+import java.awt.Image;
+import java.util.Date;
+
 
 public class DebateSquare {
 	private String master_id;
 	private int code;
-	private String topic;
-	//private img image;
-	private String article;
-	private int hits;
-	private Date topic_regDate;
-	private Date revision_date;
-	//private String µî·Ïip;
-	private String comment;
-	private String cmt_num;
-	private int recommend;
-	private int cmt_rank;
-	
+	private String title;
+	private String contents;
+	private Image image;
+	private int hit;
+	private Date regDate;
+	private int AgreeCnt;
+	private int DisagreeCnt;
+	private int CommentCnt;
 	
 	public String getMaster_id() {
 		return master_id;
@@ -30,61 +28,55 @@ public class DebateSquare {
 	public void setCode(int code) {
 		this.code = code;
 	}
-	public String getTopic() {
-		return topic;
+	public String getTitle() {
+		return title;
 	}
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getArticle() {
-		return article;
+	public String getContents() {
+		return contents;
 	}
-	public void setArticle(String article) {
-		this.article = article;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
-	public int getHits() {
-		return hits;
+	public Image getImage() {
+		return image;
 	}
-	public void setHits(int hits) {
-		this.hits = hits;
+	public void setImage(Image image) {
+		this.image = image;
 	}
-	public Date getTopic_regDate() {
-		return topic_regDate;
+	public int getHit() {
+		return hit;
 	}
-	public void setTopic_regDate(Date topic_regDate) {
-		this.topic_regDate = topic_regDate;
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
-	public Date getRevision_date() {
-		return revision_date;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setRevision_date(Date revision_date) {
-		this.revision_date = revision_date;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-	public String getComment() {
-		return comment;
+	public int getAgreeCnt() {
+		return AgreeCnt;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setAgreeCnt(int agreeCnt) {
+		AgreeCnt = agreeCnt;
 	}
-	public String getCmt_num() {
-		return cmt_num;
+	public int getDisagreeCnt() {
+		return DisagreeCnt;
 	}
-	public void setCmt_num(String cmt_num) {
-		this.cmt_num = cmt_num;
+	public void setDisagreeCnt(int disagreeCnt) {
+		DisagreeCnt = disagreeCnt;
 	}
-	public int getRecommend() {
-		return recommend;
+	public int getCommentCnt() {
+		return CommentCnt;
 	}
-	public void setRecommend(int recommend) {
-		this.recommend = recommend;
-	}
-	public int getCmt_rank() {
-		return cmt_rank;
-	}
-	public void setCmt_rank(int cmt_rank) {
-		this.cmt_rank = cmt_rank;
+	public void setCommentCnt(int commentCnt) {
+		CommentCnt = commentCnt;
 	}
 	
-	
+		
 	
 }

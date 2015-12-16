@@ -18,13 +18,12 @@
     <!-- services -->
     <bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao"/>
     <bean name="profileDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberProfileDao"/>	
-  
+  	<bean name="debateSquareDao" class="com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao"/>
+    
     
     <!-- more bean definitions for services go here -->
 	<mvc:annotation-driven />
 	<mvc:resources location="/content/" mapping="content/**"></mvc:resources>
-
-	
 	
 	
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

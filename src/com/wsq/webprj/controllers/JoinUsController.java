@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wsq.webprj.dao.MemberDao;
+import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
 
@@ -25,7 +26,7 @@ public class JoinUsController {
 	
 	@Autowired
 	private MemberDao memberDao;
-	
+	private MemberProfileDao mprofileDao;
 	
 	//--------------------------------------------------------------
 	@RequestMapping(value= "join",method=RequestMethod.GET)
@@ -39,14 +40,10 @@ public class JoinUsController {
 	{
 		Date regDate = new Date();
 		m.setRegDate(regDate);
-		mprofile.setMember_mid(m.getMid());
-		mprofile.setMember_mid(m.getMid());
-		mprofile.setMember_mid(m.getMid());
-		mprofile.setMember_mid(m.getMid());
-		mprofile.setMember_mid(m.getMid());
+		memberDao.insert(m);
 		mprofile.setMember_mid(m.getMid());
 		
-		memberDao.insert(m);
+		
 		return "redirect:../findpartner/userlist"; 
 	}
 	//---------------------------------------------------------------

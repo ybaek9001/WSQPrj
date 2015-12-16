@@ -4,12 +4,18 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.xml.ws.RequestWrapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.wsq.webprj.dao.DebateSquareDao;
 import com.wsq.webprj.dao.MemberDao;
+import com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao;
 import com.wsq.webprj.dao.mybatis.MyBatisMemberDao;
+import com.wsq.webprj.vo.DebateSquare;
 import com.wsq.webprj.vo.Member;
 
 
@@ -18,9 +24,24 @@ import com.wsq.webprj.vo.Member;
 @RequestMapping("/wsqdebate/")
 public class WsqDebateController {
 	
+	@Autowired
+	private DebateSquareDao dao;
+	
 	@RequestMapping("debate")
-	public String debate(PrintWriter out, Model model)
+	public String debate(String c, Model model)
 	{
+		DebateSquare debate = dao.getDebate(c);
+		model.addAttribute("debate", debate);
+		
 		return "wsqdebate/debate";		
+	}
+	
+	
+	@RequestMapping("debateList")
+	public String list(Model model) throws SQLException{
+		List<DebateSquare> list = dao.getDebateSquares(1);
+		model.addAttribute("list", list);
+		
+		return "wsqdebate/debateList";
 	}
 }

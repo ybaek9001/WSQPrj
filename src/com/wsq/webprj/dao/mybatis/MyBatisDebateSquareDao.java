@@ -16,13 +16,13 @@ public class MyBatisDebateSquareDao implements DebateSquareDao{
 	
 	@Override
 	public List<DebateSquare> getDebateSquares() throws SQLException {
-		return getDebateSquares(1, "MID", "");
+		return getDebateSquares(1, "master_id", "");
 	}
 
 	@Override
 	public List<DebateSquare> getDebateSquares(int page) throws SQLException {
 		
-		return getDebateSquares(page, "MID", "");
+		return getDebateSquares(page, "master_id", "");
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class MyBatisDebateSquareDao implements DebateSquareDao{
 		session.close();
 		return count;
 	}
-
+	
 	@Override
 	public int insert(DebateSquare ds) throws SQLException  {
 		SqlSession session = ssf.openSession();
@@ -62,6 +62,17 @@ public class MyBatisDebateSquareDao implements DebateSquareDao{
 		session.commit();
 		session.close();
 		return count;
+	}
+
+	@Override
+	public DebateSquare getDebate(String code) {
+		SqlSession session = ssf.openSession();
+		DebateSquareDao dao = session.getMapper(DebateSquareDao.class); // mapper按眉 积己
+		DebateSquare notice = dao.getDebate(code);
+
+		//sqlSession.close(); // 技记 辆丰.
+
+		return notice;
 	}
 
 }
