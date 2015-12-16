@@ -6,25 +6,28 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema//security/spring-security.xsd">
-		<!-- <http auto-config="true"> -->
+		
+		
 		<http>
 			<form-login 
 				login-page="/joinus/login"
-				default-target-url="/home/index"/>
-			<logout logout-success-url="/customer/notice"/>
-			<intercept-url pattern="/customer/noticeReg" access="ROLE_ADMIN"/>
+				default-target-url="/wsqdebate/debate"/>
+			<logout logout-success-url="/home/index"/>
+			<intercept-url pattern="/findpartner/userlist" access="ROLE_ADMIN"/>
 		</http>
+		
 		<authentication-manager>
 			<!-- 사용자 정보 제공할 부분 -->
 			<authentication-provider>
 			<!-- <jdbc-user-service data-source-ref=""
-			users-by-username-query=""
-			authorities-by-username-query=""
-			/> -->
-				<!-- <user-service>
+				users-by-username-query=""
+				authorities-by-username-query=""
+				/> -->
+				<user-service>
 					<user name="dragon" password="111" authorities="ROLE_TEACHER"/>
-					<user name="newlec" password="111" authorities="ROLE_TEACHER, ROLE_ADMIN"/>
-				</user-service> -->
+					<user name="wsquser" password="mansoo" authorities="ROLE_TEACHER, ROLE_ADMIN"/>
+				</user-service>
 			</authentication-provider>
 		</authentication-manager>
+		
 </beans:beans>

@@ -26,6 +26,7 @@ public class JoinUsController {
 	
 	@Autowired
 	private MemberDao memberDao;
+	@Autowired
 	private MemberProfileDao mprofileDao;
 	
 	//--------------------------------------------------------------
@@ -54,7 +55,7 @@ public class JoinUsController {
 		return "joinus/login";
 	}
 	
-	@RequestMapping(value= "login",method=RequestMethod.POST)
+	/*@RequestMapping(value= "login",method=RequestMethod.POST)
 	public String login(String userID, 
 			String password, 
 			Model model,
@@ -65,11 +66,11 @@ public class JoinUsController {
 		
 		if(m == null)
 		{
-			error = "사용자 아이디 또는 2313비밀번호가 올바르지 않습니다";
+			error = "사용자 아이디 또는 비밀번호가 올바르지 않습니다";
 		}
 		
 		else if(!m.getPwd().equals(password)) //회원이 존재하지만 비밀번호가 일치하지 않을 경우
-			error = "사용자 아이디 또는 3213비밀번호가 올바르지 않습니다";
+			error = "사용자 아이디 또는 비밀번호가 올바르지 않습니다";
 		
 		if(error != null)
 		{
@@ -83,6 +84,5 @@ public class JoinUsController {
 		//인증 정보를 저장 어디에?(session?cookie? 선택)
 		session.setAttribute("mid", userID);	
 		return "redirect:../findpartner/userlist"; 
-	}
-
+	}*/
 }

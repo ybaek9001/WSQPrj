@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.dao.MemberProfileDao;
@@ -12,7 +13,8 @@ import com.wsq.webprj.vo.MemberProfile;
 
 public class MyBatisMemberProfileDao implements MemberProfileDao{
 	
-	SqlSessionFactory ssf = NewlecSqlSessionFactoryBuilder.getSqlSessionFactory();
+	@Autowired
+	SqlSession sqlSession;
 	
 	@Override
 	public List<MemberProfile> getProfiles() throws SQLException {
@@ -27,40 +29,37 @@ public class MyBatisMemberProfileDao implements MemberProfileDao{
 
 	@Override
 	public List<MemberProfile> getProfiles(int page, String field, String query) throws SQLException {
-		SqlSession session = ssf.openSession();
-		MemberProfileDao dao = session.getMapper(MemberProfileDao.class);
+		
+		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
 		List<MemberProfile>list = dao.getProfiles(page,field,query);
-		session.close();
+		
 		return list;
 	}
 
 	@Override
 	public int update(MemberProfile mProfile) throws SQLException {
-		SqlSession session = ssf.openSession();
-		MemberProfileDao dao = session.getMapper(MemberProfileDao.class);
+		
+		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
 		int count = dao.update(mProfile);
-		session.commit();
-		session.close();
+		
 		return count;
 	}
 
 	@Override
 	public int delete(String mid) throws SQLException {
-		SqlSession session = ssf.openSession();
-		MemberProfileDao dao = session.getMapper(MemberProfileDao.class);
+		
+		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
 		int count = dao.delete(mid);
-		session.commit();
-		session.close();
+		
 		return count;
 	}
 
 	@Override
 	public int insert(MemberProfile mProfile) throws SQLException  {
-		SqlSession session = ssf.openSession();
-		MemberProfileDao dao = session.getMapper(MemberProfileDao.class);
+		
+		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
 		int count = dao.insert(mProfile);
-		session.commit();
-		session.close();
+		
 		return count;
 	}
 
