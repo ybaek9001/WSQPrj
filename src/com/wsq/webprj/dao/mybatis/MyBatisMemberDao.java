@@ -45,7 +45,7 @@ public class MyBatisMemberDao implements MemberDao{
 	}
 
 	@Override
-	public int delete(String mid) throws SQLException {
+	public int delete(String mid){
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		int count = dao.delete(mid);

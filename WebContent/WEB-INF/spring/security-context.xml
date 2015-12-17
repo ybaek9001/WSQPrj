@@ -11,7 +11,7 @@
 		<http>
 			<form-login 
 				login-page="/joinus/login"
-				default-target-url="/wsqdebate/debate"/>
+				default-target-url="/home/index"/>
 			<logout logout-success-url="/home/index"/>
 			<intercept-url pattern="/findpartner/userlist" access="ROLE_ADMIN"/>
 		</http>

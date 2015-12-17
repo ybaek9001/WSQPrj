@@ -43,6 +43,7 @@ public class JoinUsController {
 		m.setRegDate(regDate);
 		memberDao.insert(m);
 		mprofile.setMember_mid(m.getMid());
+		mprofileDao.insert(mprofile);
 		
 		
 		return "redirect:../findpartner/userlist"; 

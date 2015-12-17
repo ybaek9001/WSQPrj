@@ -29,7 +29,7 @@
 	</bean>
 
 
-
+	<!-- <bean name="friendDao" class="com.wsq.webprj.dao.mybatis.MyBatisFriendDao" /> -->
 	<bean name="profileDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberProfileDao" />
 	<bean name="dao" class="com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao" />
 	<bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao" />

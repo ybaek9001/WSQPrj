@@ -12,7 +12,7 @@ public interface FriendDao {
 	public List<Friend> getFriends(int page, String filed, String query) throws SQLException;
 	
 	public int update(Friend friend) throws SQLException;
-	public int delete(String mid) throws SQLException;
+	public int delete(String mid);
 	public int insert(Friend friend) throws SQLException;
 	
 		

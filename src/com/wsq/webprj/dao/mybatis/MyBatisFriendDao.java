@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wsq.webprj.dao.FriendDao;
 import com.wsq.webprj.dao.FriendDao;
@@ -12,7 +13,11 @@ import com.wsq.webprj.vo.Friend;
 
 public class MyBatisFriendDao implements FriendDao{
 	
-	SqlSessionFactory ssf = NewlecSqlSessionFactoryBuilder.getSqlSessionFactory();
+	@Autowired
+	private SqlSession sqlSession;
+	
+	@Autowired
+	private FriendDao friendDao;
 	
 	@Override
 	public List<Friend> getFriends() throws SQLException {
@@ -27,40 +32,36 @@ public class MyBatisFriendDao implements FriendDao{
 
 	@Override
 	public List<Friend> getFriends(int page, String field, String query) throws SQLException {
-		SqlSession session = ssf.openSession();
-		FriendDao dao = session.getMapper(FriendDao.class);
-		List<Friend>list = dao.getFriends(page,field,query);
-		session.close();
+		
+		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
+		List<Friend>list = friendDao.getFriends(page,field,query);
+	
 		return list;
 	}
 
 	@Override
 	public int update(Friend friend) throws SQLException {
-		SqlSession session = ssf.openSession();
-		FriendDao dao = session.getMapper(FriendDao.class);
-		int count = dao.update(friend);
-		session.commit();
-		session.close();
+	
+		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
+		int count = friendDao.update(friend);
+	
 		return count;
 	}
 
 	@Override
-	public int delete(String mid) throws SQLException {
-		SqlSession session = ssf.openSession();
-		FriendDao dao = session.getMapper(FriendDao.class);
-		int count = dao.delete(mid);
-		session.commit();
-		session.close();
+	public int delete(String mid)  {
+		
+		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
+		int count = friendDao.delete(mid);
 		return count;
 	}
 
 	@Override
 	public int insert(Friend friend) throws SQLException  {
-		SqlSession session = ssf.openSession();
-		FriendDao dao = session.getMapper(FriendDao.class);
-		int count = dao.insert(friend);
-		session.commit();
-		session.close();
+	
+		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
+		int count = friendDao.insert(friend);
+	
 		return count;
 	}
 

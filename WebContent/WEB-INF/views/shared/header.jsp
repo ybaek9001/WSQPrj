@@ -17,7 +17,7 @@
 <h1 class="hidden">메인메뉴</h1>
 <ul>
 	<li><a href="/WSQPrj/mypage/mypage">MyPage</a></li>
-	<li><a href="/WSQPrj/findpartner/userlist">Find Partner</a></li>
+	<li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a>
 	<li><a href="/WSQPrj/wsqdebate/debate">WSQ Debate</a></li>
 	<li><a href="">Notice</a></li>
 	<li><a href="">Customer Center</a></li>
