@@ -7,11 +7,20 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema//security/spring-security.xsd">
 		
+		<beans:bean name="failHandler" class="com.wsq.webprj.handlers.WSQAuthFailHandler"/>
+		<beans:bean name="successHandler" class="com.wsq.webprj.handlers.WSQSuccessHandler"/>
+		
+		
 		
 		<http>
 			<form-login 
 				login-page="/joinus/login"
-				default-target-url="/home/index"/>
+				default-target-url="/home/index"
+				authentication-failure-url="/joinus/login?error=1"
+				authentication-failure-handler-ref="failHandler"
+				authentication-success-handler-ref="successHandler"
+				/>
+			
 			<logout logout-success-url="/home/index"/>
 			<intercept-url pattern="/findpartner/userlist" access="ROLE_ADMIN"/>
 		</http>
@@ -19,14 +28,14 @@
 		<authentication-manager>
 			<!-- 사용자 정보 제공할 부분 -->
 			<authentication-provider>
-			<!-- <jdbc-user-service data-source-ref=""
-				users-by-username-query=""
-				authorities-by-username-query=""
-				/> -->
-				<user-service>
+			<jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT mid userid, pwd password, 1 enabled From Members WHERE mid=?"
+				authorities-by-username-query="SELECT mid userid, 'ROLE_ADMIN' authorities From Members WHERE mid=?"
+				/>
+				<!-- <user-service>
 					<user name="dragon" password="111" authorities="ROLE_TEACHER"/>
 					<user name="wsquser" password="mansoo" authorities="ROLE_TEACHER, ROLE_ADMIN"/>
-				</user-service>
+				</user-service> -->
 			</authentication-provider>
 		</authentication-manager>
 		

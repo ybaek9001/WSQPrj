@@ -19,7 +19,7 @@
 	</delete>
 
 	<insert id="insert">
-		INSERT INTO MEMBERPROFILE(NAME, GENDER, COMMENT) VALUES(#{name}, #{gender}, #{comment})
+		INSERT INTO MEMBERPROFILE(MEMBER_MID) VALUES(#{mid})
 	</insert>
 
 </mapper>

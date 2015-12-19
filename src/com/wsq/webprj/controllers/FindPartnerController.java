@@ -24,6 +24,7 @@ public class FindPartnerController {
 	@Autowired
 	private MemberDao memberDao;
 	
+	
 	@RequestMapping(value="userlist", method=RequestMethod.GET)
 	public String userlist(int pg, boolean isNext, Model model) throws SQLException
 	{
@@ -41,10 +42,9 @@ public class FindPartnerController {
 	@RequestMapping("userDel")
 	public String userDel(String c)
 	{
-		/*friendDao.delete(c);*/
 		memberDao.delete(c);
 		
-		return "redirect:userlist";
+		return "redirect:userlist?pg=1";
 	}
 	 
 	

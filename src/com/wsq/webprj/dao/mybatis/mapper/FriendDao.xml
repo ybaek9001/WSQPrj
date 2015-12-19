@@ -18,8 +18,12 @@
 		DELETE FRIENDS WHERE MID= #{mid}
 	</delete>
 
-	<insert id="insert">
+	<!-- <insert id="insert">
 		INSERT INTO FRIENDS(MID, PWD, NAME) VALUES(#{mid}, #{pwd}, #{name})
+	</insert> -->
+	
+	<insert id="insert" parameterType="String">
+		INSERT INTO FRIENDS(MEMBERS_MID) VALUES(#{mid})
 	</insert>
 
 </mapper>

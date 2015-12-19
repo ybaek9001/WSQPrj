@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.wsq.webprj.dao.FriendDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.vo.Member;
@@ -29,6 +30,8 @@ public class JoinUsController {
 	@Autowired
 	private MemberProfileDao mprofileDao;
 	
+	@Autowired
+	private FriendDao friendDao;
 	//--------------------------------------------------------------
 	@RequestMapping(value= "join",method=RequestMethod.GET)
 	public String join(){
@@ -37,13 +40,14 @@ public class JoinUsController {
 	}
 	
 	@RequestMapping(value= "join",method=RequestMethod.POST)
-	public String join(Member m, MemberProfile mprofile, HttpSession session) throws SQLException
+	public String join(Member m, HttpSession session) throws SQLException
 	{
 		Date regDate = new Date();
+		String key = m.getMid();
 		m.setRegDate(regDate);
 		memberDao.insert(m);
-		mprofile.setMember_mid(m.getMid());
-		mprofileDao.insert(mprofile);
+		mprofileDao.insert(key);
+		friendDao.insert(key);
 		
 		
 		return "redirect:../findpartner/userlist"; 

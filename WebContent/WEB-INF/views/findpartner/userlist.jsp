@@ -23,10 +23,10 @@
 					</c:forEach>
 				</table>
 				<ul class="page">
-					<c:if test="${pg==1}">
+					<c:if test="${pg==1 && isNext!=false}">
 					<li><a href="userlist?pg=${pg+1}">다음 페이지</a></li>
 					</c:if>
-					<c:if test="${isNext==false}">
+					<c:if test="${pg!=1 && isNext==false}">
 					<li><a href="userlist?pg=${pg-1}">이전 페이지</a></li>
 					</c:if>
 					<c:if test="${pg!=1 && isNext!=false}">

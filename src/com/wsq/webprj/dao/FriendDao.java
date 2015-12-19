@@ -14,6 +14,7 @@ public interface FriendDao {
 	public int update(Friend friend) throws SQLException;
 	public int delete(String mid);
 	public int insert(Friend friend) throws SQLException;
+	public int insert(String key);
 	
 		
 	

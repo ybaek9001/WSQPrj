@@ -13,7 +13,7 @@ public interface MemberProfileDao {
 	
 	public int update(MemberProfile mProfile) throws SQLException;
 	public int delete(String mid) throws SQLException;
-	public int insert(MemberProfile mProfile) throws SQLException;
+	public int insert(String mid);
 	
 		
 	

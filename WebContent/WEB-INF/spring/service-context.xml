@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-        <context:component-scan base-package="com.wsq.webprj.dao.mybatis"/>
+    <context:component-scan base-package="com.wsq.webprj.dao.mybatis"/>
 
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
@@ -29,9 +29,9 @@
 	</bean>
 
 
-	<!-- <bean name="friendDao" class="com.wsq.webprj.dao.mybatis.MyBatisFriendDao" /> -->
 	<bean name="profileDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberProfileDao" />
 	<bean name="dao" class="com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao" />
 	<bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao" />
-
+	<bean name="friendDao" class="com.wsq.webprj.dao.mybatis.MyBatisFriendDao" />
+	
 </beans>

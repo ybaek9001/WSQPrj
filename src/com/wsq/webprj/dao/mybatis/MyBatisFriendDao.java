@@ -4,10 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wsq.webprj.dao.FriendDao;
 import com.wsq.webprj.dao.FriendDao;
 import com.wsq.webprj.vo.Friend;
 
@@ -15,9 +13,6 @@ public class MyBatisFriendDao implements FriendDao{
 	
 	@Autowired
 	private SqlSession sqlSession;
-	
-	@Autowired
-	private FriendDao friendDao;
 	
 	@Override
 	public List<Friend> getFriends() throws SQLException {
@@ -62,6 +57,13 @@ public class MyBatisFriendDao implements FriendDao{
 		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
 		int count = friendDao.insert(friend);
 	
+		return count;
+	}
+
+	@Override
+	public int insert(String key) {
+		FriendDao friendDao = sqlSession.getMapper(FriendDao.class);
+		int count = friendDao.insert(key);
 		return count;
 	}
 

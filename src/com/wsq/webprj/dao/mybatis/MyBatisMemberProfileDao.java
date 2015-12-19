@@ -54,11 +54,11 @@ public class MyBatisMemberProfileDao implements MemberProfileDao{
 		return count;
 	}
 
+
 	@Override
-	public int insert(MemberProfile mProfile) throws SQLException  {
-		
+	public int insert(String mid) {
 		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
-		int count = dao.insert(mProfile);
+		int count = dao.insert(mid);
 		
 		return count;
 	}
