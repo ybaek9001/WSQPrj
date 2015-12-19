@@ -12,13 +12,15 @@
 						<th>PWD</th>
 						<th>EMAIL</th>
 						<th>REGDATE</th>
+						<th></th>
 					</tr>
-					<c:forEach var="n" items="${list}">
+					<c:forEach var="m" items="${list}">
 						<tr>
-							<td><a href="userDel?c=${n.mid}">${n.mid}</a></td>
-							<td>${n.pwd}</td>
-							<td>${n.email}</td>
-							<td><fmt:formatDate pattern="yyy-MM-dd" value="${n.regDate}" /></td>
+							<td>${m.mid}</td>
+							<td>${m.pwd}</td>
+							<td>${m.email}</td>
+							<td><fmt:formatDate pattern="yyy-MM-dd" value="${m.regDate}" /></td>
+							<td><a href="userDel?c=${n.mid}">Remove</a></td>
 						</tr>
 					</c:forEach>
 				</table>

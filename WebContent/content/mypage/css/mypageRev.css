@@ -45,7 +45,7 @@
 	font-size: 18px;
 }
 
-#mypage {
+#mypageRev {
 	margin-top: 30px;
 	min-width: 100px;
 	padding: 20px;
@@ -56,7 +56,7 @@
 }
 
 
-#mypage li {
+#mypageRev li {
 	color: #5c5c5c;
 	margin:20px 20px 20px 100px;
 	
@@ -70,18 +70,12 @@ textarea{
 	margin-top:5px;
 	padding: 15px;
 }
-	
 
-#mypage p {
+
+#mypageRev p {
 text-align:center;	
 }
-#button {
-	padding: 10px;
-	text-decoration: none;
-	color:white;
-	background:#20c05c;
-}
 
-#mypage .language {
+#mypageRev .language {
 	margin-top: 20px;
 }

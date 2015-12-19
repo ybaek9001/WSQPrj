@@ -7,8 +7,7 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema//security/spring-security.xsd">
 		
-		<beans:bean name="failHandler" class="com.wsq.webprj.handlers.WSQAuthFailHandler"/>
-		<beans:bean name="successHandler" class="com.wsq.webprj.handlers.WSQSuccessHandler"/>
+
 		
 		
 		
@@ -16,13 +15,11 @@
 			<form-login 
 				login-page="/joinus/login"
 				default-target-url="/home/index"
-				authentication-failure-url="/joinus/login?error=1"
-				authentication-failure-handler-ref="failHandler"
-				authentication-success-handler-ref="successHandler"
 				/>
 			
 			<logout logout-success-url="/home/index"/>
 			<intercept-url pattern="/findpartner/userlist" access="ROLE_ADMIN"/>
+			<intercept-url pattern="/mypage/mypage" access="ROLE_ADMIN"/>
 		</http>
 		
 		<authentication-manager>

@@ -43,14 +43,15 @@ public class JoinUsController {
 	public String join(Member m, HttpSession session) throws SQLException
 	{
 		Date regDate = new Date();
-		String key = m.getMid();
+		String id = m.getMid();
 		m.setRegDate(regDate);
 		memberDao.insert(m);
-		mprofileDao.insert(key);
-		friendDao.insert(key);
+		mprofileDao.insert(id);
+		friendDao.insert(id);
 		
 		
-		return "redirect:../findpartner/userlist"; 
+		
+		return "redirect:../home/index"; 
 	}
 	//---------------------------------------------------------------
 	

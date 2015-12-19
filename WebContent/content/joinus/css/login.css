@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+@import url(../../css/reset.css);
+@import url(../../css/subLayout.css);
+
+
+ #body{
+ min-height:600px;
+ font-size:18px;
+ }
+ 
+ #loginjoin{
+ margin-top:50px;
+ width:300px;
+ float:right; 
+ padding:20px;
+ text-align:center;
+ color:#525252;
+ font-weight:bold;
+ background:#e9e9e9;
+ opacity:0.8;
+ }
+ 
+ #loginjoin dt {
+ text-align:left;
+ padding-left:50px;
+ margin-top:10px;
+ }
+  #loginjoin dt,p{
+  margin-top:10px;
+  }

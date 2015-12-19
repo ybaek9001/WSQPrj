@@ -63,7 +63,7 @@ public class MyBatisMemberDao implements MemberDao{
 	}
 
 	@Override
-	public Member getMember(String mid) throws SQLException {
+	public Member getMember(String mid) {
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		Member member = dao.getMember(mid);

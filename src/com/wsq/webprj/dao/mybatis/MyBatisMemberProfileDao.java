@@ -18,13 +18,13 @@ public class MyBatisMemberProfileDao implements MemberProfileDao{
 	
 	@Override
 	public List<MemberProfile> getProfiles() throws SQLException {
-		return getProfiles(1, "MID", "");
+		return getProfiles(1, "MEMBER_MID", "");
 	}
 
 	@Override
 	public List<MemberProfile> getProfiles(int page) throws SQLException {
 		
-		return getProfiles(page, "MID", "");
+		return getProfiles(page, "MEMBER_MID", "");
 	}
 
 	@Override
@@ -46,21 +46,28 @@ public class MyBatisMemberProfileDao implements MemberProfileDao{
 	}
 
 	@Override
-	public int delete(String mid) throws SQLException {
+	public int delete(String member_mid) throws SQLException {
 		
 		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
-		int count = dao.delete(mid);
+		int count = dao.delete(member_mid);
 		
 		return count;
 	}
 
 
 	@Override
-	public int insert(String mid) {
+	public int insert(String member_mid) {
 		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
-		int count = dao.insert(mid);
+		int count = dao.insert(member_mid);
 		
 		return count;
+	}
+
+	@Override
+	public MemberProfile getProfile(String member_mid) {
+		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
+		MemberProfile mprofile = dao.getProfile(member_mid);
+		return mprofile;
 	}
 
 }

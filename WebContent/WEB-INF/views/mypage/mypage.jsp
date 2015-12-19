@@ -1,60 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main class="main">
 
-<h2>MyPage</h2>
-<div>
-	<form id="mypage" action="mypage" method="post">
-		<ul>
-			<!-- <li><label class="userID"> I D:</label> 
-			<input type="text" name="id" autofocus></li> -->
+<h2>${member.mid}님의 MyPage</h2>
+<div id="mypage">
+	
+		<ul>				
+			<li>Name: ${mProfile.name} </li>
+		
+			<li>Email Address: ${member.email}</li>
 			
-			<li><label class="userName">Name:</label> 
-			<input	type="text" name="name"></li>
+			<li>Age: ${mProfile.age} </li>
+				
+			<li>Gender: ${mProfile.gender} </li>
 			
-			<!-- <li><label class="userEMAIL">Email:</label> 
-			<input type="email" name="email"></li> -->
+			<li>Nationality Code: ${mProfile.nationality_country_code}</li>
 			
-			<!-- <li><label class="userPicture">Picture:</label> 
-			<input type="file" name="picture"></li> -->
+			<li>Habitat Code: ${mProfile.habitat_country_code}</li>
+
+			<li>RegDate: <fmt:formatDate pattern="yyyy-MM-dd" value="${member.regDate}" /></li>
 			
-			<li>Gender: <input type="radio" name="gender" value="male">Male,
-				<input type="radio" name="gender" value="female">Female
-			</li>
-
-		<!-- 	<li class="language">Speaking Language: <select name="s_language">
-					<option>Korean</option>
-					<option>English</option>
-					<option>Japanese</option>
-					<option>Chinese</option>
-			</select></li> -->
-
-			<!-- <li>Level: 
-			<input type="checkbox" name="levelMentor" value="Beginner">Beginner, 
-			<input type="checkbox" name="levelMentor" value="Intermediate">Intermediate, 
-			<input type="checkbox" name="levelMentor" value="Advanced">Advanced
-			</li>
-
-			<li class="language">Learning Language: <select>
-					<option>Korean</option>
-					<option>English</option>
-					<option>Japanese</option>
-					<option>Chinese</option>
-			</select></li>
-
-			<li>Level: <input type="checkbox" name="LL_LV" value="Beginner">Beginner, 
-			<input type="checkbox" name="levelMentee" value="Intermediate">Intermediate, 
-			<input type="checkbox" name="levelMentee" value="Advanced">Advanced
-			</li>
-
-			<br /> -->
-
-			<li>자기소개 <br /> <textarea name="comment" rows="5" cols="50">간단하게 입력하세요.</textarea></li>
+			<li id="cmt">Introduce Yourself</br><textarea name="comment" rows="5" cols="70">${mProfile.comment}</textarea></li>
+		
 		</ul>
 		<P>
-			<input type="submit" value="MyPage 등록">
+			<a id="button" href="mypageRev?c=${member.mid}">MyPage 수정</a>
 		</P>
-	</form>
+		
 </div>
 </main>

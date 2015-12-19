@@ -16,7 +16,7 @@
 					</dd>
 					<dt class="join-form-title">EMAIL</dt>
 					<dd class="join-form-data">
-						<input type="text" name="email" />
+						<input type="email" name="email" />
 					</dd>
 				</dl>
 				<P>

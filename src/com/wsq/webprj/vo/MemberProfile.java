@@ -3,13 +3,14 @@ package com.wsq.webprj.vo;
 public class MemberProfile {
 	private String member_mid;
 	private String name;
-	private int age;
+	private String age;
 	private String gender;
-	private int nationality_country_code;
-	private int habitat_country_code;
-	private String levelMentor;
-	private String levelMentee;
+	private String nationality_country_code;
+	private String habitat_country_code;
+/*	private String levelMentor;
+	private String levelMentee;*/
 	private String comment;
+
 	
 	
 	public String getMember_mid() {
@@ -24,10 +25,10 @@ public class MemberProfile {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	public String getGender() {
@@ -36,19 +37,19 @@ public class MemberProfile {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getNationality_country_code() {
+	public String getNationality_country_code() {
 		return nationality_country_code;
 	}
-	public void setNationality_country_code(int nationality_country_code) {
+	public void setNationality_country_code(String nationality_country_code) {
 		this.nationality_country_code = nationality_country_code;
 	}
-	public int getHabitat_country_code() {
+	public String getHabitat_country_code() {
 		return habitat_country_code;
 	}
-	public void setHabitat_country_code(int habitat_country_code) {
+	public void setHabitat_country_code(String habitat_country_code) {
 		this.habitat_country_code = habitat_country_code;
 	}
-	public String getLevelMentor() {
+/*	public String getLevelMentor() {
 		return levelMentor;
 	}
 	public void setLevelMentor(String levelMentor) {
@@ -59,13 +60,14 @@ public class MemberProfile {
 	}
 	public void setLevelMentee(String levelMentee) {
 		this.levelMentee = levelMentee;
-	}
+	}*/
 	public String getComment() {
 		return comment;
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
 	
 	
 }
