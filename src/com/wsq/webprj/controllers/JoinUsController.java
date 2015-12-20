@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wsq.webprj.dao.FriendDao;
+import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
 
@@ -29,9 +31,13 @@ public class JoinUsController {
 	private MemberDao memberDao;
 	@Autowired
 	private MemberProfileDao mprofileDao;
-	
 	@Autowired
 	private FriendDao friendDao;
+	@Autowired
+	private LearningLanguageDao lLanguageDao;
+	@Autowired
+	private NativeLanguageDao nLanguageDao;
+	
 	//--------------------------------------------------------------
 	@RequestMapping(value= "join",method=RequestMethod.GET)
 	public String join(){
@@ -46,9 +52,11 @@ public class JoinUsController {
 		String id = m.getMid();
 		m.setRegDate(regDate);
 		memberDao.insert(m);
+		
 		mprofileDao.insert(id);
 		friendDao.insert(id);
-		
+		lLanguageDao.insert(id, "1");
+		nLanguageDao.insert(id, "1");
 		
 		
 		return "redirect:../home/index"; 

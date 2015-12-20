@@ -12,8 +12,8 @@ public interface LearningLanguageDao {
 	public List<LearningLanguage> getL_Languages(int page, String filed, String query) throws SQLException;
 	
 	public int update(LearningLanguage l_language) throws SQLException;
-	public int delete(String mid) throws SQLException;
-	public int insert(LearningLanguage l_language) throws SQLException;
+	public int delete(String profile_mid) throws SQLException;
+	public int insert(String profile_mid, String learning_num);
 	
 		
 	

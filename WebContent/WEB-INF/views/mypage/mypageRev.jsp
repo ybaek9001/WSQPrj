@@ -22,17 +22,13 @@
 				
 			<li>Gender: <input type="radio" name="gender" value="male">Male,
 				<input type="radio" name="gender" value="female">Female</li>
-			
-			<li>Nationality Code: <input type="text" name="nationality_country_code"></li>
-			
-			<li>Habitat Code: <input type="text" name="habitat_country_code"></li>
-			
-		<!-- 	<li class="language">Speaking Language: <select name="s_language">
-					<option>Korean</option>
-					<option>English</option>
-					<option>Japanese</option>
-					<option>Chinese</option>
-			</select></li> -->
+						
+			<li>Nationality: <select name="nationality_country_code">
+					<option value="1">Korean</option>
+					<option value="2">English</option>
+					<option value="3">Japanese</option>
+					<option value="4">Chinese</option>
+			</select></li>
 
 			<!-- <li>Level: 
 			<input type="checkbox" name="levelMentor" value="Beginner">Beginner, 

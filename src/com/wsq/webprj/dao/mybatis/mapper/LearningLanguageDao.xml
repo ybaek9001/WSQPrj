@@ -11,16 +11,17 @@
 	</select>
 
 	<update id="update">
-		UPDATE LEARNINGLANGUAGE SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+		UPDATE LEARNINGLANGUAGE SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE PROFILE_MID= #{profile_mid}
 	</update>
 	
 	<delete id="delete">
-		DELETE LEARNINGLANGUAGE WHERE MID= #{mid}
+		DELETE LEARNINGLANGUAGE WHERE PROFILE_MID= #{profile_mid}
 	</delete>
 
 	<insert id="insert">
-		INSERT INTO LEARNINGLANGUAGE(MID, PWD, NAME) VALUES(#{mid}, #{pwd}, #{name})
+		INSERT INTO LEARNINGLANGUAGE(PROFILE_MID, LEARNING_NUM ) VALUES(#{param1},#{param2})
 	</insert>
+
 
 </mapper>
 

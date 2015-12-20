@@ -16,11 +16,11 @@
 					</tr>
 					<c:forEach var="m" items="${list}">
 						<tr>
-							<td>${m.mid}</td>
+							<td><a href="../mypage/mypage?id=${m.mid}">${m.mid}</a></td>
 							<td>${m.pwd}</td>
 							<td>${m.email}</td>
-							<td><fmt:formatDate pattern="yyy-MM-dd" value="${m.regDate}" /></td>
-							<td><a href="userDel?c=${n.mid}">Remove</a></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${m.regDate}" /></td>
+							<td><a href="userDel?id=${m.mid}">Remove</a></td>
 						</tr>
 					</c:forEach>
 				</table>

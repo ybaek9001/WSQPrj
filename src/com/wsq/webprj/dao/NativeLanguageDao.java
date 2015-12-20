@@ -12,8 +12,8 @@ public interface NativeLanguageDao {
 	public List<NativeLanguage> getN_Language(int page, String filed, String query) throws SQLException;
 	
 	public int update(NativeLanguage n_language) throws SQLException;
-	public int delete(String mid) throws SQLException;
-	public int insert(NativeLanguage n_language) throws SQLException;
+	public int delete(String profile_mid) throws SQLException;
+	public int insert(String profile_mid, String native_num);
 	
 		
 	

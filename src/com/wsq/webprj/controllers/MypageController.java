@@ -30,22 +30,18 @@ public class MypageController {
 	private MemberProfileDao profileDao;
 	
 	@RequestMapping(value="mypage", method=RequestMethod.GET) 
-	public String myPage(Model model, Authentication auth)
+	public String myPage(Model model, String id)
 	{
-		String id = auth.getName();
-		
-		Member m = memberDao.getMember(id);
-		MemberProfile mp = profileDao.getProfile(id);
-		
+		MemberProfile mp = profileDao.getProfile(id);	
 		model.addAttribute("mProfile", mp);
-		model.addAttribute("member", m);
+
 		return "mypage/mypage";
 	}
 	
 	@RequestMapping(value="mypageRev", method=RequestMethod.GET) 
-	public String ReviseMyPage(Model model, String c)
+	public String ReviseMyPage(Model model, String id)
 	{			
-		Member m = memberDao.getMember(c);
+		Member m = memberDao.getMember(id);
 		model.addAttribute("member", m);
 		return "mypage/mypageRev"; 
 	}
@@ -53,10 +49,6 @@ public class MypageController {
 	@RequestMapping(value="mypageRev", method=RequestMethod.POST) 
 	public String ReviseMyPage(MemberProfile mProfile, Authentication auth) throws SQLException
 	{	
-		System.out.println(mProfile.getName());
-		System.out.println(mProfile.getGender());
-		System.out.println(mProfile.getAge());
-		
 		mProfile.setMember_mid(auth.getName());
 		profileDao.update(mProfile);
 		

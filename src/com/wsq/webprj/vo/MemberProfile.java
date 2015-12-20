@@ -1,5 +1,7 @@
 package com.wsq.webprj.vo;
 
+import java.util.Date;
+
 public class MemberProfile {
 	private String member_mid;
 	private String name;
@@ -10,9 +12,30 @@ public class MemberProfile {
 /*	private String levelMentor;
 	private String levelMentee;*/
 	private String comment;
+	private String email;
+	private String country;
+	private Date regDate;
 
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 	public String getMember_mid() {
 		return member_mid;
 	}

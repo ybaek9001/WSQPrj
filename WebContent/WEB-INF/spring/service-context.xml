@@ -33,5 +33,7 @@
 	<bean name="dao" class="com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao" />
 	<bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao" />
 	<bean name="friendDao" class="com.wsq.webprj.dao.mybatis.MyBatisFriendDao" />
+	<bean name="lLanguageDao" class="com.wsq.webprj.dao.mybatis.MyBatisLearningLanguageDao" />
+	<bean name="nLanguageDao" class="com.wsq.webprj.dao.mybatis.MyBatisNativeLanguageDao" />
 	
 </beans>

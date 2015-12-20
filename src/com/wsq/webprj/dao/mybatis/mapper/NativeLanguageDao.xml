@@ -11,15 +11,15 @@
 	</select>
 
 	<update id="update">
-		UPDATE NATIVELANGUAGE SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+		UPDATE NATIVELANGUAGE SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE PROFILE_MID= #{profile_mid}
 	</update>
 	
 	<delete id="delete">
-		DELETE NATIVELANGUAGE WHERE MID= #{mid}
+		DELETE NATIVELANGUAGE WHERE PROFILE_MID= #{profile_mid}
 	</delete>
 
 	<insert id="insert">
-		INSERT INTO NATIVELANGUAGE(MID, PWD, NAME) VALUES(#{mid}, #{pwd}, #{name})
+		INSERT INTO NATIVELANGUAGE(PROFILE_MID, NATIVE_NUM) VALUES(#{param1},#{param2})
 	</insert>
 
 </mapper>

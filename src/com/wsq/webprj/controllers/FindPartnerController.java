@@ -40,9 +40,9 @@ public class FindPartnerController {
 	}
 
 	@RequestMapping("userDel")
-	public String userDel(String c)
+	public String userDel(String id)
 	{
-		memberDao.delete(c);
+		memberDao.delete(id);
 		
 		return "redirect:userlist?pg=1";
 	}
