@@ -62,4 +62,11 @@ public class MyBatisNativeLanguageDao implements NativeLanguageDao{
 		return count;
 	}
 
+	@Override
+	public List<NativeLanguage> getNlanguagelist(String id) {
+		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
+		List<NativeLanguage> nList = dao.getNlanguagelist(id);
+		return nList;
+	}
+
 }

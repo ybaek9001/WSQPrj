@@ -50,7 +50,7 @@
 
 			<br /> -->
 
-			<li id="cmt">Introduce Yourself <br /> <textarea name="comment" rows="5" cols="50">간단하게 입력하세요.</textarea></li>
+			<li id="cmt">Introduce Yourself <br /> <textarea placeholer="간단하게 입력하세요" name="comment" rows="5" cols="50"></textarea></li>
 		</ul>
 		<P>
 			<input type="submit" value="MyPage 등록">

@@ -60,4 +60,11 @@ public class MyBatisLearningLanguageDao implements LearningLanguageDao{
 		return count;
 	}
 
+	@Override
+	public List<LearningLanguage> getLlanguagelist(String id) {
+		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
+		List<LearningLanguage> lList = dao.getLlanguagelist(id);
+		return lList;
+	}
+
 }

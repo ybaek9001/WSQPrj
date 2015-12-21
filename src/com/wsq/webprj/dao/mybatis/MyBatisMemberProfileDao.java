@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.MemberProfile;
+import com.wsq.webprj.vo.NativeLanguage;
 
 public class MyBatisMemberProfileDao implements MemberProfileDao{
 	
@@ -37,7 +39,7 @@ public class MyBatisMemberProfileDao implements MemberProfileDao{
 	}
 
 	@Override
-	public int update(MemberProfile mProfile) throws SQLException {
+	public int update(MemberProfile mProfile){
 		
 		MemberProfileDao dao = sqlSession.getMapper(MemberProfileDao.class);
 		int count = dao.update(mProfile);

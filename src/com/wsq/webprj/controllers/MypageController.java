@@ -1,9 +1,6 @@
 package com.wsq.webprj.controllers;
 
-import java.sql.SQLException;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -12,10 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.NativeLanguageDao;
+import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
+import com.wsq.webprj.vo.NativeLanguage;
 
 
 //POJO Å¬·¡½º
@@ -29,9 +30,25 @@ public class MypageController {
 	@Autowired
 	private MemberProfileDao profileDao;
 	
+	@Autowired
+	private LearningLanguageDao lLanguageDao;
+	
+	@Autowired
+	private NativeLanguageDao nLanguageDao;
+	
+	
 	@RequestMapping(value="mypage", method=RequestMethod.GET) 
-	public String myPage(Model model, String id)
+	public String myPage(Model model, String id, Authentication auth)
 	{
+		if(id==null)
+			id=auth.getName();
+		
+		List<LearningLanguage> llist = lLanguageDao.getLlanguagelist(id);
+		model.addAttribute("lList", llist);
+		
+		List<NativeLanguage> nlist = nLanguageDao.getNlanguagelist(id);
+		model.addAttribute("lList", nlist);
+		
 		MemberProfile mp = profileDao.getProfile(id);	
 		model.addAttribute("mProfile", mp);
 
@@ -47,12 +64,13 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="mypageRev", method=RequestMethod.POST) 
-	public String ReviseMyPage(MemberProfile mProfile, Authentication auth) throws SQLException
+	public String ReviseMyPage(MemberProfile mp, Authentication auth) 
 	{	
-		mProfile.setMember_mid(auth.getName());
-		profileDao.update(mProfile);
+		String id = auth.getName();
+		mp.setMember_mid(id);
+		profileDao.update(mp);
 		
-		return "redirect:mypage"; 
+		return "redirect:mypage";
 	}
 }
 

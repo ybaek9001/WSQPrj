@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <main class="main">
@@ -17,10 +18,23 @@
 			<li>Gender: ${mProfile.gender} </li>
 			
 			<li>Nationality: ${mProfile.country}</li>
+			
+			<li>Nationality: ${mProfile.country}</li>
 
 			<li>RegDate: <fmt:formatDate pattern="yyyy-MM-dd" value="${mProfile.regDate}" /></li>
 			
 			<li id="cmt">Introduce Yourself</br><textarea name="comment" rows="5" cols="70">${mProfile.comment}</textarea></li>
+			<table>
+					<tr>
+						<th>Native Language</th>
+					</tr>
+			<%-- <c:forEach var="m" items="${list}"> --%>
+						<tr>
+							<td>dsadsad</td>
+						</tr>
+			<%-- </c:forEach> --%>
+			</table>
+		
 		
 		</ul>
 		<P>

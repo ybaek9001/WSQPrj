@@ -1,15 +1,12 @@
 package com.wsq.webprj.controllers;
 
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +16,6 @@ import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.Member;
-import com.wsq.webprj.vo.MemberProfile;
 
 
 //POJO Å¬·¡½º
@@ -51,6 +47,7 @@ public class JoinUsController {
 		Date regDate = new Date();
 		String id = m.getMid();
 		m.setRegDate(regDate);
+		
 		memberDao.insert(m);
 		
 		mprofileDao.insert(id);
