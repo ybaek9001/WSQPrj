@@ -2,20 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wsq.webprj.dao.FriendDao">
+<mapper namespace="com.wsq.webprj.dao.MyPartnerDao">
 
-	<select id="getFriends" resultType="com.wsq.webprj.vo.Friend">
+
+	<select id="getFriends" resultType="com.wsq.webprj.vo.MyPartner">
 		SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
-		FRIENDS.*FROM FRIENDS WHERE ${param2} LIKE '%${param3}%') A
+		MYPARTNERS.*FROM FRIENDS WHERE ${param2} LIKE '%${param3}%') A
 		WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
 	</select>
 
 	<update id="update">
-		UPDATE FRIENDS SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+		UPDATE MYPARTNERS SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
 	</update>
 	
 	<delete id="delete">
-		DELETE FRIENDS WHERE MID= #{mid}
+		DELETE MYPARTNERS WHERE MID= #{mid}
 	</delete>
 
 	<!-- <insert id="insert">
@@ -23,7 +24,7 @@
 	</insert> -->
 	
 	<insert id="insert" parameterType="String">
-		INSERT INTO FRIENDS(MEMBERS_MID) VALUES(#{mid})
+		INSERT INTO MYPARTNERS(MEMBERS_MID) VALUES(#{mid})
 	</insert>
 
 </mapper>

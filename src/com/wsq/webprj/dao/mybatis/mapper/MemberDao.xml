@@ -6,6 +6,11 @@
 	<select id="getMember" resultType="com.wsq.webprj.vo.Member">
 		SELECT * FROM MEMBERS WHERE MID = #{mid}
 	</select>
+	
+	<select id="getAllMembers" resultType="com.wsq.webprj.vo.Member">
+		SELECT * FROM MEMBERS
+	</select>
+	
 	<select id="getMembers" resultType="com.wsq.webprj.vo.Member">
 		SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
 		MEMBERS.*FROM MEMBERS WHERE ${param2} LIKE '%${param3}%') A

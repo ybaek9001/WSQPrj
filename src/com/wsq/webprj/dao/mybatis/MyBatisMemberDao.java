@@ -16,18 +16,18 @@ public class MyBatisMemberDao implements MemberDao{
 	SqlSession sqlSession;
 	
 	@Override
-	public List<Member> getMembers() throws SQLException {
+	public List<Member> getMembers(){
 		return getMembers(1, "MID", "");
 	}
 
 	@Override
-	public List<Member> getMembers(int page) throws SQLException {
+	public List<Member> getMembers(int page) {
 		
 		return getMembers(page, "MID", "");
 	}
 
 	@Override
-	public List<Member> getMembers(int page, String field, String query) throws SQLException {
+	public List<Member> getMembers(int page, String field, String query)  {
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		List<Member>list = dao.getMembers(page,field,query);
@@ -36,7 +36,7 @@ public class MyBatisMemberDao implements MemberDao{
 	}
 
 	@Override
-	public int update(Member member) throws SQLException {
+	public int update(Member member)  {
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		int count = dao.update(member);
@@ -54,7 +54,7 @@ public class MyBatisMemberDao implements MemberDao{
 	}
 
 	@Override
-	public int insert(Member member) throws SQLException  {
+	public int insert(Member member)  {
 		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		int count = dao.insert(member);
@@ -69,6 +69,13 @@ public class MyBatisMemberDao implements MemberDao{
 		Member member = dao.getMember(mid);
 		
 		return member;
+	}
+
+	@Override
+	public List<Member> getAllMembers() {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		List<Member>list = dao.getAllMembers();
+		return list;
 	}
 
 }

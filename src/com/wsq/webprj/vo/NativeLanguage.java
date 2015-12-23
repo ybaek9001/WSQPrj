@@ -1,35 +1,43 @@
 package com.wsq.webprj.vo;
 
 public class NativeLanguage {
-	private String profile_mid;
+	private String mid;
 	private String native_num;
-	private String language_code;
-	private String mentorlevel;
+	private String n_language_code;
+	private String mentor_level;
+	private String native_language;
 	
 	
-	public String getProfile_mid() {
-		return profile_mid;
-	}
-	public void setProfile_mid(String profile_mid) {
-		this.profile_mid = profile_mid;
-	}
 	public String getNative_num() {
 		return native_num;
 	}
 	public void setNative_num(String native_num) {
 		this.native_num = native_num;
 	}
-	public String getLanguage_code() {
-		return language_code;
+	
+	public String getN_language_code() {
+		return n_language_code;
 	}
-	public void setLanguage_code(String language_code) {
-		this.language_code = language_code;
+	public void setN_language_code(String n_language_code) {
+		this.n_language_code = n_language_code;
 	}
-	public String getMentorlevel() {
-		return mentorlevel;
+	public String getMentor_level() {
+		return mentor_level;
 	}
-	public void setMentorlevel(String mentorlevel) {
-		this.mentorlevel = mentorlevel;
+	public void setMentor_level(String mentor_level) {
+		this.mentor_level = mentor_level;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getNative_language() {
+		return native_language;
+	}
+	public void setNative_language(String native_language) {
+		this.native_language = native_language;
 	}
 	
 	

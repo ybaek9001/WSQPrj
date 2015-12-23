@@ -1,19 +1,18 @@
 package com.wsq.webprj.controllers;
 
-import java.sql.SQLException;
 import java.util.Date;
-
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wsq.webprj.dao.FriendDao;
 import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.MyPartnerDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.Member;
 
@@ -28,7 +27,7 @@ public class JoinUsController {
 	@Autowired
 	private MemberProfileDao mprofileDao;
 	@Autowired
-	private FriendDao friendDao;
+	private MyPartnerDao myPartnerDao;
 	@Autowired
 	private LearningLanguageDao lLanguageDao;
 	@Autowired
@@ -36,14 +35,33 @@ public class JoinUsController {
 	
 	//--------------------------------------------------------------
 	@RequestMapping(value= "join",method=RequestMethod.GET)
-	public String join(){
-		
+	public String join(Model model, String c){
+		String errorID = "이미 사용중인 아이디 입니다";
+		String errorPW = "비밀번호가 일치하지 않습니다";
+		if(c!=null)
+		{
+			model.addAttribute("c", "error");
+			if(c.equals("errID"))
+				model.addAttribute("errorID", errorID);
+			else if(c.equals("errPW"))
+				model.addAttribute("errorPW", errorPW);
+		}
 		return "joinus/join";
 	}
 	
 	@RequestMapping(value= "join",method=RequestMethod.POST)
-	public String join(Member m, HttpSession session) throws SQLException
+	public String join(Member m,String confirm_pwd)
 	{
+		List<Member> list = memberDao.getAllMembers();
+		for(Member member : list)
+		{
+			if(m.getMid().equals(member.getMid()))
+				return "redirect:join?c=errID";
+		}
+		if(!m.getPwd().equals(confirm_pwd))
+			return "redirect:join?c=errPW";
+		
+		
 		Date regDate = new Date();
 		String id = m.getMid();
 		m.setRegDate(regDate);
@@ -51,9 +69,9 @@ public class JoinUsController {
 		memberDao.insert(m);
 		
 		mprofileDao.insert(id);
-		friendDao.insert(id);
-		lLanguageDao.insert(id, "1");
-		nLanguageDao.insert(id, "1");
+		myPartnerDao.insert(id);
+		lLanguageDao.insertID(id, "1");
+		nLanguageDao.insertID(id, "1");
 		
 		
 		return "redirect:../home/index"; 

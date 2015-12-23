@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wsq.webprj.dao.LearningLanguageDao">
 	<select id="getLlanguagelist" resultType="com.wsq.webprj.vo.LearningLanguage">
-	
+	SELECT * FROM LLANGUAGEVIEW WHERE MEMBER_MID = #{profile_mid}	
 	
 	</select>
 	
@@ -16,15 +16,22 @@
 	</select>
 
 	<update id="update">
-		UPDATE LEARNINGLANGUAGE SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE PROFILE_MID= #{profile_mid}
+		UPDATE LEARNINGLANGUAGE SET L_LANGUAGE_CODE = #{l_language_code},  MENTEE_LEVEL = #{mentee_level} WHERE MID= #{mid}
 	</update>
 	
 	<delete id="delete">
-		DELETE LEARNINGLANGUAGE WHERE PROFILE_MID= #{profile_mid}
+		DELETE LEARNINGLANGUAGE WHERE MID= #{profile_mid}
 	</delete>
 
-	<insert id="insert">
-		INSERT INTO LEARNINGLANGUAGE(PROFILE_MID, LEARNING_NUM ) VALUES(#{param1},#{param2})
+	<insert id="insertID">
+		INSERT INTO LEARNINGLANGUAGE(MID, LEARNING_NUM ) VALUES(#{param1},#{param2})
+	</insert>
+	
+	<insert id="insert" parameterType="com.wsq.webprj.vo.LearningLanguage">
+		<selectKey keyProperty="learning_num" order="BEFORE" resultType="String">
+			SELECT MAX(CAST(learning_num AS INT)) LEARNING_NUM FROM LearningLanguage
+		</selectKey>
+		INSERT INTO LEARNINGLANGUAGE(MID, LEARNING_NUM, L_LANGUAGE_CODE, MENTEE_LEVEL) VALUES(#{mid},#{learning_num}+1,#{l_language_code},#{mentee_level})
 	</insert>
 
 

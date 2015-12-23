@@ -36,7 +36,7 @@ public class MyBatisLearningLanguageDao implements LearningLanguageDao{
 	}
 
 	@Override
-	public int update(LearningLanguage l_language) throws SQLException {
+	public int update(LearningLanguage l_language){
 		
 		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
 		int count = dao.update(l_language);
@@ -54,9 +54,9 @@ public class MyBatisLearningLanguageDao implements LearningLanguageDao{
 	}
 
 	@Override
-	public int insert(String profile_mid, String learning_num) {
+	public int insertID(String profile_mid, String learning_num) {
 		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
-		int count = dao.insert(profile_mid, learning_num);
+		int count = dao.insertID(profile_mid, learning_num);
 		return count;
 	}
 
@@ -65,6 +65,13 @@ public class MyBatisLearningLanguageDao implements LearningLanguageDao{
 		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
 		List<LearningLanguage> lList = dao.getLlanguagelist(id);
 		return lList;
+	}
+
+	@Override
+	public int insert(LearningLanguage l_language) {
+		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
+		int count = dao.insert(l_language);
+		return count;
 	}
 
 }

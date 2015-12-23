@@ -1,35 +1,49 @@
 package com.wsq.webprj.vo;
 
 public class LearningLanguage {
-	private String profile_mid;
-	private String language_num;
-	private String language_code;
-	private String menteeLevel;
+	private String mid;
+	private String learning_num;
+	private String l_language_code;
+	private String mentee_level;
+	private String learning_language;
 	
-	
-	public String getProfile_mid() {
-		return profile_mid;
-	}
-	public void setProfile_mid(String profile_mid) {
-		this.profile_mid = profile_mid;
-	}
 	public String getLanguage_num() {
-		return language_num;
+		return learning_num;
 	}
-	public void setLanguage_num(String language_num) {
-		this.language_num = language_num;
+	public void setLanguage_num(String learning_num) {
+		this.learning_num = learning_num;
 	}
-	public String getLanguage_code() {
-		return language_code;
+
+	public String getLearning_num() {
+		return learning_num;
 	}
-	public void setLanguage_code(String language_code) {
-		this.language_code = language_code;
+	public void setLearning_num(String learning_num) {
+		this.learning_num = learning_num;
 	}
-	public String getMenteeLevel() {
-		return menteeLevel;
+	public String getL_language_code() {
+		return l_language_code;
 	}
-	public void setMenteeLevel(String menteeLevel) {
-		this.menteeLevel = menteeLevel;
+	public void setL_language_code(String l_language_code) {
+		this.l_language_code = l_language_code;
+	}
+	
+	public String getMentee_level() {
+		return mentee_level;
+	}
+	public void setMentee_level(String mentee_level) {
+		this.mentee_level = mentee_level;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getLearning_language() {
+		return learning_language;
+	}
+	public void setLearning_language(String learning_language) {
+		this.learning_language = learning_language;
 	}
 	
 	

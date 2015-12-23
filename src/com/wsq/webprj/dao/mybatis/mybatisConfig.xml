@@ -21,7 +21,7 @@
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/ConversationDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/CountryDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/DebateSquareDao.xml"/>
-    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/FriendDao.xml"/>
+    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MyPartnerDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/LanguageDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/LearningLanguageDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MasterDao.xml"/>

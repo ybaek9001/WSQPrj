@@ -28,11 +28,11 @@
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 
-
+	<bean name="commentDao" class="com.wsq.webprj.dao.mybatis.MyBatisCommentDao" />
 	<bean name="profileDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberProfileDao" />
 	<bean name="dao" class="com.wsq.webprj.dao.mybatis.MyBatisDebateSquareDao" />
 	<bean name="memberDao" class="com.wsq.webprj.dao.mybatis.MyBatisMemberDao" />
-	<bean name="friendDao" class="com.wsq.webprj.dao.mybatis.MyBatisFriendDao" />
+	<bean name="myPartnerDao" class="com.wsq.webprj.dao.mybatis.MyBatisMyPartnerDao" />
 	<bean name="lLanguageDao" class="com.wsq.webprj.dao.mybatis.MyBatisLearningLanguageDao" />
 	<bean name="nLanguageDao" class="com.wsq.webprj.dao.mybatis.MyBatisNativeLanguageDao" />
 	

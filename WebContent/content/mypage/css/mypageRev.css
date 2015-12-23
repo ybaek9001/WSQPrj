@@ -79,3 +79,10 @@ text-align:center;
 #mypageRev .language {
 	margin-top: 20px;
 }
+
+p input {
+	background:#20c05c;
+	color:white;
+	padding: 10px;
+	border:0px solid white;
+}
