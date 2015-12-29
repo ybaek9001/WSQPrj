@@ -18,13 +18,8 @@
 <h1 class="hidden">메인메뉴</h1>
 <ul>
 	<security:authentication property="name" var="userid"/>
-	<li>MyPage
-		<ul>
-			<li><a href="/WSQPrj/mypage/mypage?id=${userid}">Show MyPage</a></li>
-			<li>Revise MyPage</li>
-		</ul>
-	</li>
-	<li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a>
+	<li><a href="/WSQPrj/mypage/mypage?id=${userid}">MyPage</a></li>
+	<li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a></li>
 	<li><a href="/WSQPrj/wsqdebate/debate">WSQ Debate</a></li>
 	<li><a href="">Notice</a></li>
 	<li><a href="">Customer Center</a></li>
