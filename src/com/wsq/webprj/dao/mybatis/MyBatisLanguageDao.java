@@ -54,10 +54,10 @@ public class MyBatisLanguageDao implements LanguageDao{
 	}
 
 	@Override
-	public int insert(Language language) throws SQLException  {
+	public int insert(Language language, int i){
 		SqlSession session = ssf.openSession();
 		LanguageDao dao = session.getMapper(LanguageDao.class);
-		int count = dao.insert(language);
+		int count = dao.insert(language, i);
 		session.commit();
 		session.close();
 		return count;

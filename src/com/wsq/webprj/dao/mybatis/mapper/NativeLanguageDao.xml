@@ -14,7 +14,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE NATIVELANGUAGE SET N_LANGUAGE_CODE = #{n_language_code}, MENTOR_LEVEL = #{mentor_level} WHERE MID= #{mid}
+		UPDATE NATIVELANGUAGE SET N_LANGUAGE_CODE = #{n_language_code}, MENTOR_LEVEL = #{mentor_level} WHERE MID= #{mid} and Native_Num=#{native_num}
 	</update>
 	
 	<delete id="delete">

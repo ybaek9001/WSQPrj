@@ -13,9 +13,10 @@ public interface NativeLanguageDao {
 	
 	public int update(NativeLanguage n_language);
 	public int delete(String profile_mid) throws SQLException;
-	public int insertID(String profile_mid, String native_num);
+	public int insertID(String profile_mid, int i);
 	
 	public int insert(NativeLanguage n_language);
+	
 	
 		
 	

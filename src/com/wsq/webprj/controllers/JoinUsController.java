@@ -38,6 +38,7 @@ public class JoinUsController {
 	public String join(Model model, String c){
 		String errorID = "이미 사용중인 아이디 입니다";
 		String errorPW = "비밀번호가 일치하지 않습니다";
+		System.out.println(c);
 		if(c!=null)
 		{
 			model.addAttribute("c", "error");
@@ -70,9 +71,12 @@ public class JoinUsController {
 		
 		mprofileDao.insert(id);
 		myPartnerDao.insert(id);
-		lLanguageDao.insertID(id, "1");
-		nLanguageDao.insertID(id, "1");
 		
+		for(int i=1; i<4; i++)
+		{
+			nLanguageDao.insertID(id, i);
+			lLanguageDao.insertID(id, i);
+		}
 		
 		return "redirect:../home/index"; 
 	}

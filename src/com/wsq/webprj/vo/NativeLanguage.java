@@ -39,6 +39,12 @@ public class NativeLanguage {
 	public void setNative_language(String native_language) {
 		this.native_language = native_language;
 	}
+	public void setNative_num(int i) {
+		String nn = Integer.toString(i);
+		this.native_num = nn;
+		
+	}
+	
 	
 	
 }

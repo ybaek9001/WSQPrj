@@ -45,6 +45,10 @@ public class LearningLanguage {
 	public void setLearning_language(String learning_language) {
 		this.learning_language = learning_language;
 	}
+	public void setLearning_num(int i) {	
+		String ln = Integer.toString(i);
+		this.learning_num = ln;
+	}
 	
 	
 }

@@ -13,9 +13,6 @@ public interface LanguageDao {
 	
 	public int update(Language language) throws SQLException;
 	public int delete(String mid) throws SQLException;
-	public int insert(Language language) throws SQLException;
-	
-		
-	
+	public int insert(Language language, int i);
 	
 }

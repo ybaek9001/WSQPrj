@@ -55,9 +55,9 @@ public class MyBatisNativeLanguageDao implements NativeLanguageDao{
 
 
 	@Override
-	public int insertID(String profile_mid, String learning_num) {
+	public int insertID(String profile_mid, int i) {
 		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
-		int count = dao.insertID(profile_mid, learning_num);
+		int count = dao.insertID(profile_mid, i);
 		
 		return count;
 	}

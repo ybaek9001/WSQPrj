@@ -16,7 +16,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE LEARNINGLANGUAGE SET L_LANGUAGE_CODE = #{l_language_code},  MENTEE_LEVEL = #{mentee_level} WHERE MID= #{mid}
+		UPDATE LEARNINGLANGUAGE SET L_LANGUAGE_CODE = #{l_language_code},  MENTEE_LEVEL = #{mentee_level} WHERE MID= #{mid} and Learning_Num=#{learning_num}
 	</update>
 	
 	<delete id="delete">
@@ -24,12 +24,12 @@
 	</delete>
 
 	<insert id="insertID">
-		INSERT INTO LEARNINGLANGUAGE(MID, LEARNING_NUM ) VALUES(#{param1},#{param2})
+		INSERT INTO LEARNINGLANGUAGE(MID, Learning_Num) VALUES(#{param1},#{param2})
 	</insert>
 	
 	<insert id="insert" parameterType="com.wsq.webprj.vo.LearningLanguage">
 		<selectKey keyProperty="learning_num" order="BEFORE" resultType="String">
-			SELECT MAX(CAST(learning_num AS INT)) LEARNING_NUM FROM LearningLanguage
+			SELECT MAX(CAST(learning_num AS INT)) LEARNING_NUM FROM LearningLanguage WHERE MID= #{mid}
 		</selectKey>
 		INSERT INTO LEARNINGLANGUAGE(MID, LEARNING_NUM, L_LANGUAGE_CODE, MENTEE_LEVEL) VALUES(#{mid},#{learning_num}+1,#{l_language_code},#{mentee_level})
 	</insert>

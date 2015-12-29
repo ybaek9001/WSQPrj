@@ -27,6 +27,7 @@
 			
 						
 			<li>Nationality: <select name="nationality_country_code">
+					<option value="#">Choose</option>
 					<option value="1">Korea</option>
 					<option value="2">America</option>
 					<option value="3">Japanese</option>
@@ -35,6 +36,7 @@
 			
 			<c:forEach var="i" begin="1" end="3">
 			<li>Native Language${i}: <select name="n_language_code${i}">
+					<option value="#">Choose</option>
 					<option value="1">Korean</option>
 					<option value="2">Japanese</option>
 					<option value="3">English</option>
@@ -42,6 +44,7 @@
 			</select></li>
 			
 			<li>Mentor level: <select name="mentor_level${i}">
+					<option value="-">Choose</option>
 					<option value="Beginner">Beginner</option>
 					<option value="Intermediate">Intermediate</option>
 					<option value="Advanced">Advanced</option>
@@ -52,6 +55,7 @@
 			<c:forEach var="i" begin="1" end="3">
 			<li>Learning Language ${i}: 
 			<select name="l_language_code${i}">
+					<option value="#">Choose</option>
 					<option value="1">Korean</option>
 					<option value="2">Japanese</option>
 					<option value="3">English</option>
@@ -61,6 +65,7 @@
 			
 			<li>Mentee level: 
 			<select name="mentee_level${i}">
+					<option value="-">Choose</option>
 					<option value="Beginner">Beginner</option>
 					<option value="Intermediate">Intermediate</option>
 					<option value="Advanced">Advanced</option>

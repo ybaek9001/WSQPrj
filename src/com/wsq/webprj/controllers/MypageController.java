@@ -76,12 +76,6 @@ public class MypageController {
 		mp.setMember_mid(id);
 		profileDao.update(mp);
 		
-	
-		System.out.println(lc.getL_language_code1());
-		System.out.println(lc.getL_language_code2());
-		System.out.println(lc.getL_language_code3());
-		
-		
 		
 		String[] nl_code = lc.getNL_Code_List();
 		String[] mentor_lv = lc.getMentor_LV_List();
@@ -89,23 +83,23 @@ public class MypageController {
 		String[] ll_code = lc.getLL_Code_List();
 		String[] mentee_lv = lc.getMentee_LV_List();
 		
-		System.out.printf("code0 : %s, code1 : %s, code2 : %s",
-				ll_code[0], ll_code[1], ll_code[2]);
 		
-		/*for(int i=0; i<nl_code.length ; i++)
+		for(int i=0; i<nl_code.length ; i++)
 		{
 		n_language.setMid(id);
 		n_language.setN_language_code(nl_code[i]);
 		n_language.setMentor_level(mentor_lv[i]);
-		nLanguageDao.insert(n_language);
-		}*/
+		n_language.setNative_num(i+1);
+		nLanguageDao.update(n_language);
+		}
 		
 		for(int i=0; i<ll_code.length ; i++)
 		{
 		l_language.setMid(id);
 		l_language.setL_language_code(ll_code[i]);
 		l_language.setMentee_level(mentee_lv[i]);
-		lLanguageDao.insert(l_language);
+		l_language.setLearning_num(i+1);
+		lLanguageDao.update(l_language);
 		}
 		
 		return "redirect:mypage";
