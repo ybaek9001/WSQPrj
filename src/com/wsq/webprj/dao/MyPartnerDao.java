@@ -13,8 +13,13 @@ public interface MyPartnerDao {
 	
 	public int update(MyPartner friend) throws SQLException;
 	public int delete(String mid);
-	public int insert(MyPartner friend) throws SQLException;
-	public int insert(String key);
+	/*public int insert(MyPartner friend) throws SQLException;
+	public int insert(String key);*/
+	
+	public int insert(MyPartner myPartner);
+	public List<MyPartner> getWaitingList(String members_mid, String request);
+	
+	
 	
 		
 	

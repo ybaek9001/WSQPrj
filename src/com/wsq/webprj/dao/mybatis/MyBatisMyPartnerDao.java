@@ -51,7 +51,7 @@ public class MyBatisMyPartnerDao implements MyPartnerDao{
 		return count;
 	}
 
-	@Override
+/*	@Override
 	public int insert(MyPartner friend) throws SQLException  {
 	
 		MyPartnerDao friendDao = sqlSession.getMapper(MyPartnerDao.class);
@@ -65,6 +65,21 @@ public class MyBatisMyPartnerDao implements MyPartnerDao{
 		MyPartnerDao friendDao = sqlSession.getMapper(MyPartnerDao.class);
 		int count = friendDao.insert(key);
 		return count;
+	}*/
+
+	@Override
+	public int insert(MyPartner myPartner) {
+		MyPartnerDao friendDao = sqlSession.getMapper(MyPartnerDao.class);
+		int count = friendDao.insert(myPartner);
+		return count;
+	}
+
+	@Override
+	public List<MyPartner> getWaitingList(String members_mid, String request) {
+		MyPartnerDao friendDao = sqlSession.getMapper(MyPartnerDao.class);
+		List<MyPartner>list = friendDao.getWaitingList(members_mid, request);
+	
+		return list;
 	}
 
 }

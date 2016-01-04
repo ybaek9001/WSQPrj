@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.MyPartnerDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.LanguageCode;
 import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
+import com.wsq.webprj.vo.MyPartner;
 import com.wsq.webprj.vo.NativeLanguage;
 
 
@@ -37,13 +39,23 @@ public class MypageController {
 	@Autowired
 	private NativeLanguageDao nLanguageDao;
 	
+	@Autowired
+	private MyPartnerDao myPartnerDao;
+	
 	@RequestMapping(value="mypage", method=RequestMethod.GET) 
 	public String myPage(Model model, String id, Authentication auth)
 	{
 		if(id==null)
 			id=auth.getName();
 		
-	
+		
+		List<MyPartner> mplist = myPartnerDao.getWaitingList(id,"add");
+		model.addAttribute("mplist",mplist);
+		
+		
+		
+		/*System.out.println(mplist.size());
+		System.out.println(mplist.get(1).getMypartners_mid());*/
 		
 		List<NativeLanguage> nlist = nLanguageDao.getNlanguagelist(id);
 		model.addAttribute("nlist", nlist);
@@ -104,5 +116,18 @@ public class MypageController {
 		
 		return "redirect:mypage";
 	}
+	
+	@RequestMapping(value="friendManager", method=RequestMethod.POST) 
+	public String addFriend(String friendID, MyPartner myPartner, Authentication auth){
+		String myID = auth.getName();
+		myPartner.setMembers_mid(myID);
+		myPartner.setMypartners_mid(friendID);
+		myPartner.setRequest("add");
+		myPartnerDao.insert(myPartner);
+		
+		return "redirect:mypage";
+		
+	}
+	
 }
 

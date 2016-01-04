@@ -26,8 +26,8 @@ public class JoinUsController {
 	private MemberDao memberDao;
 	@Autowired
 	private MemberProfileDao mprofileDao;
-	@Autowired
-	private MyPartnerDao myPartnerDao;
+	/*@Autowired
+	private MyPartnerDao myPartnerDao;*/
 	@Autowired
 	private LearningLanguageDao lLanguageDao;
 	@Autowired
@@ -70,7 +70,7 @@ public class JoinUsController {
 		memberDao.insert(m);
 		
 		mprofileDao.insert(id);
-		myPartnerDao.insert(id);
+		//myPartnerDao.insert(id);
 		
 		for(int i=1; i<4; i++)
 		{

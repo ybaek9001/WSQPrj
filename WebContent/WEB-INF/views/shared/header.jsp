@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <h1 id="logo">
 	<a href="/WSQPrj">
 		<p class="hidden">World Square</p> <img
@@ -18,7 +19,7 @@
 <h1 class="hidden">메인메뉴</h1>
 <ul>
 	<security:authentication property="name" var="userid"/>
-	<li><a href="/WSQPrj/mypage/mypage?id=${userid}">MyPage</a></li>
+	<li><a id="mypage" href="/WSQPrj/mypage/mypage?id=${userid}">MyPage</a></li>
 	<li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a></li>
 	<li><a href="/WSQPrj/wsqdebate/debate">WSQ Debate</a></li>
 	<li><a href="">Notice</a></li>

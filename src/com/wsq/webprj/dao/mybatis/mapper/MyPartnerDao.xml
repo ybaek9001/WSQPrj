@@ -3,7 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wsq.webprj.dao.MyPartnerDao">
-
+	<select id="getWaitingList" resultType="com.wsq.webprj.vo.MyPartner">
+		SELECT * FROM MYPARTNERS WHERE Members_Mid = #{param1} AND Request=#{param2}
+	</select>
 
 	<select id="getFriends" resultType="com.wsq.webprj.vo.MyPartner">
 		SELECT * FROM(SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
@@ -23,8 +25,8 @@
 		INSERT INTO FRIENDS(MID, PWD, NAME) VALUES(#{mid}, #{pwd}, #{name})
 	</insert> -->
 	
-	<insert id="insert" parameterType="String">
-		INSERT INTO MYPARTNERS(MEMBERS_MID) VALUES(#{mid})
+	<insert id="insert" parameterType="com.wsq.webprj.vo.MyPartner">
+		INSERT INTO MYPARTNERS(MEMBERS_MID, MyPartners_Mid, Request) VALUES(#{members_mid},#{mypartner_mid},#{request})
 	</insert>
 
 </mapper>

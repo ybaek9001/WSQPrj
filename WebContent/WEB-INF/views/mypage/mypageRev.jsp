@@ -99,7 +99,7 @@
 		<P>
 			<input type="submit" value="MyPage 등록">
 		</P>
-		
+
 	</form>
 </div>
 </main>
