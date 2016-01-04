@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="e" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -50,28 +48,58 @@
 				<td>Learning Language</td>
 				<td>Mentee Level</td>
 			</tr>
-			<d:forEach var="llist" items="${llist}">
+			<c:forEach var="llist" items="${llist}">
 				<tr>
 					<td>${llist.language_num}</td>
 					<td>${llist.learning_language}</td>
 					<td>${llist.mentee_level}</td>
 				</tr>
-			</d:forEach>
+			</c:forEach>
 		</table>
-		<br />
-
 	</div>
 	
 	<div class="language">
 	<table>
 		<tr>
-			<td>내가 친구 요청한 List</td>
+			<td>Partners on Waiting List</td>
 		</tr>
-		<e:forEach var="mplist" items="${mplist}">
+		<c:forEach var="send_list" items="${send_list}">
 			<tr>
-				<td>${mplist.mypartners_mid}</td>
+				<td>${send_list.mypartners_mid}</td>
 			</tr>
-		</e:forEach>
+		</c:forEach>
+	</table>
+	</div>
+	
+	<div class="language">
+	<table>
+		<tr>
+			<td>List of Invitations</td>
+			<td>Accept</td>
+		</tr>
+		<c:forEach var="receive_list" items="${receive_list}">
+		<form action="friendManager" method="post">
+			<tr>
+				<td>${receive_list.mypartners_mid}</td>
+				<td><input type="text" name="friendID" value="${receive_list.mypartners_mid}" style="display: none;" /> 
+				<input type="text" name="choice" value="beFriends" style="display: none;" /> 
+				<input type="submit" value="O"/></td>
+			</tr>
+		</form>
+		</c:forEach>
+	</table>
+	</div>
+	
+	<div class="language">
+	<table>
+		<tr>
+			<td>Friends List</td>
+		</tr>
+		<c:forEach var="friends_list" items="${friends_list}">
+			<tr>
+				<td>${friends_list.mypartners_mid}</td>
+			</tr>
+		</c:forEach>
 	</table>
 	</div>
 
@@ -84,8 +112,8 @@
 	</P>
 
 	<form action="friendManager" method="post">
-		<input type="text" name="friendID" value="${mProfile.member_mid}"
-			; style="display: none;" /> <input type="submit" value="친구 신청" />
+		<input type="text" name="friendID" value="${mProfile.member_mid}" style="display: none;" /> 
+		<input type="submit" value="친구 신청" />
 	</form>
 
 

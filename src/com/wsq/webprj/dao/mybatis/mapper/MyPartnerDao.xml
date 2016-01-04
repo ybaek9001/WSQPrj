@@ -14,7 +14,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE MYPARTNERS SET NAME = #{name}, PWD = #{pwd}, REGDATE = #{regDate}  WHERE MID= #{mid}
+		UPDATE MYPARTNERS SET Request = #{request}  WHERE MEMBERS_MID = #{members_mid} AND MyPartners_Mid = #{mypartners_mid}
 	</update>
 	
 	<delete id="delete">
@@ -26,7 +26,7 @@
 	</insert> -->
 	
 	<insert id="insert" parameterType="com.wsq.webprj.vo.MyPartner">
-		INSERT INTO MYPARTNERS(MEMBERS_MID, MyPartners_Mid, Request) VALUES(#{members_mid},#{mypartner_mid},#{request})
+		INSERT INTO MYPARTNERS(MEMBERS_MID, MyPartners_Mid, Request) VALUES(#{members_mid},#{mypartners_mid},#{request})
 	</insert>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.wsq.webprj.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,15 @@ public class MypageController {
 			id=auth.getName();
 		
 		
-		List<MyPartner> mplist = myPartnerDao.getWaitingList(id,"add");
-		model.addAttribute("mplist",mplist);
+		List<MyPartner> send_list = myPartnerDao.getWaitingList(id,"send");
+		model.addAttribute("send_list",send_list);
+		
+		List<MyPartner> receive_list = myPartnerDao.getWaitingList(id,"receive");
+		model.addAttribute("receive_list",receive_list);
+		
+		List<MyPartner> friends_list = myPartnerDao.getWaitingList(id,"friend");
+		model.addAttribute("friends_list",friends_list);
+		
 		
 		
 		
@@ -118,16 +126,48 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="friendManager", method=RequestMethod.POST) 
-	public String addFriend(String friendID, MyPartner myPartner, Authentication auth){
+	public String friendManager(String friendID, String choice, MyPartner m, MyPartner mp, Authentication auth) throws SQLException {
 		String myID = auth.getName();
-		myPartner.setMembers_mid(myID);
-		myPartner.setMypartners_mid(friendID);
-		myPartner.setRequest("add");
-		myPartnerDao.insert(myPartner);
+		/*//나
+		m.setMembers_mid(myID);
+		m.setMypartners_mid(friendID);
+		
+
+		//상대방
+		mp.setMembers_mid(friendID);
+		mp.setMypartners_mid(myID);*/
+		
+		if(choice!=null)
+		{
+			m.setMembers_mid(myID);
+			m.setMypartners_mid(friendID);
+			m.setRequest("friend");
+			myPartnerDao.update(m);
+			mp.setMembers_mid(friendID);
+			mp.setMypartners_mid(myID);
+			mp.setRequest("friend");
+			myPartnerDao.update(mp);
+		}
+		
+		else
+		{
+			m.setMembers_mid(myID);
+			m.setMypartners_mid(friendID);
+			m.setRequest("send");
+			myPartnerDao.insert(m);
+			mp.setMembers_mid(friendID);
+			mp.setMypartners_mid(myID);
+			mp.setRequest("receive");
+			myPartnerDao.insert(mp);
+		}
+		
+		
+		
 		
 		return "redirect:mypage";
 		
 	}
+	
 	
 }
 
