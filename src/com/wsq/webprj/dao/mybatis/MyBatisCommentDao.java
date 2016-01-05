@@ -1,67 +1,66 @@
 package com.wsq.webprj.dao.mybatis;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.wsq.webprj.dao.CommentDao;
+import com.wsq.webprj.dao.DebateSquareDao;
 import com.wsq.webprj.vo.Comment;
+import com.wsq.webprj.vo.DebateSquare;
 
 
 
 public class MyBatisCommentDao implements CommentDao {
 	
-	@Autowired
-	SqlSession sqlSession;
+	SqlSessionFactory ssf = NewlecSqlSessionFactoryBuilder.getSqlSessionFactory();
+	
 	
 	@Override
-	public List<Comment> getComments() throws SQLException {
-		return getComments(1, "MID", "");
-	}
-
-	@Override
-	public List<Comment> getComments(int page) throws SQLException {
-		
-		return getComments(page, "MID", "");
-	}
-
-	@Override
-	public List<Comment> getComments(int page, String field, String query) throws SQLException {
-		
-		CommentDao dao = sqlSession.getMapper(CommentDao.class);
-		List<Comment>list = dao.getComments(page, field, query);
-		
-		return list;
-	}
-
-	@Override
-	public int update(Comment comment) throws SQLException {
-		
-		CommentDao dao = sqlSession.getMapper(CommentDao.class);
-		int count = dao.update(comment);
-		
+	public int update(String code, String context) throws SQLException {
+		SqlSession session = ssf.openSession();
+		CommentDao dao = session.getMapper(CommentDao.class);
+		int count = dao.update(code, context);
+		session.commit();
+		session.close();
 		return count;
 	}
 
 	@Override
-	public int delete(String mid) throws SQLException {
+	public int delete(String code) throws SQLException {
+		SqlSession session = ssf.openSession();
+		CommentDao dao = session.getMapper(CommentDao.class);
+		int count = dao.delete(code);
 		
-		CommentDao dao = sqlSession.getMapper(CommentDao.class);
-		int count = dao.delete(mid);
-		
+		session.commit();
+		session.close();
 		return count;
 	}
 
 	@Override
 	public int insert(Comment comment) throws SQLException  {
-		
-		CommentDao dao = sqlSession.getMapper(CommentDao.class);
+		SqlSession session = ssf.openSession();
+		CommentDao dao = session.getMapper(CommentDao.class);
 		int count = dao.insert(comment);
 		
+		session.commit();
+		session.close();
+		
 		return count;
+	}
+
+	@Override
+	public List<Comment> getComments(String code) {
+		SqlSession session = ssf.openSession();
+		CommentDao commentDao = session.getMapper(CommentDao.class); // mapper按眉 积己
+		List<Comment> comment = commentDao.getComments(code);
+
+		//sqlSession.close(); // 技记 辆丰.
+
+		return comment;
 	}
 
 
