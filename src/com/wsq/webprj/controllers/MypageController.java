@@ -168,6 +168,20 @@ public class MypageController {
 		
 	}
 	
+	@RequestMapping(value="msgReg", method=RequestMethod.GET)
+	public String msgRegget(){
+		return "/mypage/msgReg";
+	}
+	
+	@RequestMapping(value="msgReg", method=RequestMethod.POST)
+	public String msgReg(String msg){
+		System.out.println(msg);
+		//msg에 넘긴 스트링 받는거 까지 성공
+		
+		//message처리해줘!
+		return "redirect:mypage";
+	}
+	
 	
 }
 

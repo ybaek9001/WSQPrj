@@ -4,6 +4,55 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="../content/js/ui.js" type="text/javascript"></script>
+
+<script>
+	window.onload = function() {
+
+		var sendMsg = document.getElementById("send-msg");
+		sendMsg.onclick = function() {
+
+			var dlg = showDialog("msgReg", ".btn-save", function() {
+				var msg = dlg.querySelector("textarea").value;
+				var data = "msg=" + msg;
+				var request;
+				if (window.ActiveXObject)
+					request = new ActiveXObject("Microsoft.XMLHTTP");
+				else if (window.XMLHttpRequest)
+					request = new XMLHttpRequest();
+
+				request.onreadystatechange = function() {
+
+					if (request.readyState == 4 && request.status == 200) // operation is complete
+					{
+						if (request.responseText == "ok")
+							alert("성공");
+						document.write(request.responseText);
+					}
+					;
+					request.open("POST", "msgReg", true);
+					//open과 send 사이에 집어넣어야 함
+					request.setRequestHeader("Content-type",
+							"application/x-www-form-urlencoded");
+					request.setRequestHeader("Content-length", data.length);
+					request.setRequestHeader("Connection", "close");
+					
+					request.send(data);
+
+					/* ------------------------------------------ */
+
+					//데이터 전송
+
+					closeDialog(dlg);
+
+				}
+
+			});
+		}
+	}
+</script>
+
+
 <main class="main">
 
 <h2>${mProfile.member_mid}'sMyPage</h2>
@@ -94,10 +143,14 @@
 	<table>
 		<tr>
 			<td>Friends List</td>
+			<td>Send Message</td>
+			<td>Received Message</td>
 		</tr>
 		<c:forEach var="friends_list" items="${friends_list}">
 			<tr>
 				<td>${friends_list.mypartners_mid}</td>
+				<td><input type="button" id="send-msg" value="Send"></td>
+				<td><input type="button" id="open-msg" value="Open"></td>
 			</tr>
 		</c:forEach>
 	</table>
