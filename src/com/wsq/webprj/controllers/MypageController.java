@@ -168,18 +168,17 @@ public class MypageController {
 		
 	}
 	
-	@RequestMapping(value="msgReg", method=RequestMethod.GET)
+	@RequestMapping(value="msgReg", method=RequestMethod.GET)	//showDialog함수에서 메세지 폼을 얻기위해  Ajax GET방식 사용할 때 호출 됨
 	public String msgRegget(){
 		return "/mypage/msgReg";
 	}
 	
-	@RequestMapping(value="msgReg", method=RequestMethod.POST)
-	public String msgReg(String msg){
+	@RequestMapping(value="msgReg", method=RequestMethod.POST)	//메세지를 작성하고 보내기를 눌러서 Ajax POST방식 사용할 때 호출 됨
+	public void msgReg(String msg){
 		System.out.println(msg);
-		//msg에 넘긴 스트링 받는거 까지 성공
+		
 		
 		//message처리해줘!
-		return "redirect:mypage";
 	}
 	
 	

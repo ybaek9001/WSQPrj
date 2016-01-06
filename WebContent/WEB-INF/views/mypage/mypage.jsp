@@ -8,54 +8,37 @@
 
 <script>
 	window.onload = function() {
-
-		var sendMsg = document.getElementById("send-msg");
-		sendMsg.onclick = function() {
-
-			var dlg = showDialog("msgReg", ".btn-save", function() {
-				var msg = dlg.querySelector("textarea").value;
-				var data = "msg=" + msg;
-				var request;
-				if (window.ActiveXObject)
-					request = new ActiveXObject("Microsoft.XMLHTTP");
-				else if (window.XMLHttpRequest)
-					request = new XMLHttpRequest();
-
-				request.onreadystatechange = function() {
-
-					if (request.readyState == 4 && request.status == 200) // operation is complete
-					{
-						if (request.responseText == "ok")
-							alert("성공");
-						document.write(request.responseText);
-					}
-					;
-					request.open("POST", "msgReg", true);
-					//open과 send 사이에 집어넣어야 함
-					request.setRequestHeader("Content-type",
-							"application/x-www-form-urlencoded");
-					request.setRequestHeader("Content-length", data.length);
-					request.setRequestHeader("Connection", "close");
-					
-					request.send(data);
-
-					/* ------------------------------------------ */
-
-					//데이터 전송
-
-					closeDialog(dlg);
-
-				}
-
+		
+		var sendClick = function(event) 
+		{
+			var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
+				var request = new XMLHttpRequest();
+				request.open("POST", "msgReg", true);
+				
+				//open과 send 사이에 집어넣어야 함
+				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				
+				var message = dlg.querySelector("textarea").value;
+				var data = "msg=" + message;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
+				request.send(data);
+				
+				closeDialog(dlg);		
 			});
 		}
+		
+		var sendMsgs = document.querySelectorAll(".send-msg");
+		for(var i=0;i<sendMsgs.length;i++)
+	      {
+			sendMsgs[i].onclick=sendClick;
+	      }
+		
 	}
 </script>
 
 
 <main class="main">
 
-<h2>${mProfile.member_mid}'sMyPage</h2>
+<h2>${mProfile.member_mid}'s MyPage</h2>
 <div id="mypage">
 
 	<ul>
@@ -140,7 +123,7 @@
 	</div>
 	
 	<div class="language">
-	<table>
+	<table id="friends">
 		<tr>
 			<td>Friends List</td>
 			<td>Send Message</td>
@@ -149,8 +132,8 @@
 		<c:forEach var="friends_list" items="${friends_list}">
 			<tr>
 				<td>${friends_list.mypartners_mid}</td>
-				<td><input type="button" id="send-msg" value="Send"></td>
-				<td><input type="button" id="open-msg" value="Open"></td>
+				<td><input type="button" class="send-msg" value="Send"></a></td>
+				<td><input type="button" class="open-msg" value="Open"></td>
 			</tr>
 		</c:forEach>
 	</table>
