@@ -7,30 +7,59 @@
 <script src="../content/js/ui.js" type="text/javascript"></script>
 
 <script>
-	window.onload = function() {
-		
-		var sendClick = function(event) 
-		{
-			var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
-				var request = new XMLHttpRequest();
-				request.open("POST", "msgReg", true);
+	window.onload = function() 
+	{
 				
-				//open과 send 사이에 집어넣어야 함
-				request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				
-				var message = dlg.querySelector("textarea").value;
-				var data = "msg=" + message;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
-				request.send(data);
-				
-				closeDialog(dlg);		
-			});
-		}
-		
 		var sendMsgs = document.querySelectorAll(".send-msg");
+		
 		for(var i=0;i<sendMsgs.length;i++)
 	      {
-			sendMsgs[i].onclick=sendClick;
+			sendMsgs[i].onclick = function(event) 
+			{
+				var friendID = event.target.nextSibling.innerHTML;
+				
+				var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
+					var request = new XMLHttpRequest();
+					request.open("POST", "msgReg", true);
+					
+					//open과 send 사이에 집어넣어야 함
+					request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					
+					var message = dlg.querySelector("textarea").value;
+					var data = "msg=" + message + "&friendID=" + friendID;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
+					request.send(data);
+					
+					closeDialog(dlg);		
+				});
+			}
 	      }
+		
+		
+		//----------------------------메세지 open클릭하면 Ajax Get방식으로 확인하기--------------------------------//
+		
+		/* var sendMsgs = document.querySelectorAll(".open-msg");
+		
+		for(var i=0;i<sendMsgs.length;i++)
+	      {
+			sendMsgs[i].onclick = function(event) 
+			{
+				var friendID = event.target.nextSibling.innerHTML;
+				
+				var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
+					var request = new XMLHttpRequest();
+					request.open("POST", "msgReg", true);
+					
+					//open과 send 사이에 집어넣어야 함
+					request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					
+					var message = dlg.querySelector("textarea").value;
+					var data = "msg=" + message + "&friendID=" + friendID;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
+					request.send(data);
+					
+					closeDialog(dlg);		
+				});
+			}
+	      }  */
 		
 	}
 </script>
@@ -113,9 +142,11 @@
 		<form action="friendManager" method="post">
 			<tr>
 				<td>${receive_list.mypartners_mid}</td>
-				<td><input type="text" name="friendID" value="${receive_list.mypartners_mid}" style="display: none;" /> 
-				<input type="text" name="choice" value="beFriends" style="display: none;" /> 
-				<input type="submit" value="O"/></td>
+				<td>
+					<input type="text" name="friendID" value="${receive_list.mypartners_mid}" style="display: none;" /> 
+					<input type="text" name="choice" value="beFriends" style="display: none;" /> 
+					<input type="submit" value="O"/>
+				</td>
 			</tr>
 		</form>
 		</c:forEach>
@@ -131,9 +162,9 @@
 		</tr>
 		<c:forEach var="friends_list" items="${friends_list}">
 			<tr>
-				<td>${friends_list.mypartners_mid}</td>
-				<td><input type="button" class="send-msg" value="Send"></a></td>
-				<td><input type="button" class="open-msg" value="Open"></td>
+				<td class="friend-ID" value="aaa">${friends_list.mypartners_mid}</td>
+				<td><input type="button" class="send-msg" value="Send"><span style="display: none;">${friends_list.mypartners_mid}</span></td>
+				<td><input type="button" class="open-msg" value="Open"><span style="display: none;">${friends_list.mypartners_mid}</span></td>
 			</tr>
 		</c:forEach>
 	</table>

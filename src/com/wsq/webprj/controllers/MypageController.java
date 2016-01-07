@@ -1,6 +1,7 @@
 package com.wsq.webprj.controllers;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.MessageDao;
 import com.wsq.webprj.dao.MyPartnerDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.LanguageCode;
 import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
+import com.wsq.webprj.vo.Message;
 import com.wsq.webprj.vo.MyPartner;
 import com.wsq.webprj.vo.NativeLanguage;
 
@@ -42,6 +45,9 @@ public class MypageController {
 	
 	@Autowired
 	private MyPartnerDao myPartnerDao;
+	
+	@Autowired
+	private MessageDao messageDao;
 	
 	@RequestMapping(value="mypage", method=RequestMethod.GET) 
 	public String myPage(Model model, String id, Authentication auth)
@@ -73,6 +79,9 @@ public class MypageController {
 		
 		MemberProfile mp = profileDao.getProfile(id);	
 		model.addAttribute("mProfile", mp);
+		
+		
+		
 		
 		
 		
@@ -174,11 +183,17 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="msgReg", method=RequestMethod.POST)	//메세지를 작성하고 보내기를 눌러서 Ajax POST방식 사용할 때 호출 됨
-	public void msgReg(String msg){
-		System.out.println(msg);
+	public void msgReg(Message message, Authentication auth, String msg, String friendID){
+			
+		Date regDate = new Date();
+		String myID = auth.getName();
 		
-		
-		//message처리해줘!
+		message.setSending_members_mid(myID);
+		message.setReceiving_members_mid(friendID);
+		message.setDate(regDate);
+		message.setComment(msg);
+	
+		messageDao.insert(message);	
 	}
 	
 	
