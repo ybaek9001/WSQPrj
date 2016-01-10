@@ -184,7 +184,7 @@ public class MypageController {
 	
 	@RequestMapping(value="msgReg", method=RequestMethod.POST)	//메세지를 작성하고 보내기를 눌러서 Ajax POST방식 사용할 때 호출 됨
 	public void msgReg(Message message, Authentication auth, String msg, String friendID){
-			
+			System.out.println("fdafdsfadsf");
 		Date regDate = new Date();
 		String myID = auth.getName();
 		
@@ -194,6 +194,17 @@ public class MypageController {
 		message.setComment(msg);
 	
 		messageDao.insert(message);	
+	}
+	
+	@RequestMapping("msgOpen")
+	public String index(String friendID, Authentication auth, Model model){
+		String myID=auth.getName();
+		List<Message> msglist = messageDao.getMessages(myID, friendID);
+		
+		System.out.println(msglist.get(0).getComment());
+		
+		model.addAttribute("msglist", msglist);
+		return "/mypage/msgOpen";
 	}
 	
 	

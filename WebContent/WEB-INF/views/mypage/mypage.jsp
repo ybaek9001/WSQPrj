@@ -10,57 +10,42 @@
 	window.onload = function() 
 	{
 				
-		var sendMsgs = document.querySelectorAll(".send-msg");
 		
-		for(var i=0;i<sendMsgs.length;i++)
-	      {
-			sendMsgs[i].onclick = function(event) 
-			{
+	var sendMsgs = document.querySelectorAll(".send-msg");
+
+		for (var i = 0; i < sendMsgs.length; i++) {
+			sendMsgs[i].onclick = function(event) {
 				var friendID = event.target.nextSibling.innerHTML;
-				
-				var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
+
+				var dlg = showDialog("msgReg", ".btn-send", function() { //여기 function()은 showDialog함수안에서 사용될 때 실행 됨
 					var request = new XMLHttpRequest();
 					request.open("POST", "msgReg", true);
-					
+
 					//open과 send 사이에 집어넣어야 함
-					request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					
+					request.setRequestHeader("Content-type",
+							"application/x-www-form-urlencoded");
+
 					var message = dlg.querySelector("textarea").value;
-					var data = "msg=" + message + "&friendID=" + friendID;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
+					var data = "msg=" + message + "&friendID=" + friendID; //controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
 					request.send(data);
-					
-					closeDialog(dlg);		
+					closeDialog(dlg);
 				});
 			}
-	      }
-		
-		
+		}
+
 		//----------------------------메세지 open클릭하면 Ajax Get방식으로 확인하기--------------------------------//
-		
-		/* var sendMsgs = document.querySelectorAll(".open-msg");
-		
-		for(var i=0;i<sendMsgs.length;i++)
-	      {
-			sendMsgs[i].onclick = function(event) 
-			{
+
+		var openMsgs = document.querySelectorAll(".open-msg");
+
+		for (var i = 0; i < openMsgs.length; i++) {
+			openMsgs[i].onclick = function(event) {
 				var friendID = event.target.nextSibling.innerHTML;
-				
-				var dlg = showDialog("msgReg", ".btn-send", function() {	//여기 function()은 showDialog함수안에서 사용될 때 실행 됨
-					var request = new XMLHttpRequest();
-					request.open("POST", "msgReg", true);
-					
-					//open과 send 사이에 집어넣어야 함
-					request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-					
-					var message = dlg.querySelector("textarea").value;
-					var data = "msg=" + message + "&friendID=" + friendID;	//controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
-					request.send(data);
-					
-					closeDialog(dlg);		
+				var dlg = showDialog("msgOpen?friendID="+friendID, ".btn-close", function() { //여기 function()은 showDialog함수안에서 사용될 때 실행 됨
+					closeDialog(dlg);
 				});
 			}
-	      }  */
-		
+		}
+
 	}
 </script>
 
