@@ -16,7 +16,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE LEARNINGLANGUAGE SET L_LANGUAGE_CODE = #{l_language_code},  MENTEE_LEVEL = #{mentee_level} WHERE MID= #{mid} and Learning_Num=#{learning_num}
+		UPDATE LEARNINGLANGUAGE SET L_LANGUAGE_CODE = #{l_language_code},  MENTEE_LEVEL = #{mentee_level} WHERE Member_Mid= #{member_mid}
 	</update>
 	
 	<delete id="delete">
@@ -24,7 +24,7 @@
 	</delete>
 
 	<insert id="insertID">
-		INSERT INTO LEARNINGLANGUAGE(MID, Learning_Num) VALUES(#{param1},#{param2})
+		INSERT INTO LEARNINGLANGUAGE(Member_Mid) VALUES(#{member_mid})
 	</insert>
 	
 	<insert id="insert" parameterType="com.wsq.webprj.vo.LearningLanguage">

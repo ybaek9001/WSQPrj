@@ -1,7 +1,7 @@
 package com.wsq.webprj.vo;
 
 public class NativeLanguage {
-	private String mid;
+	private String member_mid;
 	private String native_num;
 	private String n_language_code;
 	private String mentor_level;
@@ -27,11 +27,12 @@ public class NativeLanguage {
 	public void setMentor_level(String mentor_level) {
 		this.mentor_level = mentor_level;
 	}
-	public String getMid() {
-		return mid;
+	
+	public String getMember_mid() {
+		return member_mid;
 	}
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setMember_mid(String member_mid) {
+		this.member_mid = member_mid;
 	}
 	public String getNative_language() {
 		return native_language;

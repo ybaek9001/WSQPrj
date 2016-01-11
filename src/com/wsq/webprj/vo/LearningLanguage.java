@@ -1,7 +1,7 @@
 package com.wsq.webprj.vo;
 
 public class LearningLanguage {
-	private String mid;
+	private String member_mid;
 	private String learning_num;
 	private String l_language_code;
 	private String mentee_level;
@@ -33,11 +33,12 @@ public class LearningLanguage {
 	public void setMentee_level(String mentee_level) {
 		this.mentee_level = mentee_level;
 	}
-	public String getMid() {
-		return mid;
+
+	public String getMember_mid() {
+		return member_mid;
 	}
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setMember_mid(String member_mid) {
+		this.member_mid = member_mid;
 	}
 	public String getLearning_language() {
 		return learning_language;

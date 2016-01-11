@@ -14,7 +14,7 @@
 	</select>
 
 	<update id="update">
-		UPDATE NATIVELANGUAGE SET N_LANGUAGE_CODE = #{n_language_code}, MENTOR_LEVEL = #{mentor_level} WHERE MID= #{mid} and Native_Num=#{native_num}
+		UPDATE NATIVELANGUAGE SET N_LANGUAGE_CODE = #{n_language_code}, MENTOR_LEVEL = #{mentor_level} WHERE Member_Mid= #{member_mid}
 	</update>
 	
 	<delete id="delete">
@@ -22,7 +22,7 @@
 	</delete>
 
 	<insert id="insertID">
-		INSERT INTO NATIVELANGUAGE(MID, NATIVE_NUM) VALUES(#{param1},#{param2})
+		INSERT INTO NATIVELANGUAGE(Member_Mid) VALUES(#{member_mid})
 	</insert>
 
 </mapper>

@@ -69,13 +69,9 @@ public class JoinUsController {
 		memberDao.insert(m);
 		
 		mprofileDao.insert(id);
-		//myPartnerDao.insert(id);
 		
-		for(int i=1; i<4; i++)
-		{
-			nLanguageDao.insertID(id, i);
-			lLanguageDao.insertID(id, i);
-		}
+		nLanguageDao.insertID(id);
+		lLanguageDao.insertID(id);
 		
 		return "redirect:../home/index"; 
 	}

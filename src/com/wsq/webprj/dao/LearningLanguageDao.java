@@ -13,9 +13,10 @@ public interface LearningLanguageDao {
 	
 	public int update(LearningLanguage l_language);
 	public int delete(String profile_mid) throws SQLException;
-	public int insertID(String profile_mid, int i);
+	
 	
 	public int insert(LearningLanguage l_language);
+	public int insertID(String member_mid);
 
 
 	

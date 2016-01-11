@@ -54,9 +54,9 @@ public class MyBatisLearningLanguageDao implements LearningLanguageDao{
 	}
 
 	@Override
-	public int insertID(String profile_mid, int i) {
+	public int insertID(String member_mid) {
 		LearningLanguageDao dao = sqlSession.getMapper(LearningLanguageDao.class);
-		int count = dao.insertID(profile_mid, i);
+		int count = dao.insertID(member_mid);
 		return count;
 	}
 

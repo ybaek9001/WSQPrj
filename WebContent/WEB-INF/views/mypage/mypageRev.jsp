@@ -34,8 +34,7 @@
 					<option value="4">Chinese</option>
 			</select></li>
 			
-			<c:forEach var="i" begin="1" end="3">
-			<li>Native Language${i}: <select name="n_language_code${i}">
+			<li>Native Language: <select name="n_language_code">
 					<option value="#">Choose</option>
 					<option value="1">Korean</option>
 					<option value="2">Japanese</option>
@@ -43,18 +42,18 @@
 					<option value="4">Chinese</option>
 			</select></li>
 			
-			<li>Mentor level: <select name="mentor_level${i}">
+			<li>Mentor level: <select name="mentor_level">
 					<option value="-">Choose</option>
 					<option value="Beginner">Beginner</option>
 					<option value="Intermediate">Intermediate</option>
 					<option value="Advanced">Advanced</option>
 					
 			</select></li>
-			</c:forEach>
 			
-			<c:forEach var="i" begin="1" end="3">
-			<li>Learning Language ${i}: 
-			<select name="l_language_code${i}">
+			
+			
+			<li>Learning Language: 
+			<select name="l_language_code">
 					<option value="#">Choose</option>
 					<option value="1">Korean</option>
 					<option value="2">Japanese</option>
@@ -64,36 +63,13 @@
 			</li>
 			
 			<li>Mentee level: 
-			<select name="mentee_level${i}">
+			<select name="mentee_level">
 					<option value="-">Choose</option>
 					<option value="Beginner">Beginner</option>
 					<option value="Intermediate">Intermediate</option>
 					<option value="Advanced">Advanced</option>
 			</select></li>
-			</c:forEach>
-			
-			
-
-			<!-- <li>Level: 
-			<input type="checkbox" name="levelMentor" value="Beginner">Beginner, 
-			<input type="checkbox" name="levelMentor" value="Intermediate">Intermediate, 
-			<input type="checkbox" name="levelMentor" value="Advanced">Advanced
-			</li>
-
-			<li class="language">Learning Language: <select>
-					<option>Korean</option>
-					<option>English</option>
-					<option>Japanese</option>
-					<option>Chinese</option>
-			</select></li>
-
-			<li>Level: <input type="checkbox" name="LL_LV" value="Beginner">Beginner, 
-			<input type="checkbox" name="levelMentee" value="Intermediate">Intermediate, 
-			<input type="checkbox" name="levelMentee" value="Advanced">Advanced
-			</li>
-
-			<br /> -->
-
+		
 			<li id="cmt">Introduce Yourself <br /> 
 			<textarea placeholer="간단하게 입력하세요" name="comment" rows="5" cols="50"></textarea>
 			</li>

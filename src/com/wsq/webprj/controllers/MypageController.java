@@ -98,7 +98,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="mypageRev", method=RequestMethod.POST) 
-	public String ReviseMyPage(Authentication auth,LanguageCode lc, MemberProfile mp, NativeLanguage n_language,LearningLanguage l_language) 
+	public String ReviseMyPage(Authentication auth, MemberProfile mp, NativeLanguage n_language,LearningLanguage l_language) 
 	{			
 		String id = auth.getName();
 		
@@ -106,7 +106,7 @@ public class MypageController {
 		profileDao.update(mp);
 		
 		
-		String[] nl_code = lc.getNL_Code_List();
+		/*String[] nl_code = lc.getNL_Code_List();
 		String[] mentor_lv = lc.getMentor_LV_List();
 		
 		String[] ll_code = lc.getLL_Code_List();
@@ -129,7 +129,12 @@ public class MypageController {
 		l_language.setMentee_level(mentee_lv[i]);
 		l_language.setLearning_num(i+1);
 		lLanguageDao.update(l_language);
-		}
+		}*/
+		n_language.setMember_mid(id);
+		nLanguageDao.update(n_language);
+		
+		l_language.setMember_mid(id);
+		lLanguageDao.update(l_language);
 		
 		return "redirect:mypage";
 	}
@@ -184,7 +189,6 @@ public class MypageController {
 	
 	@RequestMapping(value="msgReg", method=RequestMethod.POST)	//메세지를 작성하고 보내기를 눌러서 Ajax POST방식 사용할 때 호출 됨
 	public void msgReg(Message message, Authentication auth, String msg, String friendID){
-			System.out.println("fdafdsfadsf");
 		Date regDate = new Date();
 		String myID = auth.getName();
 		

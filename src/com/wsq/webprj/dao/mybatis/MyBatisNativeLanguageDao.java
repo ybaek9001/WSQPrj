@@ -37,7 +37,6 @@ public class MyBatisNativeLanguageDao implements NativeLanguageDao{
 
 	@Override
 	public int update(NativeLanguage n_language) {
-		
 		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
 		int count = dao.update(n_language);
 		
@@ -54,13 +53,6 @@ public class MyBatisNativeLanguageDao implements NativeLanguageDao{
 	}
 
 
-	@Override
-	public int insertID(String profile_mid, int i) {
-		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
-		int count = dao.insertID(profile_mid, i);
-		
-		return count;
-	}
 
 	@Override
 	public List<NativeLanguage> getNlanguagelist(String id) {
@@ -73,6 +65,14 @@ public class MyBatisNativeLanguageDao implements NativeLanguageDao{
 	public int insert(NativeLanguage n_language) {
 		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
 		int count = dao.insert(n_language);
+		return count;
+	}
+
+	@Override
+	public int insertID(String member_mid) {
+		NativeLanguageDao dao = sqlSession.getMapper(NativeLanguageDao.class);
+		int count = dao.insertID(member_mid);
+		
 		return count;
 	}
 

@@ -50,6 +50,6 @@ padding:10px;
 		
 		
 		<p>
-			<input class="btn-close" type="button" value="닫기" /> 
+			<input class="btn-close" type="button" value="확인" /> 
 		</p>
 </div>
