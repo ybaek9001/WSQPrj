@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>
 
 
 				<main class="main">
@@ -24,7 +25,8 @@
 						</tr>
 					</c:forEach>
 				</table>
-				<ul class="page">
+				
+				<%-- <ul class="page">
 					<c:if test="${pg==1 && isNext!=false}">
 					<li><a href="userlist?pg=${pg+1}">다음 페이지</a></li>
 					</c:if>
@@ -35,5 +37,9 @@
 					<li><a href="userlist?pg=${pg-1}">이전 페이지</a></li>
 					<li><a href="userlist?pg=${pg+1}">다음 페이지</a></li>
 					</c:if>	
-				</ul>
+				</ul> --%>
+				
+				<div id="pager-wrapper" class="margin-small">
+     			 <my:pager></my:pager>
+  				</div>
 				</main>

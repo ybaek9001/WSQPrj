@@ -29,7 +29,8 @@
 	<li><a href="">Customer Center</a></li>
 	<li><a href="/WSQPrj/chat/chat">Chat</a></li>
 </ul>
-</nav> <nav id="join-menu">
+</nav> 
+<nav id="join-menu">
 <h1 class="hidden">회원메뉴</h1>
 <ul>
 	<li><a href="/WSQPrj/joinus/join">회원가입</a></li>
@@ -41,4 +42,5 @@
 			<a href="${logout}">로그아웃</a>
 		</c:if></li>
 </ul>
-</nav> </section>
+</nav> 
+</section>

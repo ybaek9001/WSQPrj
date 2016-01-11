@@ -76,4 +76,11 @@ public class MyBatisMemberDao implements MemberDao{
 		return list;
 	}
 
+	@Override
+	public int getMemberCount() {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		int count = dao.getMemberCount();
+		return count;
+	}
+
 }

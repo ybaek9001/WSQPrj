@@ -36,6 +36,10 @@ public class FindPartnerController {
 		model.addAttribute("list", list);
 		model.addAttribute("pg",pg);
 		model.addAttribute("isNext", isNext);
+		
+		int recordCount = memberDao.getMemberCount();
+		model.addAttribute("recordCount", recordCount);
+		
 		return "findpartner/userlist";		
 	}
 

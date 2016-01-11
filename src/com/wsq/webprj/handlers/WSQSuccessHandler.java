@@ -13,10 +13,9 @@ public class WSQSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		System.out.println("인증 성공");
-
+			Authentication auth) throws IOException, ServletException {
+		
+		response.sendRedirect("main");
 	}
 
 }

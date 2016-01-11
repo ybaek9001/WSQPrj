@@ -14,6 +14,7 @@ public interface MemberDao {
 	public int update(Member member) ;
 	public int delete(String mid);
 	public int insert(Member member) ;
+	public int getMemberCount();
 	
 		
 	

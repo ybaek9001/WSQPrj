@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema//security/spring-security.xsd">
 		
-
+		<beans:bean name="successHandler" class="com.wsq.webprj.handlers.WSQSuccessHandler"/>
 		
 		
 		
@@ -15,6 +15,7 @@
 			<form-login 
 				login-page="/joinus/login"
 				default-target-url="/home/index"
+				authentication-success-handler-ref="successHandler"
 				/>
 			
 			<logout logout-success-url="/home/index"/>

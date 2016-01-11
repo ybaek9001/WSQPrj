@@ -7,6 +7,11 @@
 		SELECT * FROM MEMBERS WHERE MID = #{mid}
 	</select>
 	
+	<select id="getMemberCount" resultType="Integer">
+		SELECT COUNT(MID) FROM MEMBERS 
+	</select>
+	
+	
 	<select id="getAllMembers" resultType="com.wsq.webprj.vo.Member">
 		SELECT * FROM MEMBERS
 	</select>
