@@ -6,6 +6,8 @@
 <style>
 .pager {
     display: inline-block;
+    font-size: 20px;
+    padding:10px;
 }
 
 p {
@@ -21,11 +23,13 @@ ul {
 }
 
 .pager ul li {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 </style>
+
+
 
 <!-- 현재 페이지 번호를 얻는 연산 -->
 <c:if test="${empty param.pg}">

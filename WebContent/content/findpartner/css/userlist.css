@@ -52,11 +52,17 @@ height: 500px;
 .main a, .main a:hover{
 	text-decoration: none; 
 	color:black;
-	font-weight:bold;
+	
 }
 
 .page a, .page a:hover { 
 background: #e9e9e9;
 border:1px solid #35605c;
 padding: 10px;
+}
+
+
+
+.strong{
+	font-weight: bold;
 }

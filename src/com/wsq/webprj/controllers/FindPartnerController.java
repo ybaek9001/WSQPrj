@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wsq.webprj.dao.MyPartnerDao;
 import com.wsq.webprj.dao.MemberDao;
-import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.vo.Member;
 
 
@@ -25,7 +22,7 @@ public class FindPartnerController {
 	private MemberDao memberDao;
 	
 	
-	@RequestMapping(value="userlist", method=RequestMethod.GET)
+	@RequestMapping("userlist")
 	public String userlist(int pg, boolean isNext, Model model) throws SQLException
 	{
 		isNext=true;
@@ -41,6 +38,21 @@ public class FindPartnerController {
 		model.addAttribute("recordCount", recordCount);
 		
 		return "findpartner/userlist";		
+	}
+	
+	@RequestMapping("userlistPartial")
+	public String noticePartial(String pg,String f, String q, Model model){
+		int page = 1;
+		
+		if(pg!=null && !pg.equals(""))
+			page=Integer.parseInt(pg);
+		
+		List<Member> list = memberDao.getMembers(page);
+		
+		
+		model.addAttribute("list", list);		
+		return "/findpartner/userlistPartial";
+		
 	}
 
 	@RequestMapping("userDel")
