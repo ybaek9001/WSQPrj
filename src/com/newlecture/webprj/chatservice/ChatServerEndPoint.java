@@ -29,7 +29,9 @@ public class ChatServerEndPoint{
 		System.out.println(msg);
 		
 		for(Session s:clients)
+		{
 			s.getBasicRemote().sendText(msg);
+		}
 	}
 	
 	@OnClose

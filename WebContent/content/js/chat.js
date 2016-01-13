@@ -68,7 +68,7 @@ var showDialog = function(url, guestID){
 			if(wsocket==undefined)
 			{
 				//wsocket = new WebSocket("ws://211.238.142.248/JSPPrj/content/chatserver")
-				wsocket = new WebSocket("ws://localhost:8080/WSQPrj/content/chatserver")
+				wsocket = new WebSocket("ws://192.168.0.119:8080/WSQPrj/content/chatserver")
 				wsocket.onopen = sockOpen;
 				wsocket.onclose = sockClose;
 				wsocket.onmessage = sockMessage;
@@ -84,14 +84,14 @@ var showDialog = function(url, guestID){
 			}
 			
 			function sockMessage(event){
-				//alert(event.data);
-				printMessage(guestID,event.data);
+				//밑에서 넘겨 받은 문자열을 아이디와 대화내용으로 나눠서 split한 후 밑에 인자로 넘김
+				printMessage(문자열 쪼갠것 중에 id부분,event.data);
 			}
 			
 			btnSend.onclick = function(event){
 				//var userName ="newlec";
-				var msg = inputBox.value;
-				
+				var msg = guestID;
+				msg+=(','+inputBox.value);
 				wsocket.send(msg);
 				//printMessage(userName,msg);
 				
