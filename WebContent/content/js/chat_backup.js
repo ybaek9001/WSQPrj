@@ -3,21 +3,36 @@
  * 작성자:yb
  */
 
-var showDialog = function(url, guestID){
+var showDialog = function(url){
 	//전체 틀을 만들기 위한 설정
+	var dlg = document.createElement("div");
+	dlg.style.width = "100%";
+	dlg.style.height ="100%";
+	dlg.style.position = "fixed";
+	dlg.style.top = "0px";
 	
-
+	//위에 만들었던 틀 안에 검은색 반투명한  영역 설정
+	var screen = document.createElement("div");			
+	screen.style.background = "black";
+	screen.style.opacity = "0.5";
+	screen.style.width = "inherit";
+	screen.style.height ="inherit";
 	
 	//위에 만들었던 틀 안에 하얀색 영역(글 등록 form이 들어갈 곳) 설정
-	var dlg = document.createElement("div");			
-	dlg.style.background = "#fff";
-	dlg.style.width = "350px";
-	dlg.style.height = "500px";
-	dlg.style.position = "fixed";
-	dlg.style.top = "200px";
-	dlg.style.right = "50px";
-	dlg.style.opacity = 0.9;
+	var container = document.createElement("div");			
+	container.style.background = "#fff";
+	container.style.width = "720px";
+	container.style.height = "550px";
+	container.style.position = "fixed";
+	container.style.top = "100px";
+	container.style.left = "300px";
+	//container.style.zIndex = 2;
 	
+	
+	
+	
+	dlg.appendChild(screen);
+	dlg.appendChild(container);	
 	
 	document.body.appendChild(dlg);
 	
@@ -33,7 +48,7 @@ var showDialog = function(url, guestID){
 		if (request.readyState == 4) 
 		{
 			//tbody의 안쪽 방을 비우기
-			dlg.innerHTML=request.responseText;	//url데이터를 container영역으로 얻어옴(수업 땐 noticeRegPartial글쓰기양식을 얻어옴)		
+			container.innerHTML=request.responseText;	//url데이터를 container영역으로 얻어옴(수업 땐 noticeRegPartial글쓰기양식을 얻어옴)		
 			
 			
 			//현재 페이지를 구성하는 객체 또는 변수들 선언
@@ -44,7 +59,6 @@ var showDialog = function(url, guestID){
 			var outputList=document.querySelector("#chat-output ul");
 			var inputBox=document.querySelector("#chat-input-panel textarea");
 			var chatOutput = document.querySelector("#chat-output")
-			var btnClose=document.querySelector("#btn-close");
 			//현재 페이지에서 사용하는 서비스 처리 함수들
 			function printMessage(userName, msg){
 				
@@ -76,7 +90,7 @@ var showDialog = function(url, guestID){
 			
 			
 			function sockOpen(){
-				//alert("접속 되었습니다");
+				alert("접속 되었습니다");
 			}
 			
 			function sockClose(){
@@ -85,11 +99,11 @@ var showDialog = function(url, guestID){
 			
 			function sockMessage(event){
 				//alert(event.data);
-				printMessage(guestID,event.data);
+				printMessage("newlec",event.data);
 			}
 			
 			btnSend.onclick = function(event){
-				//var userName ="newlec";
+				var userName ="newlec";
 				var msg = inputBox.value;
 				
 				wsocket.send(msg);
@@ -107,10 +121,6 @@ var showDialog = function(url, guestID){
 					
 					btnSend.dispatchEvent(event);
 				}
-			}
-			
-			btnClose.onclick = function(){
-				document.body.removeChild(dlg);
 			}
 		
 		

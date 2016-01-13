@@ -3,7 +3,7 @@
 @CHARSET "UTF-8";
 
 #chat-window{
-   width:400px;
+   width:350px;
    height:500px;
    border:1px solid #000000;
    
@@ -17,11 +17,9 @@
    margin-top:10px;
    height:350px;
    background:#9bbdfd;
-   /* opacity:0.5; */
-   padding:10px;
-   
+   padding:10px;  
    overflow:auto;   
-   word-break:break-all;
+   word-break:break-all; 
 }
 
 #chat-output li{
@@ -47,7 +45,7 @@
 }
 
 #chat-output li > div > div:first-child{
-   color:#ffffff;
+   color:white;
    font-weight:bold;
    
 }
@@ -57,7 +55,8 @@
    background:yellow;
    padding:5px;
    border-radius:5px;
-   
+   font-weight:bold;
+   color:black;
    
    
 }
@@ -66,7 +65,8 @@
 {
    display:flex;
    width:calc(100% - 20px);
-   margin:auto;   
+   margin:auto; 
+   margin-top:5px;  
 }
 
 #chat-input-panel > textarea
@@ -91,16 +91,18 @@
    line-height:50px;
    border:1px solid #78a02c;
    background-color:#8cba35;
-   background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+   background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
    color:#ffffff;
    padding:0px 8px;
 }
 
 #btn-close{
-   background:black;
+   background:#444444;
+   background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,2));
    color:white;
    font-size:20px;
    text-align:center;
    margin:10px;
    padding:10px;
+   cursor:pointer;
 }
