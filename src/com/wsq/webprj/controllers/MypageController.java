@@ -65,6 +65,8 @@ public class MypageController {
 		List<MyPartner> friends_list = myPartnerDao.getWaitingList(id,"friend");
 		model.addAttribute("friends_list",friends_list);
 		
+		int count = friends_list.size();
+		model.addAttribute("count", count);
 		
 		
 		

@@ -1,4 +1,4 @@
-package com.wsq.webprj.chat;
+package com.newlecture.webprj.chatservice;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

@@ -4,14 +4,11 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="../content/js/ui.js" type="text/javascript"></script>
 
 <script>
 	window.onload = function() 
-	{
-				
-		
-	var sendMsgs = document.querySelectorAll(".send-msg");
+	{		
+		var sendMsgs = document.querySelectorAll(".send-msg");
 
 		for (var i = 0; i < sendMsgs.length; i++) {
 			sendMsgs[i].onclick = function(event) {

@@ -1,4 +1,4 @@
-package com.wsq.webprj.chat;
+package com.newlecture.webprj.chatservice;
 
 public interface ReceiveListener {
 
