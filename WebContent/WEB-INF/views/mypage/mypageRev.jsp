@@ -26,7 +26,15 @@
 			
 			
 						
-			<li>Nationality: <select name="nationality_country_code">
+			<li>Nationality: <select name="n_country_code">
+					<option value="#">Choose</option>
+					<option value="1">Korea</option>
+					<option value="2">America</option>
+					<option value="3">Japanese</option>
+					<option value="4">Chinese</option>
+			</select></li>
+			
+			<li>Habitat Country: <select name="h_country_code">
 					<option value="#">Choose</option>
 					<option value="1">Korea</option>
 					<option value="2">America</option>

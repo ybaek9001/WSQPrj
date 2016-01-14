@@ -17,12 +17,14 @@ import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.dao.MessageDao;
 import com.wsq.webprj.dao.MyPartnerDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
+import com.wsq.webprj.vo.HabitatCountry;
 import com.wsq.webprj.vo.LanguageCode;
 import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
 import com.wsq.webprj.vo.Message;
 import com.wsq.webprj.vo.MyPartner;
+import com.wsq.webprj.vo.NationalityCountry;
 import com.wsq.webprj.vo.NativeLanguage;
 
 
@@ -81,11 +83,7 @@ public class MypageController {
 		
 		MemberProfile mp = profileDao.getProfile(id);	
 		model.addAttribute("mProfile", mp);
-		
-		
-		
-		
-		
+			
 		
 
 		return "mypage/mypage";
@@ -100,12 +98,22 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="mypageRev", method=RequestMethod.POST) 
-	public String ReviseMyPage(Authentication auth, MemberProfile mp, NativeLanguage n_language,LearningLanguage l_language) 
+	public String ReviseMyPage(Authentication auth, 
+			MemberProfile mp, 
+			NativeLanguage n_language,
+			LearningLanguage l_language,
+			NationalityCountry n_country,
+			HabitatCountry h_country
+			) 
 	{			
 		String id = auth.getName();
 		
 		mp.setMember_mid(id);
 		profileDao.update(mp);
+		
+		n_country.setMember_mid(id);
+		h_country.setMember_mid(id);
+		//-------------------------두개 Dao 만들어!!!!!!!!!!---------------------------//
 		
 		
 		/*String[] nl_code = lc.getNL_Code_List();

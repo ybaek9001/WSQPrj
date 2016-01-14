@@ -18,7 +18,6 @@
 		NAME = #{name}, 
 		AGE = #{age}, 
 		GENDER = #{gender},
-	    NATIONALITY_COUNTRY_CODE = #{nationality_country_code},
 	    COMMENT = #{comment}
 	    	WHERE MEMBER_MID= #{member_mid}
 	</update>

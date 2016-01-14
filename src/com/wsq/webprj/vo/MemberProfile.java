@@ -7,8 +7,6 @@ public class MemberProfile {
 	private String name;
 	private String age;
 	private String gender;
-	private String nationality_country_code;
-	private String habitat_country_code;
 /*	private String levelMentor;
 	private String levelMentee;*/
 	private String comment;
@@ -60,18 +58,7 @@ public class MemberProfile {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getNationality_country_code() {
-		return nationality_country_code;
-	}
-	public void setNationality_country_code(String nationality_country_code) {
-		this.nationality_country_code = nationality_country_code;
-	}
-	public String getHabitat_country_code() {
-		return habitat_country_code;
-	}
-	public void setHabitat_country_code(String habitat_country_code) {
-		this.habitat_country_code = habitat_country_code;
-	}
+	
 /*	public String getLevelMentor() {
 		return levelMentor;
 	}
