@@ -68,7 +68,7 @@ var showDialog = function(url, guestID){
 			if(wsocket==undefined)
 			{
 				//wsocket = new WebSocket("ws://211.238.142.248/JSPPrj/content/chatserver")
-				wsocket = new WebSocket("ws://localhost:8080/WSQPrj/content/chatserver")
+				wsocket = new WebSocket("ws://211.238.142.115:8080/WSQPrj/content/chatserver")
 				wsocket.onopen = sockOpen;
 				wsocket.onclose = sockClose;
 				wsocket.onmessage = sockMessage;
