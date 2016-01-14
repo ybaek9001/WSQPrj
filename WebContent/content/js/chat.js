@@ -5,7 +5,7 @@
 
 var showDialog = function(url, guestID){
 	//전체 틀을 만들기 위한 설정
-	
+	var uid = guestID;
 
 	
 	//위에 만들었던 틀 안에 하얀색 영역(글 등록 form이 들어갈 곳) 설정
@@ -68,7 +68,7 @@ var showDialog = function(url, guestID){
 			if(wsocket==undefined)
 			{
 				//wsocket = new WebSocket("ws://211.238.142.248/JSPPrj/content/chatserver")
-				wsocket = new WebSocket("ws://192.168.0.119:8080/WSQPrj/content/chatserver")
+				wsocket = new WebSocket("ws://localhost:8080/WSQPrj/content/chatserver")
 				wsocket.onopen = sockOpen;
 				wsocket.onclose = sockClose;
 				wsocket.onmessage = sockMessage;
@@ -84,18 +84,17 @@ var showDialog = function(url, guestID){
 			}
 			
 			function sockMessage(event){
-				//밑에서 넘겨 받은 문자열을 아이디와 대화내용으로 나눠서 split한 후 밑에 인자로 넘김
-				printMessage(문자열 쪼갠것 중에 id부분,event.data);
+				var data = JSON.parse(event.data);
+				printMessage(data.uid, data.msg);
 			}
 			
 			btnSend.onclick = function(event){
-				//var userName ="newlec";
-				var msg = guestID;
-				msg+=(','+inputBox.value);
-				wsocket.send(msg);
-				//printMessage(userName,msg);
+				var msg = inputBox.value;
+				var data = {uid:uid, msg:msg};
 				
-				//텍스트 입력 상자의 문자열을 지우는 코드
+				data = JSON.stringify(data);
+				wsocket.send(data);
+				
 				inputBox.value="";
 			}
 			

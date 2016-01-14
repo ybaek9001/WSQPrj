@@ -12,6 +12,10 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 @ServerEndpoint("/content/chatserver")
 public class ChatServerEndPoint{
 	private static Set<Session> clients =
@@ -25,13 +29,21 @@ public class ChatServerEndPoint{
 	}
 	
 	@OnMessage
-	public void onTextMessage(Session session, String msg) throws IOException{
-		System.out.println(msg);
+	public void onTextMessage(Session session, String data) throws IOException, ParseException{
+		System.out.println(data);
 		
+		JSONParser jsonParser = new JSONParser();
+        //JSON데이터를 넣어 JSON Object 로 만들어 준다.
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(data);
+        
+        String uid = (String)jsonObject.get("uid");
+        String msg = (String)jsonObject.get("msg");
+        
+        System.out.println(
+        		String.format("uid:%s, msg:%s\n", uid, msg));
+        
 		for(Session s:clients)
-		{
-			s.getBasicRemote().sendText(msg);
-		}
+			s.getBasicRemote().sendText(data);
 	}
 	
 	@OnClose
