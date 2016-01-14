@@ -4,7 +4,7 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<script src="/WSQPrj/content/js/ui.js" type="text/javascript"></script>
 <script>
 	window.onload = function() 
 	{		
@@ -12,8 +12,8 @@
 
 		for (var i = 0; i < sendMsgs.length; i++) {
 			sendMsgs[i].onclick = function(event) {
+				
 				var friendID = event.target.nextSibling.innerHTML;
-
 				var dlg = showDialog("msgReg", ".btn-send", function() { //여기 function()은 showDialog함수안에서 사용될 때 실행 됨
 					var request = new XMLHttpRequest();
 					request.open("POST", "msgReg", true);
