@@ -1,15 +1,17 @@
 package com.wsq.webprj.vo;
 
 public class NationalityCountry {
-	private String n_language_code;
+	private String n_country_code;
 	private String member_mid;
 
-	public String getN_language_code() {
-		return n_language_code;
+	
+
+	public String getN_country_code() {
+		return n_country_code;
 	}
 
-	public void setN_language_code(String n_language_code) {
-		this.n_language_code = n_language_code;
+	public void setN_country_code(String n_country_code) {
+		this.n_country_code = n_country_code;
 	}
 
 	public String getMember_mid() {

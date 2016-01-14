@@ -11,7 +11,8 @@ public class MemberProfile {
 	private String levelMentee;*/
 	private String comment;
 	private String email;
-	private String country;
+	private String habitat_country;
+	private String nationality_country;
 	private Date regDate;
 
 	
@@ -22,11 +23,18 @@ public class MemberProfile {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCountry() {
-		return country;
+	
+	public String getHabitat_country() {
+		return habitat_country;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public void setHabitat_country(String habitat_country) {
+		this.habitat_country = habitat_country;
+	}
+	public String getNationality_country() {
+		return nationality_country;
+	}
+	public void setNationality_country(String nationality_country) {
+		this.nationality_country = nationality_country;
 	}
 	public Date getRegDate() {
 		return regDate;

@@ -28,5 +28,7 @@
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MemberProfileDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/NativeLanguageDao.xml"/>
     <mapper resource="com/wsq/webprj/dao/mybatis/mapper/MessageDao.xml"/>
+    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/HabitatCountryDao.xml"/>
+    <mapper resource="com/wsq/webprj/dao/mybatis/mapper/NationalityCountryDao.xml"/>
   </mappers>
 </configuration>

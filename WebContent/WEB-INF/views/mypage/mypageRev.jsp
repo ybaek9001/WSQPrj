@@ -30,16 +30,18 @@
 					<option value="#">Choose</option>
 					<option value="1">Korea</option>
 					<option value="2">America</option>
-					<option value="3">Japanese</option>
-					<option value="4">Chinese</option>
+					<option value="3">Japan</option>
+					<option value="4">China</option>
+					<option value="5">Germany</option>
 			</select></li>
 			
-			<li>Habitat Country: <select name="h_country_code">
+			<li>Living Country: <select name="h_country_code">
 					<option value="#">Choose</option>
 					<option value="1">Korea</option>
 					<option value="2">America</option>
-					<option value="3">Japanese</option>
-					<option value="4">Chinese</option>
+					<option value="3">Japan</option>
+					<option value="4">China</option>
+					<option value="5">Germany</option>
 			</select></li>
 			
 			<li>Native Language: <select name="n_language_code">

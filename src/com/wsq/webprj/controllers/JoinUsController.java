@@ -9,9 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.wsq.webprj.dao.HabitatCountryDao;
 import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
+import com.wsq.webprj.dao.NationalityCountryDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.Member;
 
@@ -31,6 +33,10 @@ public class JoinUsController {
 	private LearningLanguageDao lLanguageDao;
 	@Autowired
 	private NativeLanguageDao nLanguageDao;
+	@Autowired
+	private HabitatCountryDao hCountryDao;
+	@Autowired
+	private NationalityCountryDao nCountryDao;
 	
 	//--------------------------------------------------------------
 	@RequestMapping(value= "join",method=RequestMethod.GET)
@@ -73,6 +79,8 @@ public class JoinUsController {
 		nLanguageDao.insertID(id);
 		lLanguageDao.insertID(id);
 		
+		hCountryDao.insert(id);
+		nCountryDao.insert(id);
 		return "redirect:../home/index"; 
 	}
 	//---------------------------------------------------------------

@@ -11,14 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.wsq.webprj.dao.HabitatCountryDao;
 import com.wsq.webprj.dao.LearningLanguageDao;
 import com.wsq.webprj.dao.MemberDao;
 import com.wsq.webprj.dao.MemberProfileDao;
 import com.wsq.webprj.dao.MessageDao;
 import com.wsq.webprj.dao.MyPartnerDao;
+import com.wsq.webprj.dao.NationalityCountryDao;
 import com.wsq.webprj.dao.NativeLanguageDao;
 import com.wsq.webprj.vo.HabitatCountry;
-import com.wsq.webprj.vo.LanguageCode;
 import com.wsq.webprj.vo.LearningLanguage;
 import com.wsq.webprj.vo.Member;
 import com.wsq.webprj.vo.MemberProfile;
@@ -50,6 +51,13 @@ public class MypageController {
 	
 	@Autowired
 	private MessageDao messageDao;
+	
+	@Autowired
+	private NationalityCountryDao nCountryDao;
+	
+	@Autowired
+	private HabitatCountryDao hCountryDao;
+	
 	
 	@RequestMapping(value="mypage", method=RequestMethod.GET) 
 	public String myPage(Model model, String id, Authentication auth)
@@ -111,8 +119,13 @@ public class MypageController {
 		mp.setMember_mid(id);
 		profileDao.update(mp);
 		
+		
 		n_country.setMember_mid(id);
 		h_country.setMember_mid(id);
+		nCountryDao.update(n_country);
+		hCountryDao.update(h_country);
+		
+		
 		//-------------------------두개 Dao 만들어!!!!!!!!!!---------------------------//
 		
 		

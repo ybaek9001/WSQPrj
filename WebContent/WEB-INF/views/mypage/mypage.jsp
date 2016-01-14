@@ -61,7 +61,9 @@
 
 		<li>Gender: ${mProfile.gender}</li>
 
-		<li>Nationality: ${mProfile.country}</li>
+		<li>Nationality: ${mProfile.nationality_country}</li>
+		
+		<li>Living Country: ${mProfile.habitat_country}</li>
 
 		<li>RegDate: <fmt:formatDate pattern="yyyy-MM-dd"
 				value="${mProfile.regDate}" /></li>
@@ -156,8 +158,7 @@
 		Introduce Yourself<br /> <span>${mProfile.comment}</span>
 	</p>
 	<P>
-		<a id="button" href="mypageRev?id=${mProfile.member_mid}">MyPage
-			수정</a>
+		<a id="button" href="mypageRev?id=${mProfile.member_mid}">MyPage 수정</a>
 	</P>
 
 	<form action="friendManager" method="post">
