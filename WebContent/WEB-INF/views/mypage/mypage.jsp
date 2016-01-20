@@ -17,7 +17,20 @@
 				var dlg = showDialog("msgReg", ".btn-send", function() { //여기 function()은 showDialog함수안에서 사용될 때 실행 됨
 					var request = new XMLHttpRequest();
 					request.open("POST", "msgReg", true);
-
+					
+					//test 성공!!
+					/* request.onreadystatechange = function()
+					{
+						if (request.readyState == 4) 
+						{
+							var test = request.responseText;
+							var data = JSON.parse(test);
+							alert(data.name);
+							alert(data.language);
+						}
+					} */
+					
+					
 					//open과 send 사이에 집어넣어야 함
 					request.setRequestHeader("Content-type",
 							"application/x-www-form-urlencoded");

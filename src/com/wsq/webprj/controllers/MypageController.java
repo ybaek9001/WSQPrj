@@ -1,9 +1,11 @@
 package com.wsq.webprj.controllers;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -211,7 +213,7 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="msgReg", method=RequestMethod.POST)	//메세지를 작성하고 보내기를 눌러서 Ajax POST방식 사용할 때 호출 됨
-	public void msgReg(Message message, Authentication auth, String msg, String friendID){
+	public void msgReg(Message message, Authentication auth, String msg, String friendID, PrintWriter out){
 		Date regDate = new Date();
 		String myID = auth.getName();
 		
@@ -221,6 +223,13 @@ public class MypageController {
 		message.setComment(msg);
 	
 		messageDao.insert(message);	
+		
+		//test
+		/*MemberProfile mp = profileDao.getProfile(myID);
+		JSONObject obj = new JSONObject();
+		obj.put("name","덩치");
+		obj.put("language", "korean");
+		out.print(obj);	*/
 	}
 	
 	@RequestMapping("msgOpen")
