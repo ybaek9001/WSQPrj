@@ -99,20 +99,36 @@ var showDialog = function(url, guestID){
 			}
 			
 			
-			inputBox.onkeyup = function(e){	//onkeydown, onkeypress
+			/*inputBox.onkeyup = function(e){	//onkeydown, onkeypress
 				if(e.keyCode == 13){
 					var event = document.createEvent("MouseEvent");	//event type, bubbles, cancelable
 					event.initEvent("click",true,true)	
 					
 					btnSend.dispatchEvent(event);
 				}
+			}*/
+			
+			//--------------Shift+Enter=개행 / Enter누르면 전송 ----------------//
+			inputBox.onkeydown = function(e){
+				if(e.keyCode == 13 && e.shiftKey)
+				{
+					
+				}	
+				else if(e.keyCode == 13){
+					var event = document.createEvent("MouseEvent");	//event type, bubbles, cancelable
+					event.initEvent("click",true,true)		
+					btnSend.dispatchEvent(event);
+					e.preventDefault();
+				}
 			}
 			
 			btnClose.onclick = function(){
 				document.body.removeChild(dlg);
 			}
-		
-		
+			
+			
+			
+				
 		}
 	}
 	
