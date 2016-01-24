@@ -30,4 +30,18 @@ public class MyBatisMessageDao implements MessageDao {
 		return list;
 	}
 
+	@Override
+	public int getMsgCount(String myID, String friendID) {
+		MessageDao dao = sqlSession.getMapper(MessageDao.class);
+		int count = dao.getMsgCount(myID, friendID);
+		return count;
+	}
+
+	@Override
+	public int delete(String mid,String fid, String msg) {
+		MessageDao dao = sqlSession.getMapper(MessageDao.class);
+		int count = dao.delete(mid,fid, msg);
+		return count;
+	}
+
 }

@@ -80,6 +80,13 @@ public class MypageController {
 		int count = friends_list.size();
 		model.addAttribute("count", count);
 		
+		int[] msgCount= new int[friends_list.size()];
+		for(int i=0; i<friends_list.size();i++)
+		{
+			msgCount[i] = messageDao.getMsgCount(id, friends_list.get(i).getMypartners_mid());
+			//System.out.println(msg[i]);
+		}
+		model.addAttribute("msgCount", msgCount);
 		
 		
 		/*System.out.println(mplist.size());
@@ -216,12 +223,11 @@ public class MypageController {
 	public void msgReg(Message message, Authentication auth, String msg, String friendID, PrintWriter out){
 		Date regDate = new Date();
 		String myID = auth.getName();
-		
+		//System.out.println(regDate);
 		message.setSending_members_mid(myID);
 		message.setReceiving_members_mid(friendID);
 		message.setDate(regDate);
 		message.setComment(msg);
-	
 		messageDao.insert(message);	
 		
 		//test
@@ -236,12 +242,26 @@ public class MypageController {
 	public String index(String friendID, Authentication auth, Model model){
 		String myID=auth.getName();
 		List<Message> msglist = messageDao.getMessages(myID, friendID);
+		//System.out.println(msglist.isEmpty());
+		//System.out.println(msglist.get(0).getComment());
 		
-		System.out.println(msglist.get(0).getComment());
-		
-		model.addAttribute("msglist", msglist);
+		if(msglist.isEmpty())
+		{
+			model.addAttribute("isEmpty", 0);
+			//System.out.println("empty!!!!");
+		}
+		else
+			model.addAttribute("msglist", msglist);
 		return "/mypage/msgOpen";
 	}
+	
+	@RequestMapping(value="msgDel", method=RequestMethod.POST)
+	public void msgDel(Authentication auth, String fid, String msg){
+		String mid = auth.getName();
+		int cnt = messageDao.delete(mid,fid,msg);
+		System.out.println(cnt);
+	}
+	
 	
 	
 }

@@ -39,7 +39,9 @@
 					var data = "msg=" + message + "&friendID=" + friendID; //controller에서는 매개변수명을 msg로 해야 message변수의 값을 사용할 수 있음
 					request.send(data);
 					closeDialog(dlg);
+					alert("Your message was sent successfully!")
 				});
+				
 			}
 		}
 
@@ -53,6 +55,7 @@
 				var dlg = showDialog("msgOpen?friendID="+friendID, ".btn-close", function() { //여기 function()은 showDialog함수안에서 사용될 때 실행 됨
 					closeDialog(dlg);
 				});
+				
 			}
 		}
 
@@ -82,6 +85,8 @@
 				value="${mProfile.regDate}" /></li>
 	</ul>
 
+
+	<c:if test="${pageContext.request.userPrincipal.name==mProfile.member_mid}">
 	<div class="language">
 		<table>
 			<tr>
@@ -157,27 +162,33 @@
 			<td>Send Message</td>
 			<td>Received Message</td>
 		</tr>
-		<c:forEach var="friends_list" items="${friends_list}">
+		<c:forEach var="friends_list" items="${friends_list}" varStatus="status">
 			<tr>
-				<td class="friend-ID" value="aaa">${friends_list.mypartners_mid}</td>
+				<td class="friend-ID">${friends_list.mypartners_mid}</td>
 				<td><input type="button" class="send-msg" value="Send"><span style="display: none;">${friends_list.mypartners_mid}</span></td>
-				<td><input type="button" class="open-msg" value="Open"><span style="display: none;">${friends_list.mypartners_mid}</span></td>
+				<td><input type="button" class="open-msg" value="Open(${msgCount[status.index]})"><span style="display: none;">${friends_list.mypartners_mid}</span></td>
 			</tr>
 		</c:forEach>
 	</table>
 	</div>
+	</c:if>
 
 	<p id="cmt">
-		Introduce Yourself<br /> <span>${mProfile.comment}</span>
+		My Comments<br /> <span>${mProfile.comment}</span>
 	</p>
+	
+	<c:if test="${pageContext.request.userPrincipal.name==mProfile.member_mid}">
 	<P>
 		<a id="button" href="mypageRev?id=${mProfile.member_mid}">MyPage 수정</a>
 	</P>
-
-	<form action="friendManager" method="post">
+	</c:if> 
+	
+	<c:if test="${pageContext.request.userPrincipal.name!=mProfile.member_mid}">
+	<form action="friendManager" method="post" style="text-align:center;">
 		<input type="text" name="friendID" value="${mProfile.member_mid}" style="display: none;" /> 
 		<input type="submit" value="친구 신청" />
 	</form>
+	</c:if>
 
 
 </div>
