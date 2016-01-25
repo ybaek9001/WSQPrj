@@ -86,7 +86,7 @@
 	</ul>
 
 
-	<c:if test="${pageContext.request.userPrincipal.name==mProfile.member_mid}">
+	
 	<div class="language">
 		<table>
 			<tr>
@@ -121,6 +121,7 @@
 		</table>
 	</div>
 	
+	<c:if test="${pageContext.request.userPrincipal.name==mProfile.member_mid}">
 	<div class="language">
 	<table>
 		<tr>

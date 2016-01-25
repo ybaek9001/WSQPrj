@@ -182,29 +182,32 @@ public class MypageController {
 		//»ó´ë¹æ
 		mp.setMembers_mid(friendID);
 		mp.setMypartners_mid(myID);*/
-		
-		if(choice!=null)
-		{
-			m.setMembers_mid(myID);
-			m.setMypartners_mid(friendID);
-			m.setRequest("friend");
-			myPartnerDao.update(m);
-			mp.setMembers_mid(friendID);
-			mp.setMypartners_mid(myID);
-			mp.setRequest("friend");
-			myPartnerDao.update(mp);
-		}
-		
-		else
-		{
-			m.setMembers_mid(myID);
-			m.setMypartners_mid(friendID);
-			m.setRequest("send");
-			myPartnerDao.insert(m);
-			mp.setMembers_mid(friendID);
-			mp.setMypartners_mid(myID);
-			mp.setRequest("receive");
-			myPartnerDao.insert(mp);
+		try {
+			if(choice!=null)
+			{
+				m.setMembers_mid(myID);
+				m.setMypartners_mid(friendID);
+				m.setRequest("friend");
+				myPartnerDao.update(m);
+				mp.setMembers_mid(friendID);
+				mp.setMypartners_mid(myID);
+				mp.setRequest("friend");
+				myPartnerDao.update(mp);
+			}
+			
+			else
+			{
+				m.setMembers_mid(myID);
+				m.setMypartners_mid(friendID);
+				m.setRequest("send");
+				myPartnerDao.insert(m);
+				mp.setMembers_mid(friendID);
+				mp.setMypartners_mid(myID);
+				mp.setRequest("receive");
+				myPartnerDao.insert(mp);
+			}
+		} catch (Exception e) {
+			
 		}
 		
 		
