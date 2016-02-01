@@ -30,6 +30,25 @@
 		select * from DebateSquare where regdate=(SELECT top 1 regdate from DebateSquare order by Regdate desc)
 	</select>
 
+
+		
+	<update id="updateComment">
+		UPDATE DEBATESQUARE SET CommentCnt = ${param1}+${param3} WHERE Code = #{param2};
+	</update>
+	
+	<update id="updateAgree">
+		UPDATE DEBATESQUARE SET AgreeCnt = ${param1}+${param3} WHERE Code = #{param2};
+	</update>
+	
+	<update id="updateDisagree">
+		UPDATE DEBATESQUARE SET DisagreeCnt = ${param1}+${param3} WHERE Code = #{param2};
+	</update>
+	
+	<update id="updateHit">
+		UPDATE DEBATESQUARE SET hit = ${param1}+1 WHERE Code = #{param2};
+	</update>
+	
+	
 </mapper>
 
 

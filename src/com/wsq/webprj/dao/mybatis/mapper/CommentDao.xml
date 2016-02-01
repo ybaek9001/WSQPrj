@@ -22,7 +22,7 @@
 
 	<insert id="insert" parameterType="com.wsq.webprj.vo.Comment">
 		<selectKey keyProperty="code" order="BEFORE" resultType="String">
-			SELECT MAX(CAST(CODE AS INT)) CODE FROM COMMENT
+			SELECT ISNULL(MAX(CAST(CODE AS INT)),0) CODE FROM COMMENT
 		</selectKey>	 
 		INSERT INTO COMMENT(code, id, context, debateCode, opinion) Values(#{code}+1,#{id},#{context},#{debateCode},#{opinion})
 	</insert>

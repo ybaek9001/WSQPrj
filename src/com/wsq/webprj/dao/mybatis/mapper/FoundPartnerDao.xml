@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wsq.webprj.dao.FoundPartnerDao">
 
-	<select id="getPartners" resultType="com.wsq.webprj.vo.FoundPartner">
-		SELECT * FROM FOUNDPARTNERVIEW WHERE COUNTRY=#{param1} AND NATIVE_LANGUAGE=#{param2} AND LEARNING_LANGUAGE=#{param3}
+	<select id="getPartners" parameterType="com.wsq.webprj.vo.FoundPartner" resultType="com.wsq.webprj.vo.FoundPartner">
+		SELECT * FROM FOUNDPARTNERVIEW WHERE NATIONALITY_COUNTRY LIKE '%${param1}%' AND HABITAT_COUNTRY LIKE '%${param2}%' AND NATIVE_LANGUAGE LIKE '%${param3}%' AND LEARNING_LANGUAGE LIKE '%${param4}%' AND MENTOR_LEVEL LIKE '%${param5}%' AND MENTEE_LEVEL LIKE '%${param6}%'
 	</select>
 	
 	<!-- 	<select id="getNotice" resultType="com.newlec.webprj.vo.Notice">

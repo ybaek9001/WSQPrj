@@ -41,4 +41,6 @@
 	<bean name="messageDao" class="com.wsq.webprj.dao.mybatis.MyBatisMessageDao" />
 	<bean name="nCountryDao" class="com.wsq.webprj.dao.mybatis.MyBatisNationalityCountryDao" />
 	<bean name="hCountryDao" class="com.wsq.webprj.dao.mybatis.MyBatisHabitatCountryDao" />
+	<bean name="mypartnerviewDao" class="com.wsq.webprj.dao.mybatis.MyBatisMyPartnerViewDao" />
+	<bean name="replyDao" class="com.wsq.webprj.dao.mybatis.MyBatisReplyDao" />
 </beans>

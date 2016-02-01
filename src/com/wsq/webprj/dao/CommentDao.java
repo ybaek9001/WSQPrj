@@ -1,9 +1,7 @@
 package com.wsq.webprj.dao;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
-
 import com.wsq.webprj.vo.Comment;
 
 

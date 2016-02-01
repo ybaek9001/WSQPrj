@@ -20,14 +20,14 @@
 <ul>
 	<security:authentication property="name" var="userid"/>
 	<li><a href="/WSQPrj/mypage/mypage?id=${userid}">MyPage</a></li>
-	<li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a></li>
+	<!-- <li><a href="/WSQPrj/findpartner/userlist?pg=1">Find Partner</a></li> -->
+	<li><a href="/WSQPrj/partner/myPartnerList">MyPartnerList</a>
 	<li><a href="/WSQPrj/partner/findPartners">Find Partner</a>
-	<li><a href="/WSQPrj/partner/partnerList?pg=1">PartnerList</a>
-	<li><a href="/WSQPrj/partner/MyPartnerList?pg=1">MyPartnerList</a>
+	<!-- <li><a href="/WSQPrj/partner/partnerList?pg=1">PartnerList</a> -->
 	<li><a href="/WSQPrj/wsqdebate/debate">WSQ Debate</a></li>
 	<li><a href="">Notice</a></li>
 	<li><a href="">Customer Center</a></li>
-	<li><a href="/WSQPrj/chat/chat">Chat</a></li>
+	<!-- <li><a href="/WSQPrj/chat/chat">Chat</a></li> -->
 </ul>
 </nav> 
 <nav id="join-menu">

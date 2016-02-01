@@ -6,71 +6,71 @@ l<%@page language="java" contentType="text/html; charset=UTF-8"
 				 <form action="partnerList" method="get" > <!-- 서브밋한거 페이지 이리로 넘어감 -->
 					<h2>FInd! your partner</h2>
 					<table>
+						<thead>
+							<tr>
+								<td>Country</td>
+								<td>Native Language</td>
+								<td>Learning Language</td>
+							</tr>
+						</thead>
 						<tbody>
 							<tr>
-								<td><legend>국적</legend>
-									<select name="nationalityCountry">
+								<td><legend>Nationality</legend>
+									<select name="nc">
+										<option value="All" >All</option>
 										<c:forEach var="p" items="${countryList}">
-										<option value="${p.country}">"${p.country}"</option>
+											<option value="${p.country}">"${p.country}"</option>
 										</c:forEach>
 									</select>
-								</td>
-								<td><legend>거주국가</legend>
-									<select name="habitatCountry"><!-- name으로 넘겨줘 -->
-										<c:forEach var="p" items="${countryList}">
-										<option value="${p.country}">"${p.country}"</option>
-										</c:forEach>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td><legend>모국어</legend>
-									<select name="nativeLanguage">
+								</td>	
+								<td><legend>Native</legend>
+									<select name="nl">
+										<option value="All" >All</option>
 										<c:forEach var="p" items="${languageList}">
 										<option value="${p.language}">"${p.language}"</option>
 										</c:forEach>
 									</select>
 								</td>
-								<td><legend>레벨</legend>
-									<select name="nativeLanguageLV">
-										<option value="1"></option>
-										<option value="2"></option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td><legend>배우는 언어</legend>
-									<select name="learnLanguage">
+								<td><legend>Learning</legend>
+									<select name="ll">
+										<option value="All" >All</option>
 										<c:forEach var="p" items="${languageList}">
 										<option value="${p.language}">"${p.language}"</option>
 										</c:forEach>
 									</select>
 								</td>
-								<td><legend>레벨</legend>
-									<select name="earnLanguageLV">
-										<option value="1"></option>
-										<option value="2"></option>
+							</tr>
+							
+							<tr>
+								<td><legend>Habitation</legend>
+									<select name="hc"><!-- name으로 넘겨줘 -->
+										<option value="All" >All</option>
+										<c:forEach var="p" items="${countryList}">
+											<option value="${p.country}">"${p.country}"</option>
+										</c:forEach>
+									</select>
+								</td>
+								<td><legend>MentorLV</legend>
+									<select name="mentorLV">
+										<option value="All">All</option>
+										<option value="Beginner">Beginner</option>
+										<option value="Intermediate">Intermediate</option>
+										<option value="Advenced">Advenced</option>
+									</select>
+								</td>
+								<td><legend>MenteeLV</legend>
+									<select name="menteeLV">
+										<option value="All">All</option>
+										<option value="Beginner">Beginner</option>
+										<option value="Intermediate">Intermediate</option>
+										<option value="Advenced">Advenced</option>
 									</select>
 								</td>
 							</tr>
-							<tr>
-<!-- 								<td><legend>성별</legend>
-									<select name="gender">
-										<option value="male"></option>
-										<option value="femle"></option>
-									</select>
-								</td> -->
-<!-- 								<td><legend>나이</legend>
-									<select name="age">
-										<option value="1"></option>
-										<option value="2"></option>
-									</select>
-								</td> -->
-							</tr>
-							<input type="submit"  value="검색"> 
 							<!-- 서브밋으로 하면 위에 name값들 그대로 컨트롤러로 넘길수잇다 -->
 							<!-- <a class="btn-search button" href="partnerList">검색</a> -->
 						</tbody>
 					</table>
+					<input type="submit"  value="검색"> 
 					</form>
 				</main>

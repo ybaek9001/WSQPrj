@@ -12,9 +12,9 @@ public class DebateSquare {
 	private Image image;
 	private int hit;
 	private Date regDate;
-	private int AgreeCnt;
-	private int DisagreeCnt;
-	private int CommentCnt;
+	private int agreeCnt;
+	private int disAgreeCnt;
+	private int commentCnt;
 	
 	public String getMaster_id() {
 		return master_id;
@@ -59,23 +59,24 @@ public class DebateSquare {
 		this.regDate = regDate;
 	}
 	public int getAgreeCnt() {
-		return AgreeCnt;
+		return agreeCnt;
 	}
 	public void setAgreeCnt(int agreeCnt) {
-		AgreeCnt = agreeCnt;
+		this.agreeCnt = agreeCnt;
 	}
 	public int getDisagreeCnt() {
-		return DisagreeCnt;
+		return disAgreeCnt;
 	}
-	public void setDisagreeCnt(int disagreeCnt) {
-		DisagreeCnt = disagreeCnt;
+	public void setDisagreeCnt(int disAgreeCnt) {
+		this.disAgreeCnt = disAgreeCnt;
 	}
 	public int getCommentCnt() {
-		return CommentCnt;
+		return commentCnt;
 	}
 	public void setCommentCnt(int commentCnt) {
-		CommentCnt = commentCnt;
+		this.commentCnt = commentCnt;
 	}
+	
 	
 		
 	
